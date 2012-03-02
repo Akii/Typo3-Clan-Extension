@@ -40,6 +40,22 @@ class Tx_Ccore_Controller_BEGameController extends Tx_Ccore_Controller_AbstractC
 	 * @var Tx_Ccore_Domain_Repository_GameRepository
 	 */
 	protected $gameRepository;
+	
+	/**
+	 * mapRepository
+	 *
+	 * @var Tx_Ccore_Domain_Repository_MapRepository
+	 */
+	protected $mapRepository;
+
+	/**
+	 * Make sure we have a MapRepository
+	 */
+	public function initializeAction() {
+		parent::initializeAction();
+		
+		$this->injectMapRepository(t3lib_div::makeInstance('Tx_Ccore_Domain_Repository_MapRepository'));
+	}
 
 	/**
 	 * injectGameRepository
@@ -52,6 +68,16 @@ class Tx_Ccore_Controller_BEGameController extends Tx_Ccore_Controller_AbstractC
 	}
 
 	/**
+	 * injectMapRepository
+	 *
+	 * @param Tx_Ccore_Domain_Repository_MapRepository $mapRepository
+	 * @return void
+	 */
+	public function injectMapRepository(Tx_Ccore_Domain_Repository_MapRepository $mapRepository) {
+		$this->mapRepository = $mapRepository;
+	}
+
+	/**
 	 * action list
 	 *
 	 * @return void
@@ -61,6 +87,17 @@ class Tx_Ccore_Controller_BEGameController extends Tx_Ccore_Controller_AbstractC
 	
 		$games = $this->gameRepository->findAll();
 		$this->view->assign('games', $games);
+		
+		$args = $this->request->getArguments();
+		$search = $args['searchform']['search'];
+		
+		if($search != "") {
+			$maps = $this->mapRepository->searchByMapname($search);
+		} else {
+			$maps = $this->mapRepository->findAll();
+		}
+		
+		$this->view->assign('maps', $maps);
 	}
 	
 	/**

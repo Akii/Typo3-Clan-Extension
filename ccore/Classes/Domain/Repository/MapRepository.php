@@ -34,5 +34,19 @@
  */
 class Tx_Ccore_Domain_Repository_MapRepository extends Tx_Extbase_Persistence_Repository {
 
+	/**
+	 * Search for map name
+	 *
+	 * @param string $mapname Search query
+	 */
+	public function searchByMapname($mapname) {
+		$query = $this->createQuery();
+		
+		return $query
+			->matching(
+				$query->like('title', '%'.$mapname.'%')
+			)
+			->execute();
+	}
 }
 ?>

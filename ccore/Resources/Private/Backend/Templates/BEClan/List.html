@@ -21,7 +21,7 @@
 		<th><f:translate key="tx_ccore_domain_model_clan.slogan" /></th>
 		<th><f:translate key="tx_ccore_domain_model_clan.about" /></th>
 		<th><f:translate key="tx_ccore_domain_model_clan.logo" /></th>
-		<th><f:translate key="functions" /></th>
+		<th><f:translate key="functions" />&nbsp;</th>
 	</tr>
 	<tr class="c-headLine">
 		<td class="col-icon">
@@ -60,12 +60,12 @@
 			<td>
 				<f:if condition="{clan.logo}">
 					<f:then>
-						<img src="/uploads/tx_ccore/clan/{clan.logo}" height="32" width="32" Title="Logo" />
+						<f:image alt="{clan.logo}" src="../uploads/tx_ccore/clan/{clan.logo}" maxHeight="32c" maxWidth="32c"/>
 					</f:then>
 					<f:else><f:translate key="general.no_logo" /></f:else>
 				</f:if>
 			</td>
-			<td>
+			<td align="right">
 				<vh:action.edit uid="{clan.uid}" tablename="tx_ccore_domain_model_clan">
 					<vh:icon file="silk/page_edit.png" width="16" height="16" />
 				</vh:action.edit>
@@ -73,7 +73,7 @@
 					<vh:action.delete uid="{clan.uid}" tablename="tx_ccore_domain_model_clan">
 						<vh:icon file="silk/bin_closed.png" width="16" height="16" />
 					</vh:action.delete>
-				</f:if>
+				</f:if>&nbsp;
 			</td>
 		</tr>
 	</f:for>
@@ -87,7 +87,7 @@
 		<th> <f:translate key="fe_groups.description" /></th>
 		<th> <f:translate key="fe_groups.game" /></th>
 		<th> <f:translate key="fe_groups.logo" /></th>
-		<th> <f:translate key="functions" /></th>
+		<th><f:translate key="functions" />&nbsp;</th>
 	</tr>
 	<tr class="c-headLine">
 		<td class="col-icon">
@@ -120,12 +120,12 @@
 			<td>
 				<f:if condition="{squad.logo}">
 					<f:then>
-						<img src="/uploads/tx_ccore/squad/{squad.logo}" height="32" width="32" Title="Logo" />
+						<f:image alt="{squad.logo}" src="../uploads/tx_ccore/squad/{squad.logo}" maxHeight="32c" maxWidth="32c"/>
 					</f:then>
 					<f:else><f:translate key="general.no_logo" /></f:else>
 				</f:if>
 			</td>
-			<td>
+			<td align="right">
 				<f:link.action action="showSquad" arguments="{squad : squad}"  title="{f:translate(key: 'fe_groups.view_label')}">
 					 <vh:icon file="silk/zoom.png" width="16" height="16" />
 				</f:link.action>
@@ -134,7 +134,7 @@
 				</vh:action.edit>
 				<vh:action.delete uid="{squad.uid}" tablename="fe_groups">
 					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
-				</vh:action.delete>
+				</vh:action.delete>&nbsp;
 			</td>
 		</tr>
 	</f:for>

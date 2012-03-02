@@ -62,12 +62,16 @@
 			
 			
 			<label index="tx_ccore_domain_model_map">Map Entity</label>
-			<label index="tx_ccore_domain_model_map.title">Name of the map</label>
-			<label index="tx_ccore_domain_model_map.description">Description of the map</label>
-			<label index="tx_ccore_domain_model_map.image">Small image of the map</label>
-			<label index="tx_ccore_domain_model_map.download">download url</label>
-			<label index="tx_ccore_domain_model_map.game">Game id</label>
-			<label index="tx_ccore_domain_model_map.modes">Game modes this map supports</label>
+			<label index="tx_ccore_domain_model_map.title">Map Name</label>
+			<label index="tx_ccore_domain_model_map.description">Description</label>
+			<label index="tx_ccore_domain_model_map.image">Map Thumbnail</label>
+			<label index="tx_ccore_domain_model_map.download">Download</label>
+			<label index="tx_ccore_domain_model_map.game">Game</label>
+			<label index="tx_ccore_domain_model_map.modes">Gamemodes</label>
+			<label index="tx_ccore_domain_model_map.add_label">Create new map</label>
+			<label index="tx_ccore_domain_model_map.edit_label">Edit map</label>
+			<label index="tx_ccore_domain_model_map.delete_label">Delete map</label>
+			<label index="tx_ccore_domain_model_map.view_label">View map details</label>
 			
 			
 			<label index="tx_ccore_domain_model_server">Entity Server</label>

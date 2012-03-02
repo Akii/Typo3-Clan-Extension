@@ -14,11 +14,22 @@
 		<th><f:translate key="functions" /></th>
 	</tr>
 
+	<tr class="c-headLine">
+		<td class="col-icon">
+			<vh:action.new pid="{storagePid}" tablename="tx_ccore_domain_model_game">
+				<vh:icon file="silk/add.png" width="16" height="16" />
+			</vh:action.new>
+		</td>
+		<td class="col-title" colspan="4"><f:translate key="tx_ccore_domain_model_game.add_label" /></td>
+	</tr>
+
 	<f:for each="{games}" as="game">
 		<tr class="db_list_normal firstcol">
 			<td>
 				<f:if condition="{game.logo}">
-					<f:then><img src="/uploads/tx_ccore/game/{game.logo}" height="32" width="32" Title="Logo" /></f:then>
+					<f:then>
+						<f:image alt="{game.logo}" src="../uploads/tx_ccore/game/{game.logo}" maxHeight="32c" maxWidth="32c"/>
+					</f:then>
 					<f:else><f:translate key="general.no_logo" /></f:else>
 				</f:if>
 			</td>
@@ -38,17 +49,80 @@
 					</f:else>
 				</f:if>
 			</td>
-			<td>
+			<td align="right">
 				<vh:action.edit uid="{game.uid}" tablename="tx_ccore_domain_model_game">
 					<vh:icon file="silk/page_edit.png" width="16" height="16" />
 				</vh:action.edit>
 				<vh:action.delete uid="{game.uid}" tablename="tx_ccore_domain_model_game">
 					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
-				</vh:action.delete>
+				</vh:action.delete>&nbsp;
 			</td>
 		</tr>
 	</f:for>
 </table>
 <br/>
 <h2>Listing for Map</h2>
+<table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+	<tr class="t3-row-header">
+		<th nowrap="nowrap" colspan="2">&nbsp;<f:translate key="tx_ccore_domain_model_map.title" /></th>
+		<th><f:translate key="tx_ccore_domain_model_map.game" /></th>
+		<th><f:translate key="tx_ccore_domain_model_map.description" /></th>
+		<th nowrap="nowrap"><f:translate key="tx_ccore_domain_model_map.image" /></th>
+		<th>&nbsp;<f:translate key="functions" />&nbsp;</th>
+	</tr>
+	
+	<tr class="c-headLine">
+		<td class="col-icon">
+			<vh:action.new pid="{storagePid}" tablename="tx_ccore_domain_model_map">
+				<vh:icon file="silk/add.png" width="16" height="16" />
+			</vh:action.new>
+		</td>
+		<td class="col-title" colspan="2"><f:translate key="tx_ccore_domain_model_map.add_label" /></td>
+		<td colspan="3" align="right">
+			<f:form method="post" controller="BEGame" action="list" name="searchform">
+				<input type="search" name="tx_ccore_txccoremainmenu_ccoregamemgmt[searchform][search]" placeholder="Map Title" />
+				<f:form.submit value="Search" />
+			</f:form>
+		</td>
+	</tr>
+	
+	<f:for each="{maps}" as="map">
+		<tr class="db_list_normal firstcol">
+			<td nowrap="nowrap" colspan="2">
+				{map.title}
+			</td>
+			<td nowrap="nowrap">
+				<f:if condition="{map.game.logo}">
+					<f:image alt="{map.game.logo}" src="../uploads/tx_ccore/game/{map.game.logo}" maxHeight="16c" maxWidth="16c"/>
+				</f:if>
+				{map.game.title}
+			</td>
+			<td>
+				<f:if condition="{map.description}">
+					<f:then>
+						<f:format.crop maxCharacters="200" respectHtml="false">
+							<f:format.stripTags>
+									{map.description}
+							</f:format.stripTags>
+						</f:format.crop>
+					</f:then>
+					<f:else>	
+						<f:translate key="general.no_desc"/>
+					</f:else>
+				</f:if>
+			</td>
+			<td>
+				<f:image alt="{map.image}" src="../uploads/tx_ccore/map/{map.image}" maxHeight="64c" maxWidth="128c"/>
+			</td>
+			<td align="right">
+				<vh:action.edit uid="{map.uid}" tablename="tx_ccore_domain_model_map">
+					<vh:icon file="silk/page_edit.png" width="16" height="16" />
+				</vh:action.edit>
+				<vh:action.delete uid="{map.uid}" tablename="tx_ccore_domain_model_map">
+					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+				</vh:action.delete>&nbsp;
+			</td>
+		</tr>
+	</f:for>
+</table>
 </f:section>

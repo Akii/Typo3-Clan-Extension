@@ -38,8 +38,20 @@ $TCA['tx_ccore_domain_model_map'] = array(
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
-				'eval' => 'trim'
+				'eval' => 'trim',
+				'wizards' => array(
+	      			'_PADDING' => 4,
+	      			'RTE' => array(
+	      				'notNewRecords' => 1,
+	      				'RTEonly' => 1,
+	      				'type' => 'script',
+	      				'title' => 'LLL:EXT:cms/locallang_ttc.php:bodytext.W.RTE',
+	      				'icon' => 'wizard_rte2.gif',
+	      				'script' => 'wizard_rte.php',
+	      			),
+	      		),
 			),
+			'defaultExtras' => 'richtext[]:rte_transform[mode=ts_css]'
 		),
 		'image' => array(
 			'exclude' => 0,
@@ -60,7 +72,17 @@ $TCA['tx_ccore_domain_model_map'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
-				'eval' => 'trim'
+				'eval' => 'trim',
+				'wizards'	=> array(
+					'_PADDING'	=> 2,
+					'link'		=> array(
+						'type'			=> 'popup',
+						'title'			=> 'Link',
+						'icon'			=> 'link_popup.gif',
+						'script'		=> 'browse_links.php?mode=wizard',
+						'JSopenParams'	=> 'height=300,width=500,status=0,menubar=0,scrollbars=1'
+					)
+				)
 			),
 		),
 		'game' => array(

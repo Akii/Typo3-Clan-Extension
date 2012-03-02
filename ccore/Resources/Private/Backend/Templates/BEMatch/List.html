@@ -16,7 +16,7 @@
 
 	<f:for each="{matches}" as="match">
 		<tr class="db_list_normal firstcol">
-			<td><f:link.action action="show" arguments="{match : match}"> {match.matchdate -> f:format.date()}</f:link.action></td>
+			<td colspan="2"><f:link.action action="show" arguments="{match : match}"> {match.matchdate -> f:format.date()}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{match : match}"> {match.lname}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{match : match}"> {match.llink}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{match : match}">
@@ -26,13 +26,13 @@
 					</f:format.crop></f:format.stripTags>
 				</f:link.action>
 			</td>
-			<td>
+			<td align="right">
 				<vh:action.edit uid="{match.uid}" tablename="tx_ccore_domain_model_match">
 					<vh:icon file="silk/page_edit.png" width="16" height="16" />
 				</vh:action.edit>
 				<f:link.action action="delete" arguments="{match : match}" title="{f:translate(key: 'tx_ccore_domain_model_match.delete_label')}">
 					<vh:icon file="silk/delete.png" width="16" height="16" />
-				</f:link.action>
+				</f:link.action>&nbsp;
 			</td>
 		</tr>
 	</f:for>
