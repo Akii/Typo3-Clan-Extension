@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_ccore_domain_model_clan</description>
+		<type>CSH</type>
+		<csh_table>tx_ccore_domain_model_clan</csh_table>
+	</meta>
+	<data type="array">
+	<languageKey index="default" type="array">
+			<label index="name.description">Name of the clan</label>
+			<label index="tag.description">Clantag</label>
+			<label index="slogan.description">A slogan</label>
+			<label index="about.description">Information about the clan</label>
+			<label index="logo.description">Logo of the clan</label>
+			<label index="homepage.description">Homepage of the clan</label>
+		</languageKey>
+	</data>
+</T3locallang>

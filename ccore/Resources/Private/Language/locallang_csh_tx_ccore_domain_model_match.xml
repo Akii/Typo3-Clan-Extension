@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_ccore_domain_model_match</description>
+		<type>CSH</type>
+		<csh_table>tx_ccore_domain_model_match</csh_table>
+	</meta>
+	<data type="array">
+	<languageKey index="default" type="array">
+			<label index="matchdate.description">Date the match takes/took place</label>
+			<label index="lname.description">name of the league</label>
+			<label index="llink.description">link to the league overview</label>
+			<label index="report.description">Match report</label>
+			<label index="game.description">The game this match took place in</label>
+		</languageKey>
+	</data>
+</T3locallang>

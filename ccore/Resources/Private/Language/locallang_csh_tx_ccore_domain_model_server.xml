@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_ccore_domain_model_server</description>
+		<type>CSH</type>
+		<csh_table>tx_ccore_domain_model_server</csh_table>
+	</meta>
+	<data type="array">
+	<languageKey index="default" type="array">
+			<label index="name.description">Name of the server</label>
+			<label index="ip.description">ip and port of the server</label>
+			<label index="game.description">Game ID, The game the server runs</label>
+		</languageKey>
+	</data>
+</T3locallang>

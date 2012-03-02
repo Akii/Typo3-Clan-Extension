@@ -1,0 +1,40 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
+<f:be.container>
+	<div class="typo3-fullDoc">
+		<div id="typo3-docheader">
+			<div id="typo3-docheader-row1">
+				<div class="buttonsleft">
+					<f:if condition="{_tablename}">
+						<vh:action.new pid="{storagePid}" tablename="{_tablename}">
+							<vh:icon file="silk/add.png" width="16" height="16" />
+						</vh:action.new>
+						
+						<f:if condition="{_uid}">
+							<vh:action.edit uid="{_uid}" tablename="{_tablename}">
+								<vh:icon file="silk/page_edit.png" width="16" height="16" />
+							</vh:action.edit>
+						</f:if>
+					</f:if>
+				</div>
+				<div class="buttonsright">
+					<f:be.buttons.shortcut />
+				</div>
+			</div>
+			<div id="typo3-docheader-row2">
+				<div class="docheader-row2-left">
+					<f:be.buttons.csh />
+				</div>
+				<div class="docheader-row2-right">
+					<f:be.pagePath />
+					<f:be.pageInfo />
+				</div>
+			</div>
+		</div>
+		<div id="typo3-docbody">
+			<div id="typo3-inner-docbody">
+				<f:flashMessages renderMode="div" />
+				<f:render section="content" />
+			</div>
+		</div>
+	</div>
+</f:be.container>

@@ -1,0 +1,142 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
+<f:layout name="Default" />
+<f:section name="content">
+
+<div class="typo3-message message-information">
+	<div class="message-body">
+		<p>
+			<f:translate key="general.be_warning" />
+		</p>
+	</div>
+</div>
+
+<h2>Listing for Clan</h2>
+
+<f:flashMessages />
+
+<table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+	<tr class="t3-row-header">
+		<th colspan="2">&nbsp;<f:translate key="tx_ccore_domain_model_clan.name" /></th>
+		<th><f:translate key="tx_ccore_domain_model_clan.tag" /></th>
+		<th><f:translate key="tx_ccore_domain_model_clan.slogan" /></th>
+		<th><f:translate key="tx_ccore_domain_model_clan.about" /></th>
+		<th><f:translate key="tx_ccore_domain_model_clan.logo" /></th>
+		<th><f:translate key="functions" /></th>
+	</tr>
+	<tr class="c-headLine">
+		<td class="col-icon">
+			<vh:action.new pid="{storagePid}" tablename="tx_ccore_domain_model_clan">
+				<vh:icon file="silk/add.png" width="16" height="16" />
+			</vh:action.new>
+		</td>
+		<td class="col-title"><f:translate key="tx_ccore_domain_model_clan.add_label" /></td>
+		<td colspan="5"></td>
+	</tr>
+
+	<f:for each="{clans}" as="clan">
+		<tr class="db_list_normal firstcol">
+			<td colspan="2"> {clan.name}</td>
+			<td> [{clan.tag}]</td>
+			<td>
+				<f:if condition="{clan.slogan}">
+					<f:then>{clan.slogan}</f:then>
+					<f:else><f:translate key="general.no_slogan"/></f:else>
+				</f:if>
+			</td>
+			<td>
+				<f:if condition="{clan.about}">
+					<f:then>
+						<f:format.crop maxCharacters="80" respectHtml="false">
+							<f:format.stripTags>
+									{clan.about}
+							</f:format.stripTags>
+						</f:format.crop>
+					</f:then>
+					<f:else>	
+						<f:translate key="general.no_about"/>
+					</f:else>
+				</f:if>
+			</td>
+			<td>
+				<f:if condition="{clan.logo}">
+					<f:then>
+						<img src="/uploads/tx_ccore/clan/{clan.logo}" height="32" width="32" Title="Logo" />
+					</f:then>
+					<f:else><f:translate key="general.no_logo" /></f:else>
+				</f:if>
+			</td>
+			<td>
+				<vh:action.edit uid="{clan.uid}" tablename="tx_ccore_domain_model_clan">
+					<vh:icon file="silk/page_edit.png" width="16" height="16" />
+				</vh:action.edit>
+				<f:if condition="{clan.mainclan} == 0">
+					<vh:action.delete uid="{clan.uid}" tablename="tx_ccore_domain_model_clan">
+						<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+					</vh:action.delete>
+				</f:if>
+			</td>
+		</tr>
+	</f:for>
+</table>
+<br/>
+<h2>Listing for Squads</h2>
+
+<table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+	<tr class="t3-row-header">
+		<th colspan="2">&nbsp;<f:translate key="fe_groups.title" /></th>
+		<th> <f:translate key="fe_groups.description" /></th>
+		<th> <f:translate key="fe_groups.game" /></th>
+		<th> <f:translate key="fe_groups.logo" /></th>
+		<th> <f:translate key="functions" /></th>
+	</tr>
+	<tr class="c-headLine">
+		<td class="col-icon">
+			<vh:action.new pid="{storagePid}" tablename="fe_groups">
+				<vh:icon file="silk/add.png" width="16" height="16" />
+			</vh:action.new>
+		</td>
+		<td class="col-title"><f:translate key="fe_groups.add_label" /></td>
+		<td colspan="4"></td>
+	</tr>
+
+	<f:for each="{squads}" as="squad">
+		<tr class="db_list_normal firstcol">
+			<td colspan="2"> {squad.title}</td>
+			<td>
+				<f:if condition="{squad.description}">
+					<f:then>
+						<f:format.crop maxCharacters="80" respectHtml="false">
+							<f:format.stripTags>
+								{squad.description}
+							</f:format.stripTags>
+						</f:format.crop>
+					</f:then>
+					<f:else>
+						<f:translate key="general.no_desc" />
+					</f:else>
+				</f:if>
+			</td>
+			<td> {squad.game.title}</td>
+			<td>
+				<f:if condition="{squad.logo}">
+					<f:then>
+						<img src="/uploads/tx_ccore/squad/{squad.logo}" height="32" width="32" Title="Logo" />
+					</f:then>
+					<f:else><f:translate key="general.no_logo" /></f:else>
+				</f:if>
+			</td>
+			<td>
+				<f:link.action action="showSquad" arguments="{squad : squad}"  title="{f:translate(key: 'fe_groups.view_label')}">
+					 <vh:icon file="silk/zoom.png" width="16" height="16" />
+				</f:link.action>
+				<vh:action.edit uid="{squad.uid}" tablename="fe_groups">
+					<vh:icon file="silk/page_edit.png" width="16" height="16" />
+				</vh:action.edit>
+				<vh:action.delete uid="{squad.uid}" tablename="fe_groups">
+					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+				</vh:action.delete>
+			</td>
+		</tr>
+	</f:for>
+</table>
+</f:section>

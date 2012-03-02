@@ -1,0 +1,54 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
+<f:layout name="Default" />
+<f:section name="content">
+<h2>Listing for Game</h2>
+
+<f:flashMessages />
+
+<table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+	<tr class="t3-row-header">
+		<th>&nbsp;<f:translate key="tx_ccore_domain_model_game.logo" /></th>
+		<th><f:translate key="tx_ccore_domain_model_game.title" /></th>
+		<th><f:translate key="tx_ccore_domain_model_game.tag" /></th>
+		<th><f:translate key="tx_ccore_domain_model_game.description" /></th>
+		<th><f:translate key="functions" /></th>
+	</tr>
+
+	<f:for each="{games}" as="game">
+		<tr class="db_list_normal firstcol">
+			<td>
+				<f:if condition="{game.logo}">
+					<f:then><img src="/uploads/tx_ccore/game/{game.logo}" height="32" width="32" Title="Logo" /></f:then>
+					<f:else><f:translate key="general.no_logo" /></f:else>
+				</f:if>
+			</td>
+			<td>{game.title}</td>
+			<td>[{game.tag}]</td>
+			<td>
+				<f:if condition="{game.description}">
+					<f:then>
+						<f:format.crop maxCharacters="120" respectHtml="false">
+							<f:format.stripTags>
+									{game.description}
+							</f:format.stripTags>
+						</f:format.crop>
+					</f:then>
+					<f:else>	
+						<f:translate key="general.no_desc"/>
+					</f:else>
+				</f:if>
+			</td>
+			<td>
+				<vh:action.edit uid="{game.uid}" tablename="tx_ccore_domain_model_game">
+					<vh:icon file="silk/page_edit.png" width="16" height="16" />
+				</vh:action.edit>
+				<vh:action.delete uid="{game.uid}" tablename="tx_ccore_domain_model_game">
+					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+				</vh:action.delete>
+			</td>
+		</tr>
+	</f:for>
+</table>
+<br/>
+<h2>Listing for Map</h2>
+</f:section>

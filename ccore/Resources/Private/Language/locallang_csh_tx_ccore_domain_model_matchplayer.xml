@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_ccore_domain_model_matchplayer</description>
+		<type>CSH</type>
+		<csh_table>tx_ccore_domain_model_matchplayer</csh_table>
+	</meta>
+	<data type="array">
+	<languageKey index="default" type="array">
+			<label index="name.description">Name of the player</label>
+			<label index="languagetag.description">Language like de, en</label>
+			<label index="enemy.description">is this a player of the enemy team</label>
+			<label index="feuser.description">fe_user relationship</label>
+			<label index="matchid.description">The match this player played in</label>
+		</languageKey>
+	</data>
+</T3locallang>

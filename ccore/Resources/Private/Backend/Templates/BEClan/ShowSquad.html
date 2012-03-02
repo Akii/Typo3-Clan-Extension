@@ -1,0 +1,13 @@
+<f:layout name="Default" />
+<f:section name="content">
+<h1>Single View for Squad</h1>
+
+<f:flashMessages />
+
+<f:count subject="{players}" />
+<f:for each="{players}" as="player">
+	{player.username},
+</f:for>
+
+<f:link.action controller="Clan" action="list">Back to list</f:link.action>
+</f:section>

@@ -1,0 +1,60 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
+<f:layout name="Default" />
+<f:section name="content">
+<h2>Listing for Users</h2>
+
+<f:flashMessages />
+<table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+	<tr class="t3-row-header">
+		<th colspan="2">&nbsp;<f:translate key="fe_users.username" /></th>
+		<th><f:translate key="fe_users.name" /></th>
+		<th><f:translate key="fe_users.is_online" /></th>
+		<th><f:translate key="fe_users.groups" /></th>
+		<th><f:translate key="fe_users.point" /></th>
+		<th><f:translate key="functions" /></th>
+	</tr>
+	<tr class="c-headLine">
+		<td class="col-icon">
+			<vh:action.new pid="{storagePid}" tablename="fe_users">
+				<vh:icon file="silk/add.png" width="16" height="16" />
+			</vh:action.new>
+		</td>
+		<td class="col-title"><f:translate key="fe_users.add_label" /></td>
+		<td colspan="2"></td>
+		<td colspan="3" align="right">
+			<f:form method="post" controller="BEUser" action="list" name="searchform">
+				<input type="search" name="tx_ccore_txccoremainmenu_ccoreusermgmt[searchform][search]" placeholder="Username" />
+				<f:form.submit value="Search" />
+			</f:form>
+		</td>
+	</tr>
+
+	<f:for each="{users}" as="user">
+		<tr class="db_list_normal firstcol">
+			<td colspan="2"> {user.username}</td>
+			<td> {user.name}</td>
+			<td> <f:format.date date="{user.lastlogin}" format="d.m.y, H:i" /></td>
+			<td>
+				<f:format.crop maxCharacters="100" respectHtml="false">
+					<f:for each="{user.usergroup}" as="group" iteration="iterator">
+						{group.title}
+						<f:if condition="{iterator.isLast}">
+							<f:then></f:then>
+							<f:else>,</f:else>
+						</f:if>
+					</f:for>
+				</f:format.crop>
+			</td>
+			<td> {user.calcPoints}</td>
+			<td align="right">
+				<vh:action.edit uid="{user.uid}" tablename="fe_users">
+					<vh:icon file="silk/page_edit.png" width="16" height="16" />
+				</vh:action.edit>
+				<vh:action.delete uid="{user.uid}" tablename="fe_users">
+					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+				</vh:action.delete>
+			</td>
+		</tr>
+	</f:for>
+</table>
+</f:section>

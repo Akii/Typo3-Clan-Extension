@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for backend module Users belonging to extension 'ccore'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="mlang_tabs_tab">Users</label>
+			<label index="mlang_labels_tabdescr">Manage Users, put them into groups</label>
+			<label index="mlang_labels_tablabel">Users</label>
+			<label index="add_label">Add new user</label>
+		</languageKey>
+	</data>
+</T3locallang>

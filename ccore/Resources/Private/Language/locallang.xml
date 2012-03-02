@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the Clan Core extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="general.be_warning">You probably don't want to delete anything here. Only delete records when you know what you're doing. I warned you.</label>
+			<label index="general.no_slogan">[no slogan set]</label>
+			<label index="general.no_about">[no description set]</label>
+			<label index="general.no_desc">[no description set]</label>
+			<label index="general.no_logo">[no logo set]</label>
+			
+			<label index="tx_ccore_domain_model_clan">Entity Clan</label>
+			<label index="tx_ccore_domain_model_clan.name">Name</label>
+			<label index="tx_ccore_domain_model_clan.tag">Clantag</label>
+			<label index="tx_ccore_domain_model_clan.slogan">Slogan</label>
+			<label index="tx_ccore_domain_model_clan.about">About</label>
+			<label index="tx_ccore_domain_model_clan.logo">Logo</label>
+			<label index="tx_ccore_domain_model_clan.add_label">Create new clan</label>
+			<label index="tx_ccore_domain_model_clan.edit_label">Edit clan</label>
+			<label index="tx_ccore_domain_model_clan.delete_label">Delete clan</label>
+			
+			<label index="fe_groups.title">Title</label>
+			<label index="fe_groups.description">Description</label>
+			<label index="fe_groups.game">Game</label>
+			<label index="fe_groups.logo">Logo</label>
+			<label index="fe_groups.add_label">Create new squad</label>
+			<label index="fe_groups.edit_label">Edit squad</label>
+			<label index="fe_groups.delete_label">Delete squad</label>
+			<label index="fe_groups.view_label">View squad details</label>
+			
+			<label index="fe_users.username">Username</label>
+			<label index="fe_users.name">Name</label>
+			<label index="fe_users.is_online">Online Status</label>
+			<label index="fe_users.groups">Groups</label>
+			<label index="fe_users.point">Points</label>
+			<label index="fe_users.add_label">Create new user</label>
+			<label index="fe_users.edit_label">Edit user</label>
+			<label index="fe_users.delete_label">Delete user</label>
+			<label index="fe_users.view_label">View user details</label>
+			
+			<label index="tx_ccore_domain_model_game">Entity Game</label>
+			<label index="tx_ccore_domain_model_game.title">Game Title</label>
+			<label index="tx_ccore_domain_model_game.tag">Tag</label>
+			<label index="tx_ccore_domain_model_game.description">Description</label>
+			<label index="tx_ccore_domain_model_game.logo">Logo</label>
+			<label index="tx_ccore_domain_model_game.add_label">Create new game</label>
+			<label index="tx_ccore_domain_model_game.edit_label">Edit game</label>
+			<label index="tx_ccore_domain_model_game.delete_label">Delete game</label>
+			
+			
+			<label index="tx_ccore_domain_model_points">Points a player has</label>
+			<label index="tx_ccore_domain_model_points.feuserid">feuserid</label>
+			<label index="tx_ccore_domain_model_points.note">Note of the transaction</label>
+			<label index="tx_ccore_domain_model_points.value">Add, remove points</label>
+			
+			
+			<label index="tx_ccore_domain_model_gamemode">Gamemodes a game has (1vs1, 2vs2,...)</label>
+			<label index="tx_ccore_domain_model_gamemode.name">Gamemode</label>
+			
+			
+			<label index="tx_ccore_domain_model_map">Map Entity</label>
+			<label index="tx_ccore_domain_model_map.title">Name of the map</label>
+			<label index="tx_ccore_domain_model_map.description">Description of the map</label>
+			<label index="tx_ccore_domain_model_map.image">Small image of the map</label>
+			<label index="tx_ccore_domain_model_map.download">download url</label>
+			<label index="tx_ccore_domain_model_map.game">Game id</label>
+			<label index="tx_ccore_domain_model_map.modes">Game modes this map supports</label>
+			
+			
+			<label index="tx_ccore_domain_model_server">Entity Server</label>
+			<label index="tx_ccore_domain_model_server.name">Name of the server</label>
+			<label index="tx_ccore_domain_model_server.ip">ip and port of the server</label>
+			<label index="tx_ccore_domain_model_server.game">Game ID, The game the server runs</label>
+			
+			
+			<label index="tx_ccore_domain_model_match">Entity Match</label>
+			<label index="tx_ccore_domain_model_match.matchdate">Date the match takes/took place</label>
+			<label index="tx_ccore_domain_model_match.lname">name of the league</label>
+			<label index="tx_ccore_domain_model_match.llink">link to the league overview</label>
+			<label index="tx_ccore_domain_model_match.report">Match report</label>
+			<label index="tx_ccore_domain_model_match.game">The game this match took place in</label>
+			<label index="tx_ccore_domain_model_match.add_label">Create new match</label>
+			<label index="tx_ccore_domain_model_match.edit_label">Edit match</label>
+			<label index="tx_ccore_domain_model_match.delete_label">Delete match</label>
+			
+			
+			<label index="tx_ccore_domain_model_matchresult">recorded rounds and their result</label>
+			<label index="tx_ccore_domain_model_matchresult.round">round number 1, 2, 3...</label>
+			<label index="tx_ccore_domain_model_matchresult.resultpro">Result home clan</label>
+			<label index="tx_ccore_domain_model_matchresult.resultcon">Result enemy clan</label>
+			<label index="tx_ccore_domain_model_matchresult.matchid">ID of the match this result belongs to</label>
+			<label index="tx_ccore_domain_model_matchresult.mapid">The map being played</label>
+			
+			
+			<label index="tx_ccore_domain_model_matchplayer">A player who played in this match</label>
+			<label index="tx_ccore_domain_model_matchplayer.name">Name of the player</label>
+			<label index="tx_ccore_domain_model_matchplayer.languagetag">Language like de, en</label>
+			<label index="tx_ccore_domain_model_matchplayer.enemy">is this a player of the enemy team</label>
+			<label index="tx_ccore_domain_model_matchplayer.feuser">fe_user relationship</label>
+			<label index="tx_ccore_domain_model_matchplayer.matchid">The match this player played in</label>
+			
+			
+			<label index="tx_ccore_domain_model_matchcomment">Comments for matches are stored in here</label>
+			<label index="tx_ccore_domain_model_matchcomment.changedon">Time it was changed</label>
+			<label index="tx_ccore_domain_model_matchcomment.comment">The comment</label>
+			<label index="tx_ccore_domain_model_matchcomment.feuser">fe_user relationship</label>
+			<label index="tx_ccore_domain_model_matchcomment.matchid">ID of the match</label>
+			
+			<label index="functions">Functions</label>
+		</languageKey>
+	</data>
+</T3locallang>

@@ -1,0 +1,52 @@
+plugin.tx_ccore {
+	view {
+		templateRootPath = {$plugin.tx_ccore.view.templateRootPath}
+		partialRootPath = {$plugin.tx_ccore.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_ccore.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_ccore.persistence.storagePid}
+		
+		classes {
+		    Tx_Ccore_Domain_Model_Squad {
+		        mapping {
+		            tableName = fe_groups
+		        }
+		    }
+		    
+		    Tx_Ccore_Domain_Model_User {
+		    	mapping {
+		    		tableName = fe_users
+		    	}
+		    }
+		}
+	}
+}
+
+module.tx_ccore {
+	persistence {
+		storagePid = {$module.tx_ccore.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_ccore.view.templateRootPath}
+		partialRootPath = {$module.tx_ccore.view.partialRootPath}
+		layoutRootPath = {$module.tx_ccore.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_ccore.persistence.storagePid}
+		
+		classes {
+		    Tx_Ccore_Domain_Model_Squad {
+		        mapping {
+		            tableName = fe_groups
+		        }
+		    }
+		    
+		    Tx_Ccore_Domain_Model_User {
+		    	mapping {
+		    		tableName = fe_users
+		    	}
+		    }
+		}
+	}
+}

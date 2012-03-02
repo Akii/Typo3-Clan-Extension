@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>Context Sensitive Help (CSH) for table tx_ccore_domain_model_points</description>
+		<type>CSH</type>
+		<csh_table>tx_ccore_domain_model_points</csh_table>
+	</meta>
+	<data type="array">
+	<languageKey index="default" type="array">
+			<label index="feuserid.description">feuserid</label>
+			<label index="note.description">Note of the transaction</label>
+			<label index="value.description">Add, remove points</label>
+		</languageKey>
+	</data>
+</T3locallang>

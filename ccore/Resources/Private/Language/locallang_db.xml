@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'ccore'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_ccore_domain_model_clan">Clan</label>
+			<label index="tx_ccore_domain_model_clan.name">Name</label>
+			<label index="tx_ccore_domain_model_clan.tag">Tag</label>
+			<label index="tx_ccore_domain_model_clan.slogan">Slogan</label>
+			<label index="tx_ccore_domain_model_clan.about">About</label>
+			<label index="tx_ccore_domain_model_clan.logo">Logo</label>
+			<label index="tx_ccore_domain_model_clan.homepage">Homepage</label>
+			<label index="tx_ccore_domain_model_game">Game</label>
+			<label index="tx_ccore_domain_model_game.title">Title</label>
+			<label index="tx_ccore_domain_model_game.tag">Tag</label>
+			<label index="tx_ccore_domain_model_game.description">Description</label>
+			<label index="tx_ccore_domain_model_game.logo">Logo</label>
+			<label index="tx_ccore_domain_model_points">Points</label>
+			<label index="tx_ccore_domain_model_points.feuserid">Feuserid</label>
+			<label index="tx_ccore_domain_model_points.note">Note</label>
+			<label index="tx_ccore_domain_model_points.value">Value</label>
+			<label index="tx_ccore_domain_model_gamemode">Gamemode</label>
+			<label index="tx_ccore_domain_model_gamemode.name">Name</label>
+			<label index="tx_ccore_domain_model_map">Map</label>
+			<label index="tx_ccore_domain_model_map.title">Title</label>
+			<label index="tx_ccore_domain_model_map.description">Description</label>
+			<label index="tx_ccore_domain_model_map.image">Image</label>
+			<label index="tx_ccore_domain_model_map.download">Download</label>
+			<label index="tx_ccore_domain_model_map.game">Game</label>
+			<label index="tx_ccore_domain_model_map.modes">Modes</label>
+			<label index="tx_ccore_domain_model_server">Server</label>
+			<label index="tx_ccore_domain_model_server.name">Name</label>
+			<label index="tx_ccore_domain_model_server.ip">Ip</label>
+			<label index="tx_ccore_domain_model_server.game">Game</label>
+			<label index="tx_ccore_domain_model_match">Match</label>
+			<label index="tx_ccore_domain_model_match.matchdate">Matchdate</label>
+			<label index="tx_ccore_domain_model_match.lname">League Name</label>
+			<label index="tx_ccore_domain_model_match.llink">League Link</label>
+			<label index="tx_ccore_domain_model_match.report">Report</label>
+			<label index="tx_ccore_domain_model_match.game">Game</label>
+			<label index="tx_ccore_domain_model_match.clan_pro">Own Clan</label>
+			<label index="tx_ccore_domain_model_match.clan_con">Enemy Clan</label>
+			<label index="tx_ccore_domain_model_matchresult">Matchresult</label>
+			<label index="tx_ccore_domain_model_matchresult.round">Round</label>
+			<label index="tx_ccore_domain_model_matchresult.resultpro">Resultpro</label>
+			<label index="tx_ccore_domain_model_matchresult.resultcon">Resultcon</label>
+			<label index="tx_ccore_domain_model_matchresult.matchid">Matchid</label>
+			<label index="tx_ccore_domain_model_matchresult.mapid">Mapid</label>
+			<label index="tx_ccore_domain_model_matchplayer">Matchplayer</label>
+			<label index="tx_ccore_domain_model_matchplayer.name">Name</label>
+			<label index="tx_ccore_domain_model_matchplayer.languagetag">Languagetag</label>
+			<label index="tx_ccore_domain_model_matchplayer.enemy">Enemy</label>
+			<label index="tx_ccore_domain_model_matchplayer.feuser">Feuser</label>
+			<label index="tx_ccore_domain_model_matchplayer.matchid">Matchid</label>
+			<label index="tx_ccore_domain_model_matchcomment">Match comment</label>
+			<label index="tx_ccore_domain_model_matchcomment.createdon">Created on</label>
+			<label index="tx_ccore_domain_model_matchcomment.changedon">Changed on</label>
+			<label index="tx_ccore_domain_model_matchcomment.comment">Comment</label>
+			<label index="tx_ccore_domain_model_matchcomment.feuser">Feuser</label>
+			<label index="tx_ccore_domain_model_matchcomment.matchid">Matchid</label>
+			<label index="fe_groups.tx_ccore_logo">Logo of the squad</label>
+			<label index="fe_groups.tx_ccore_gameid">Game the Squad plays</label>
+			<label index="fe_groups.squad">Squad</label>
+			<label index="fe_users.tx_ccore_points">Points</label>
+		</languageKey>
+	</data>
+</T3locallang>
