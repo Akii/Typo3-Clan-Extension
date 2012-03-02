@@ -42,7 +42,7 @@ if (TYPO3_MODE === 'BE') {
 		'clanmgmt',	// Submodule key
 		'',				// Position
 		array(
-			'BEClan' => 'list, showSquad, delete, deleteSquad'
+			'BEClan' => 'list, showSquad'
 		),
 		array(
 			'access' => 'user,group',
@@ -60,7 +60,7 @@ if (TYPO3_MODE === 'BE') {
 		'gamemgmt',	// Submodule key
 		'',						// Position
 		array(
-			'BEGame' => 'list, show, delete'
+			'BEGame' => 'list, show'
 		),
 		array(
 			'access' => 'user,group',
@@ -78,7 +78,7 @@ if (TYPO3_MODE === 'BE') {
 		'usermgmt',	// Submodule key
 		'',						// Position
 		array(
-			'BEUser' => 'list, search, delete'
+			'BEUser' => 'list, search'
 		),
 		array(
 			'access' => 'user,group',

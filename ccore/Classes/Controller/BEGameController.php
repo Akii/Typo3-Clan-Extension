@@ -158,17 +158,5 @@ class Tx_Ccore_Controller_BEGameController extends Tx_Ccore_Controller_AbstractC
 		$this->redirect('list');
 	}
 
-	/**
-	 * action delete
-	 *
-	 * @param $game
-	 * @return void
-	 */
-	public function deleteAction(Tx_Ccore_Domain_Model_Game $game) {
-		$this->gameRepository->remove($game);
-		$this->flashMessageContainer->add('Your Game was removed.');
-		$this->redirect('list');
-	}
-
 }
 ?>

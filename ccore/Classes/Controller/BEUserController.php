@@ -96,18 +96,6 @@ class Tx_Ccore_Controller_BEUserController extends Tx_Ccore_Controller_AbstractC
 		
 		$this->view->assign('user', $user);
 	}
-	
-	/**
-	 * action delete
-	 *
-	 * @param $match
-	 * @return void
-	 */
-	public function deleteAction(Tx_Ccore_Domain_Model_User $user) {
-		$this->userRepository->remove($user);
-		$this->flashMessageContainer->add('The User '.$user->getUsername().' was removed.');
-		$this->redirect('list');
-	}
 
 }
 ?>

@@ -104,18 +104,6 @@ class Tx_Ccore_Controller_BEClanController extends Tx_Ccore_Controller_AbstractC
 		$squads = $this->squadRepository->findAllSquads();
 		$this->view->assign('squads', $squads);
 	}
-
-	/**
-	 * action delete
-	 *
-	 * @param $clan
-	 * @return void
-	 */
-	public function deleteAction(Tx_Ccore_Domain_Model_Clan $clan) {
-		$this->clanRepository->remove($clan);
-		$this->flashMessageContainer->add('The clan '.$clan->getName().' was removed.');
-		$this->redirect('list');
-	}
 	
 	/**
 	 * action showSquad
@@ -131,18 +119,6 @@ class Tx_Ccore_Controller_BEClanController extends Tx_Ccore_Controller_AbstractC
 		
 		$players = $this->userRepository->findSquadMembers($squad);
 		$this->view->assign('players', $players);
-	}
-	
-	/**
-	 * action deleteSquad
-	 *
-	 * @param $squad
-	 * @return void
-	 */
-	public function deleteSquadAction(Tx_Ccore_Domain_Model_Squad $squad) {
-		$this->squadRepository->remove($squad);
-		$this->flashMessageContainer->add('Your Squad was removed.');
-		$this->redirect('list');
 	}
 
 }
