@@ -60,7 +60,7 @@ if (TYPO3_MODE === 'BE') {
 		'gamemgmt',	// Submodule key
 		'',						// Position
 		array(
-			'BEGame' => 'list, show'
+			'BEGame' => 'list, gameList, mapList'
 		),
 		array(
 			'access' => 'user,group',

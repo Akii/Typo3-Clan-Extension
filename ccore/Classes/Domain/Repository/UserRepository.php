@@ -44,7 +44,7 @@ class Tx_Ccore_Domain_Repository_UserRepository extends Tx_Extbase_Domain_Reposi
 		
 		return $query
 			->matching(
-				$query->contains('Usergroup', 1)
+				$query->contains('usergroup', $squad->getUid())
 			)
 			->execute();
 	}

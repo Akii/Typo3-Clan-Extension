@@ -1,13 +1,97 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
 <f:layout name="Default" />
+
+<f:section name="docheader">
+	<f:link.action controller="BEClan" action="list">
+		<span class="t3-icon t3-icon-actions t3-icon-actions-document t3-icon-document-close">&nbsp;</span>
+	</f:link.action>
+</f:section>
+
 <f:section name="content">
-<h1>Single View for Squad</h1>
 
 <f:flashMessages />
 
-<f:count subject="{players}" />
-<f:for each="{players}" as="player">
-	{player.username},
-</f:for>
+<table class="t3-table-info">
+	<tr>
+		<td><strong>Logo:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">
+			<f:if condition="{squad.logo}">
+				<f:then>
+					<f:image alt="{squad.logo}" src="../uploads/tx_ccore/squad/{squad.logo}" maxHeight="128c" maxWidth="128c"/>
+				</f:then>
+				<f:else><f:translate key="general.no_logo" /></f:else>
+			</f:if>
+		&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Title:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{squad.title}&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Game:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">
+			<f:if condition="{squad.game.logo}">
+				<f:image alt="{squad.game.logo}" src="../uploads/tx_ccore/game/{squad.game.logo}" maxHeight="16c" maxWidth="16c"/>
+			</f:if>
+			{squad.game.title}&nbsp;
+		</td>
+	</tr>
+	<tr>
+		<td><strong>Description:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{squad.description}&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Members:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4"><f:count subject="{players}" />&nbsp;</td>
+	</tr>
+</table>
+<br/>
+<h2>Members of the squad {squad.title}</h2>
+<table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+	<tr class="t3-row-header">
+		<th colspan="2">&nbsp;<f:translate key="fe_users.username" /></th>
+		<th><f:translate key="fe_users.name" /></th>
+		<th><f:translate key="fe_users.is_online" /></th>
+		<th><f:translate key="fe_users.groups" /></th>
+		<th><f:translate key="fe_users.point" /></th>
+		<th><f:translate key="functions" /></th>
+	</tr>
+	<tr class="c-headLine">
+		<td class="col-icon">
+			<vh:action.new pid="{storagePid}" tablename="fe_users">
+				<vh:icon file="silk/add.png" width="16" height="16" />
+			</vh:action.new>
+		</td>
+		<td class="col-title"><f:translate key="fe_users.add_label" /></td>
+		<td colspan="5"></td>
+	</tr>
 
-<f:link.action controller="Clan" action="list">Back to list</f:link.action>
+	<f:for each="{players}" as="user">
+		<tr class="db_list_normal firstcol">
+			<td colspan="2"> {user.username}</td>
+			<td> {user.name}</td>
+			<td> <f:format.date date="{user.lastlogin}" format="d.m.y, H:i" /></td>
+			<td>
+				<f:format.crop maxCharacters="100" respectHtml="false">
+					<f:for each="{user.usergroup}" as="group" iteration="iterator">
+						{group.title}
+						<f:if condition="{iterator.isLast}">
+							<f:then></f:then>
+							<f:else>,</f:else>
+						</f:if>
+					</f:for>
+				</f:format.crop>
+			</td>
+			<td> {user.calcPoints}</td>
+			<td align="right">
+				<vh:action.edit uid="{user.uid}" tablename="fe_users">
+					<vh:icon file="silk/page_edit.png" width="16" height="16" />
+				</vh:action.edit>
+				<vh:action.delete uid="{user.uid}" tablename="fe_users">
+					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+				</vh:action.delete>&nbsp;
+			</td>
+		</tr>
+	</f:for>
+</table>
 </f:section>

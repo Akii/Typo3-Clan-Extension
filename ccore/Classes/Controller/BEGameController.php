@@ -56,6 +56,12 @@ class Tx_Ccore_Controller_BEGameController extends Tx_Ccore_Controller_AbstractC
 		
 		$this->injectMapRepository(t3lib_div::makeInstance('Tx_Ccore_Domain_Repository_MapRepository'));
 	}
+	
+	public function initializeView(Tx_Extbase_MVC_View_ViewInterface $view) {
+		parent::initializeView($view);
+		
+		$this->view->assign('_tablename', 'tx_ccore_domain_model_game');
+	}
 
 	/**
 	 * injectGameRepository
@@ -83,11 +89,26 @@ class Tx_Ccore_Controller_BEGameController extends Tx_Ccore_Controller_AbstractC
 	 * @return void
 	 */
 	public function listAction() {
-		$this->view->assign('_tablename', 'tx_ccore_domain_model_game');
+		$this->gameListAction();
+		$this->mapListAction();
+	}
 	
+	/**
+	 * action gameList
+	 *
+	 * @return void
+	 */
+	public function gameListAction() {
 		$games = $this->gameRepository->findAll();
 		$this->view->assign('games', $games);
-		
+	}
+	
+	/**
+	 * action mapList
+	 *
+	 * @return void
+	 */
+	public function mapListAction() {
 		$args = $this->request->getArguments();
 		$search = $args['searchform']['search'];
 		
