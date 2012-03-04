@@ -81,11 +81,19 @@
 			
 			
 			<label index="tx_ccore_domain_model_match">Entity Match</label>
-			<label index="tx_ccore_domain_model_match.matchdate">Date the match takes/took place</label>
-			<label index="tx_ccore_domain_model_match.lname">name of the league</label>
-			<label index="tx_ccore_domain_model_match.llink">link to the league overview</label>
-			<label index="tx_ccore_domain_model_match.report">Match report</label>
-			<label index="tx_ccore_domain_model_match.game">The game this match took place in</label>
+			<label index="tx_ccore_domain_model_match.matchdate">Date</label>
+			<label index="tx_ccore_domain_model_match.lname">Leaguename</label>
+			<label index="tx_ccore_domain_model_match.llink">Link to the League</label>
+			<label index="tx_ccore_domain_model_match.report">Matchreport</label>
+			<label index="tx_ccore_domain_model_match.game">Game</label>
+			<label index="tx_ccore_domain_model_match.gamemode">Gamemode</label>
+			<label index="tx_ccore_domain_model_match.clan_pro">Own Clan</label>
+			<label index="tx_ccore_domain_model_match.clan_con">Enemy Clan</label>
+			<label index="tx_ccore_domain_model_match.clanwar">Clanwar</label>
+			<label index="tx_ccore_domain_model_match.screenshots">Screenshots</label>
+			<label index="tx_ccore_domain_model_match.comments">Comments</label>
+			<label index="tx_ccore_domain_model_match.rounds">Rounds</label>
+			<label index="tx_ccore_domain_model_match.result">Result</label>
 			<label index="tx_ccore_domain_model_match.add_label">Create new match</label>
 			<label index="tx_ccore_domain_model_match.edit_label">Edit match</label>
 			<label index="tx_ccore_domain_model_match.delete_label">Delete match</label>

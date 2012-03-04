@@ -12,31 +12,35 @@
 <table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
 	<tr class="t3-row-header">
 		<th><f:translate key="tx_ccore_domain_model_match.matchdate" /></th>
-		<th><f:translate key="tx_ccore_domain_model_match.lname" /></th>
-		<th><f:translate key="tx_ccore_domain_model_match.llink" /></th>
-		<th><f:translate key="tx_ccore_domain_model_match.report" /></th>
+		<th><f:translate key="tx_ccore_domain_model_match.clan_pro" /></th>
+		<th></th>
+		<th><f:translate key="tx_ccore_domain_model_match.clan_con" /></th>
+		<th><f:translate key="tx_ccore_domain_model_match.gamemode" /></th>
+		<th><f:translate key="tx_ccore_domain_model_match.screenshots" /></th>
+		<th><f:translate key="tx_ccore_domain_model_match.comments" /></th>
 		<th><f:translate key="functions" /></th>
 	</tr>
 
 	<f:for each="{matches}" as="match">
 		<tr class="db_list_normal firstcol">
-			<td colspan="2"><f:link.action action="show" arguments="{match : match}"> {match.matchdate -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{match : match}"> {match.lname}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{match : match}"> {match.llink}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{match : match}">
-				<f:format.stripTags>
-					<f:format.crop maxCharacters="80">
-						 {match.report}
-					</f:format.crop></f:format.stripTags>
-				</f:link.action>
+			<td> {match.matchdate -> f:format.date()}</td>
+			<td> {match.clanPro.name}</td>
+			<td>&nbsp;vs.&nbsp;</td>
+			<td> {match.clanCon.name}</td>
+			<td> {match.gamemode.name}</td>
+			<td>
+				<f:count subject="{match.screenshots}"/>
+			</td>
+			<td>
+				<f:count subject="{match.comments}" />
 			</td>
 			<td align="right">
 				<vh:action.edit uid="{match.uid}" tablename="tx_ccore_domain_model_match">
 					<vh:icon file="silk/page_edit.png" width="16" height="16" />
 				</vh:action.edit>
-				<f:link.action action="delete" arguments="{match : match}" title="{f:translate(key: 'tx_ccore_domain_model_match.delete_label')}">
-					<vh:icon file="silk/delete.png" width="16" height="16" />
-				</f:link.action>&nbsp;
+				<vh:action.delete uid="{match.uid}" tablename="tx_ccore_domain_model_match">
+					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+				</vh:action.delete>&nbsp;
 			</td>
 		</tr>
 	</f:for>

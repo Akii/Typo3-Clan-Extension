@@ -40,7 +40,7 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	 * @var integer
 	 * @validate NotEmpty
 	 */
-	protected $round;
+	protected $roundnum;
 
 	/**
 	 * Result home clan
@@ -73,31 +73,22 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	protected $mapid;
 
 	/**
-	 * __construct
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-
-	}
-
-	/**
 	 * Returns the round
 	 *
-	 * @return integer $round
+	 * @return integer $roundnum
 	 */
-	public function getRound() {
-		return $this->round;
+	public function getRoundnum() {
+		return $this->roundnum;
 	}
 
 	/**
 	 * Sets the round
 	 *
-	 * @param integer $round
+	 * @param integer $roundnum
 	 * @return void
 	 */
-	public function setRound($round) {
-		$this->round = $round;
+	public function setRoundnum($roundnum) {
+		$this->roundnum = $roundnum;
 	}
 
 	/**

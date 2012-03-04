@@ -33,7 +33,12 @@
  *
  */
 class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity {
-
+	
+	/**
+	 * @var boolean
+	 */
+	protected $clanwar;
+	
 	/**
 	 * Date the match takes/took place
 	 *
@@ -69,15 +74,26 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 	 * @var Tx_Ccore_Domain_Model_Game
 	 */
 	protected $game;
-
+	
 	/**
-	 * __construct
-	 *
-	 * @return void
+	 * @var Tx_Ccore_Domain_Model_Gamemode
 	 */
-	public function __construct() {
-
-	}
+	protected $gamemode;
+	
+	/**
+	 * @var Tx_Ccore_Domain_Model_Clan
+	 */
+	protected $clanPro;
+	
+	/**
+	 * @var Tx_Ccore_Domain_Model_Clan
+	 */
+	protected $clanCon;
+	
+	/**
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchscreenshot>
+	 */
+	protected $screenshots;
 
 	/**
 	 * Returns the matchdate
@@ -86,6 +102,21 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 	 */
 	public function getMatchdate() {
 		return $this->matchdate;
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function getClanwar() {
+		return $this->clanwar;
+	}
+	
+	/**
+	 * @param boolean $cw
+	 * @return void
+	 */
+	public function setClanwar($cw) {
+		$this->clanwar = $cw;
 	}
 
 	/**
@@ -172,6 +203,88 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 	 */
 	public function setGame(Tx_Ccore_Domain_Model_Game $game) {
 		$this->game = $game;
+	}
+	
+	/**
+	 * @return Tx_Ccore_Domain_Model_Gamemode
+	 */
+	public function getGamemode() {
+		return $this->gamemode;
+	}
+	
+	/**
+	 * @param Tx_Ccore_Domain_Model_Gamemode $gm
+	 * @return void
+	 */
+	public function setGamemode(Tx_Ccore_Domain_Model_Gamemode $gm) {
+		$this->gamemode = $gm;
+	}
+	
+	/**
+	 * @return Tx_Ccore_Domain_Model_Clan
+	 */
+	public function getClanPro() {
+		return $this->clanPro;
+	}
+	
+	/**
+	 * @param Tx_Ccore_Domain_Model_Clan $clanpro
+	 * @return void
+	 */
+	public function setClanPro(Tx_Ccore_Domain_Model_Clan $clanpro) {
+		$this->clanPro = $clanpro;
+	}
+	
+	/**
+	 * @return Tx_Ccore_Domain_Model_Clan
+	 */
+	public function getClanCon() {
+		return $this->clanCon;
+	}
+	
+	/**
+	 * @param Tx_Ccore_Domain_Model_Clan $clancon
+	 * @return void
+	 */
+	public function setClanCon(Tx_Ccore_Domain_Model_Clan $clancon) {
+		$this->clanCon = $clancon;
+	}
+
+	/**
+	 * Sets the screenshots
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchscreenshot> $obj
+	 * @return void
+	 */
+	public function setScreenshots(Tx_Extbase_Persistence_ObjectStorage $obj) {
+		$this->screenshots = $obj;
+	}
+	
+	/**
+	 * Add a screenshot
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchscreenshot $screenshot
+	 * @return void
+	 */
+	public function addScreenshot(Tx_Ccore_Domain_Model_Matchscreenshot $screenshot) {
+		$this->screenshots->attatch($screenshot);
+	}
+	
+	/**
+	 * Removes a screenshot
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchscreenshot $screenshot
+	 * @return void
+	 */
+	public function removeScreenshot(Tx_Ccore_Domain_Model_Matchscreenshot $screenshot) {
+		$this->screenshots->remove($screenshot);
+	}
+	
+	/**
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchscreenshot>
+	 */
+	public function getScreenshots() {
+		return $this->screenshots;
 	}
 
 }

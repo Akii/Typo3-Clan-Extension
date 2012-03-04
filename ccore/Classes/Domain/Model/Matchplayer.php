@@ -46,9 +46,15 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	 * Language like de, en
 	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
 	protected $languagetag;
+	
+	/**
+	 * Race/Character
+	 *
+	 * @var Tx_Ccore_Domain_Model_Race
+	 */
+	protected $race;
 
 	/**
 	 * is this a player of the enemy team
@@ -61,7 +67,7 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	/**
 	 * fe_user relationship
 	 *
-	 * @var string
+	 * @var Tx_Ccore_Domain_Model_User
 	 */
 	protected $feuser;
 
@@ -71,15 +77,6 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	 * @var Tx_Ccore_Domain_Model_Match
 	 */
 	protected $matchid;
-
-	/**
-	 * __construct
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-
-	}
 
 	/**
 	 * Returns the name
@@ -118,6 +115,21 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	public function setLanguagetag($languagetag) {
 		$this->languagetag = $languagetag;
 	}
+	
+	/**
+	 * @return Tx_Ccore_Domain_Model_Race
+	 */
+	public function getRace() {
+		return $this->race;
+	}
+	
+	/**
+	 * @param Tx_Ccore_Domain_Model_Race $race
+	 * @return void
+	 */
+	public function setRace(Tx_Ccore_Domain_Model_Race $race) {
+		$this->race = $race;
+	}
 
 	/**
 	 * Returns the enemy
@@ -150,7 +162,7 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	/**
 	 * Returns the feuser
 	 *
-	 * @return string $feuser
+	 * @return Tx_Ccore_Domain_Model_User $feuser
 	 */
 	public function getFeuser() {
 		return $this->feuser;
@@ -159,10 +171,10 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	/**
 	 * Sets the feuser
 	 *
-	 * @param string $feuser
+	 * @param Tx_Ccore_Domain_Model_User $feuser
 	 * @return void
 	 */
-	public function setFeuser($feuser) {
+	public function setFeuser(Tx_Ccore_Domain_Model_User $feuser) {
 		$this->feuser = $feuser;
 	}
 

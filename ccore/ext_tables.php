@@ -287,8 +287,9 @@ $TCA['tx_ccore_domain_model_match'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match',
 		'label' => 'matchdate',
-		'label_alt' => 'lname, lname',
+		'label_alt' => 'clan_pro, clan_con',
 		'label_alt_force' => 1,
+		'default_sortby' => 'ORDER BY crdate DESC',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -301,27 +302,39 @@ $TCA['tx_ccore_domain_model_match'] = array(
 	),
 );
 
+t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_matchscreenshot', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_matchscreenshot.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_matchscreenshot');
+$TCA['tx_ccore_domain_model_matchscreenshot'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchscreenshot',
+		'label' => 'caption',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden'
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchscreenshot.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_matchscreenshot.gif'
+	),
+);
+
 t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_matchresult', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_matchresult.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_matchresult');
 $TCA['tx_ccore_domain_model_matchresult'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult',
 		'label' => 'round',
+		'label_alt' => 'mapid, resultpro, resultcon',
+		'label_alt_force' => 1,
+		'default_sortby' => 'ORDER BY roundnum',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
-		'dividers2tabs' => TRUE,
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
-		'origUid' => 't3_origuid',
-		'languageField' => 'sys_language_uid',
-		'transOrigPointerField' => 'l10n_parent',
-		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'delete' => 'deleted',
 		'enablecolumns' => array(
-			'disabled' => 'hidden',
-			'starttime' => 'starttime',
-			'endtime' => 'endtime',
+			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchresult.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_matchresult.gif'
@@ -334,21 +347,14 @@ $TCA['tx_ccore_domain_model_matchplayer'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchplayer',
 		'label' => 'name',
+		'label_alt' => 'feuser, enemy',
+		'default_sortby' => 'ORDER BY enemy',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
-		'dividers2tabs' => TRUE,
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
-		'origUid' => 't3_origuid',
-		'languageField' => 'sys_language_uid',
-		'transOrigPointerField' => 'l10n_parent',
-		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'delete' => 'deleted',
 		'enablecolumns' => array(
-			'disabled' => 'hidden',
-			'starttime' => 'starttime',
-			'endtime' => 'endtime',
+			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchplayer.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_matchplayer.gif'
@@ -371,6 +377,25 @@ $TCA['tx_ccore_domain_model_matchcomment'] = array(
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchcomment.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_matchcomment.gif'
 	)
+);
+
+t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_race', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_race.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_race');
+$TCA['tx_ccore_domain_model_race'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_race',
+		'label' => 'caption',
+		'default_sortby' => 'ORDER BY crdate DESC',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden'
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Race.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_race.gif'
+	),
 );
 
 ?>

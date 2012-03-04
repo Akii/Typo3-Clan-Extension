@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Ccore_Domain_Model_Gamemode extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Ccore_Domain_Model_Gamemode extends Tx_Extbase_DomainObject_AbstractValueObject {
 
 	/**
 	 * Gamemode

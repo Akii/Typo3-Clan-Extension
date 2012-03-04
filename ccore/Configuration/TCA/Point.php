@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_point'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_point']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'feuserid, note, value',
+		'showRecordFieldList' => 'hidden, feuserid, note, value',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'feuserid, note, value'),
+		'1' => array('showitem' => 'hidden, feuserid, note, value'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),

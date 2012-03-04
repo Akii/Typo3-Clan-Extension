@@ -7,6 +7,7 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
+			<label index="clanwar.description">If the match is marked as clanwar, the view will display Clan1 vs. Clan2 instead of player1 vs. player2.</label>
 			<label index="matchdate.description">Date the match takes/took place</label>
 			<label index="lname.description">name of the league</label>
 			<label index="llink.description">link to the league overview</label>

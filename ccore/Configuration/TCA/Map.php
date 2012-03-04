@@ -116,7 +116,7 @@ $TCA['tx_ccore_domain_model_map'] = array(
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),
+					),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
