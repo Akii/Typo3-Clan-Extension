@@ -30,10 +30,7 @@
 	<tr>
 		<td><strong>Game:&nbsp;&nbsp;</strong></td>
 		<td width="80%" class="bgColor4">
-			<f:if condition="{squad.game.logo}">
-				<f:image alt="{squad.game.logo}" src="../uploads/tx_ccore/game/{squad.game.logo}" maxHeight="16c" maxWidth="16c"/>
-			</f:if>
-			{squad.game.title}&nbsp;
+			<f:render partial="GameName" arguments="{game : squad.game}" />&nbsp;
 		</td>
 	</tr>
 	<tr>

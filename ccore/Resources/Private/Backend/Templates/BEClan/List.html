@@ -120,7 +120,7 @@
 					</f:else>
 				</f:if>
 			</td>
-			<td> {squad.game.title}</td>
+			<td><f:render partial="GameName" arguments="{game : squad.game}" /></td>
 			<td>
 				<f:if condition="{squad.logo}">
 					<f:then>

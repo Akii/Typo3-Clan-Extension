@@ -53,30 +53,17 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	 * Race/Character
 	 *
 	 * @var Tx_Ccore_Domain_Model_Race
+	 * @lazy
 	 */
 	protected $race;
-
-	/**
-	 * is this a player of the enemy team
-	 *
-	 * @var boolean
-	 * @validate NotEmpty
-	 */
-	protected $enemy;
 
 	/**
 	 * fe_user relationship
 	 *
 	 * @var Tx_Ccore_Domain_Model_User
+	 * @lazy
 	 */
 	protected $feuser;
-
-	/**
-	 * The match this player played in
-	 *
-	 * @var Tx_Ccore_Domain_Model_Match
-	 */
-	protected $matchid;
 
 	/**
 	 * Returns the name
@@ -132,34 +119,6 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	}
 
 	/**
-	 * Returns the enemy
-	 *
-	 * @return boolean $enemy
-	 */
-	public function getEnemy() {
-		return $this->enemy;
-	}
-
-	/**
-	 * Sets the enemy
-	 *
-	 * @param boolean $enemy
-	 * @return void
-	 */
-	public function setEnemy($enemy) {
-		$this->enemy = $enemy;
-	}
-
-	/**
-	 * Returns the boolean state of enemy
-	 *
-	 * @return boolean
-	 */
-	public function isEnemy() {
-		return $this->getEnemy();
-	}
-
-	/**
 	 * Returns the feuser
 	 *
 	 * @return Tx_Ccore_Domain_Model_User $feuser
@@ -176,25 +135,6 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	 */
 	public function setFeuser(Tx_Ccore_Domain_Model_User $feuser) {
 		$this->feuser = $feuser;
-	}
-
-	/**
-	 * Returns the matchid
-	 *
-	 * @return Tx_Ccore_Domain_Model_Match $matchid
-	 */
-	public function getMatchid() {
-		return $this->matchid;
-	}
-
-	/**
-	 * Sets the matchid
-	 *
-	 * @param Tx_Ccore_Domain_Model_Match $matchid
-	 * @return void
-	 */
-	public function setMatchid(Tx_Ccore_Domain_Model_Match $matchid) {
-		$this->matchid = $matchid;
 	}
 
 }

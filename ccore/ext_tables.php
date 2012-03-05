@@ -285,11 +285,11 @@ t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_match', 'EXT:ccore/Reso
 t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_match');
 $TCA['tx_ccore_domain_model_match'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match',
+		'title' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match',
 		'label' => 'matchdate',
 		'label_alt' => 'clan_pro, clan_con',
 		'label_alt_force' => 1,
-		'default_sortby' => 'ORDER BY crdate DESC',
+		'default_sortby' => 'ORDER BY matchdate DESC',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -299,7 +299,7 @@ $TCA['tx_ccore_domain_model_match'] = array(
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Match.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_match.gif'
-	),
+	)
 );
 
 t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_matchscreenshot', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_matchscreenshot.xml');
@@ -325,7 +325,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_matchresult');
 $TCA['tx_ccore_domain_model_matchresult'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult',
-		'label' => 'round',
+		'label' => 'roundnum',
 		'label_alt' => 'mapid, resultpro, resultcon',
 		'label_alt_force' => 1,
 		'default_sortby' => 'ORDER BY roundnum',

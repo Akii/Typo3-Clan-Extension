@@ -72,6 +72,9 @@ class Tx_Ccore_Controller_BEMatchController extends Tx_Ccore_Controller_Abstract
 	public function listAction() {
 		$this->view->assign('_tablename', 'tx_ccore_domain_model_match');
 	
+		$match = $this->matchRepository->findByUid(5);
+		$this->view->assign('test', $match);
+	
 		$matches = $this->matchRepository->findAll();
 		$this->view->assign('matches', $matches);
 	}

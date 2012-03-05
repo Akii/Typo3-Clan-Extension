@@ -94,6 +94,17 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchscreenshot>
 	 */
 	protected $screenshots;
+	
+	/**
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchresult>
+	 */
+	protected $matchresults;
+	
+	/**
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
+	 * @lazy
+	 */
+	protected $matchplayers;
 
 	/**
 	 * Returns the matchdate
@@ -285,6 +296,96 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 	 */
 	public function getScreenshots() {
 		return $this->screenshots;
+	}
+
+	/**
+	 * Sets the results
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchresult> $obj
+	 * @return void
+	 */
+	public function setMatchresults(Tx_Extbase_Persistence_ObjectStorage $obj) {
+		$this->matchresults = $obj;
+	}
+	
+	/**
+	 * Add a result
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchresult $result
+	 * @return void
+	 */
+	public function addMatchresults(Tx_Ccore_Domain_Model_Matchresult $result) {
+		$this->matchresults->attatch($result);
+	}
+	
+	/**
+	 * Removes a result
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchresult $screenshot
+	 * @return void
+	 */
+	public function removeMatchresults(Tx_Ccore_Domain_Model_Matchresult $result) {
+		$this->matchresults->remove($result);
+	}
+	
+	/**
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchresult>
+	 */
+	public function getMatchresults() {
+		return $this->matchresults;
+	}
+	
+	/**
+	 * Sets the results
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer> $obj
+	 * @return void
+	 */
+	public function setMatchplayers(Tx_Extbase_Persistence_ObjectStorage $obj) {
+		$this->matchplayers = $obj;
+	}
+	
+	/**
+	 * Add a result
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
+	 * @return void
+	 */
+	public function addMatchplayers(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->matchplayers->attatch($result);
+	}
+	
+	/**
+	 * Removes a result
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
+	 * @return void
+	 */
+	public function removeMatchplayers(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->matchplayers->remove($result);
+	}
+	
+	/**
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
+	 */
+	public function getMatchplayers() {
+		return $this->matchplayers;
+	}
+	
+	/**
+	 * Calculates the end result of all matchresults
+	 *
+	 * @return string
+	 */
+	public function getEndresult() {
+		$pro = 0;
+		$con = 0;
+		foreach($this->matchresults as $result) {
+			$pro += $result->getResultpro();
+			$con += $result->getResultcon();
+		}
+		
+		return $pro . ':' . $con;
 	}
 
 }

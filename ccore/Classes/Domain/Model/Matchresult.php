@@ -59,18 +59,22 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	protected $resultcon;
 
 	/**
-	 * ID of the match this result belongs to
-	 *
-	 * @var Tx_Ccore_Domain_Model_Match
-	 */
-	protected $matchid;
-
-	/**
 	 * The map being played
 	 *
 	 * @var Tx_Ccore_Domain_Model_Map
+	 * @lazy
 	 */
 	protected $mapid;
+	
+	/**
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
+	 */
+	protected $playerspro;
+	
+	/**
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
+	 */
+	protected $playerscon;
 
 	/**
 	 * Returns the round
@@ -130,25 +134,6 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	}
 
 	/**
-	 * Returns the matchid
-	 *
-	 * @return Tx_Ccore_Domain_Model_Match $matchid
-	 */
-	public function getMatchid() {
-		return $this->matchid;
-	}
-
-	/**
-	 * Sets the matchid
-	 *
-	 * @param Tx_Ccore_Domain_Model_Match $matchid
-	 * @return void
-	 */
-	public function setMatchid(Tx_Ccore_Domain_Model_Match $matchid) {
-		$this->matchid = $matchid;
-	}
-
-	/**
 	 * Returns the mapid
 	 *
 	 * @return Tx_Ccore_Domain_Model_Map $mapid
@@ -165,6 +150,80 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	 */
 	public function setMapid(Tx_Ccore_Domain_Model_Map $mapid) {
 		$this->mapid = $mapid;
+	}
+	
+	/**
+	 * Sets players
+	 * 
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer> $obj
+	 * @return void
+	 */
+	public function setPlayerspro(Tx_Extbase_Persistence_ObjectStorage $obj) {
+		$this->playerspro = $obj;
+	}
+	
+	/**
+	 * Adds a player
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
+	 * @return void
+	 */
+	public function addPlayerspro(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->playerspro->attach($player);
+	}
+	
+	/**
+	 * Removes a player
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
+	 * @return void
+	 */
+	public function removePlayerspro(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->playerspro->remove($player);
+	}
+	
+	/**
+	 * @return Tx_Ccore_Domain_Model_Matchplayer
+	 */
+	public function getPlayerspro() {
+		return $this->playerspro;
+	}
+	
+	/**
+	 * Sets players
+	 * 
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer> $obj
+	 * @return void
+	 */
+	public function setPlayerscon(Tx_Extbase_Persistence_ObjectStorage $obj) {
+		$this->playerscon = $obj;
+	}
+	
+	/**
+	 * Adds a player
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
+	 * @return void
+	 */
+	public function addPlayerscon(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->playerscon->attach($player);
+	}
+	
+	/**
+	 * Removes a player
+	 *
+	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
+	 * @return void
+	 */
+	public function removePlayerscon(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->playerscon->remove($player);
+	}
+	
+	/**
+	 * @return Tx_Ccore_Domain_Model_Matchplayer
+	 */
+	public function getPlayerscon() {
+		return $this->playerscon;
 	}
 
 }

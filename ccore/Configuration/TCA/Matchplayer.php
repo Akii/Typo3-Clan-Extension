@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_matchplayer'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_matchplayer']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, name, race, languagetag, enemy, feuser, matchid',
+		'showRecordFieldList' => 'hidden, name, race, languagetag, feuser, matchid',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden;;1, name, race, languagetag, enemy, feuser, matchid'),
+		'1' => array('showitem' => 'hidden;;1, name, race, languagetag, feuser, matchid'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -45,17 +45,27 @@ $TCA['tx_ccore_domain_model_matchplayer'] = array(
 			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchplayer.race',
 			'config' => array(
 				'type' => 'select',
+				'items' => array(
+					array('---', 0)
+				),
 				'foreign_table' => 'tx_ccore_domain_model_race',
 				'minitems' => 0,
 				'maxitems' => 1,
-			),
-		),
-		'enemy' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchplayer.enemy',
-			'config' => array(
-				'type' => 'check',
-				'default' => 0
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_ccore_domain_model_race',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+						),
+						'script' => 'wizard_add.php',
+					)
+				)
 			),
 		),
 		'feuser' => array(
@@ -67,8 +77,8 @@ $TCA['tx_ccore_domain_model_matchplayer'] = array(
 					array('---', 0)
 				),
 				'foreign_table' => 'fe_users',
-				'minitems' => 0,
 				'maxitems' => 1,
+				'multiple' => 0,
 			),
 		),
 		'matchid' => array(

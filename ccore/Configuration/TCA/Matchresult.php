@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_matchresult'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_matchresult']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, roundnum, resultpro, resultcon, matchid, mapid, players',
+		'showRecordFieldList' => 'hidden, roundnum, resultpro, resultcon, matchid, mapid, playerspro, playerscon',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden;;1, roundnum, resultpro, resultcon, matchid, mapid, players'),
+		'1' => array('showitem' => 'hidden;;1, roundnum, resultpro, resultcon, matchid, mapid, playerspro, playerscon'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -68,6 +68,8 @@ $TCA['tx_ccore_domain_model_matchresult'] = array(
 				'minitems' => 0,
 				'maxitems' => 1,
 				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
@@ -82,17 +84,30 @@ $TCA['tx_ccore_domain_model_matchresult'] = array(
 				)
 			),
 		),
-		'players' => array(
+		'playerspro' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult.players',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult.playerspro',
 			'config' => array(
-				'type' => 'inline',
+				'type' => 'select',
 				'foreign_table' => 'tx_ccore_domain_model_matchplayer',
-				'foreign_field' => 'matchid',
-				'appearance' => array(
-					'collapseAll' => 1,
-					'expandSingle' => 1
-				)
+				'foreign_table_where' => 'AND matchid=###REC_FIELD_matchid###',
+				'size' => 10,
+				'autoSizeMax' => 30,
+				'maxitems' => 9999,
+				'multiple' => 0,
+			)
+		),
+		'playerscon' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult.playerscon',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_ccore_domain_model_matchplayer',
+				'foreign_table_where' => 'AND matchid=###REC_FIELD_matchid###',
+				'size' => 10,
+				'autoSizeMax' => 30,
+				'maxitems' => 9999,
+				'multiple' => 0,
 			)
 		)
 	),

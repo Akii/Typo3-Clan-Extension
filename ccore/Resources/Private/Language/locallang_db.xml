@@ -53,6 +53,7 @@
 			<label index="tx_ccore_domain_model_match.clan_con">Enemy Clan</label>
 			<label index="tx_ccore_domain_model_match.screenshots">Screenshots</label>
 			<label index="tx_ccore_domain_model_match.matchresults">Results</label>
+			<label index="tx_ccore_domain_model_match.matchplayers">Participating Players</label>
 			
 			<label index="tx_ccore_domain_model_matchscreenshot">Match Screenshot</label>
 			<label index="tx_ccore_domain_model_matchscreenshot.matchid">Match</label>
@@ -61,16 +62,17 @@
 			
 			<label index="tx_ccore_domain_model_matchresult">Matchresult</label>
 			<label index="tx_ccore_domain_model_matchresult.roundnum">Round</label>
-			<label index="tx_ccore_domain_model_matchresult.resultpro">Resultpro</label>
-			<label index="tx_ccore_domain_model_matchresult.resultcon">Resultcon</label>
-			<label index="tx_ccore_domain_model_matchresult.matchid">Matchid</label>
-			<label index="tx_ccore_domain_model_matchresult.mapid">Mapid</label>
-			<label index="tx_ccore_domain_model_matchresult.players">Players</label>
+			<label index="tx_ccore_domain_model_matchresult.resultpro">Result A</label>
+			<label index="tx_ccore_domain_model_matchresult.resultcon">Result B</label>
+			<label index="tx_ccore_domain_model_matchresult.matchid">Match</label>
+			<label index="tx_ccore_domain_model_matchresult.mapid">Map</label>
+			<label index="tx_ccore_domain_model_matchresult.playerspro">Team A</label>
+			<label index="tx_ccore_domain_model_matchresult.playerscon">Team B</label>
 			
 			<label index="tx_ccore_domain_model_matchplayer">Matchplayer</label>
 			<label index="tx_ccore_domain_model_matchplayer.name">Name</label>
-			<label index="tx_ccore_domain_model_matchplayer.race">Race</label>
-			<label index="tx_ccore_domain_model_matchplayer.languagetag">Languagetag</label>
+			<label index="tx_ccore_domain_model_matchplayer.race">Race/Character</label>
+			<label index="tx_ccore_domain_model_matchplayer.languagetag">Language</label>
 			<label index="tx_ccore_domain_model_matchplayer.enemy">Enemy</label>
 			<label index="tx_ccore_domain_model_matchplayer.feuser">Feuser</label>
 			<label index="tx_ccore_domain_model_matchplayer.matchid">Matchid</label>
@@ -79,8 +81,8 @@
 			<label index="tx_ccore_domain_model_matchcomment.createdon">Created on</label>
 			<label index="tx_ccore_domain_model_matchcomment.changedon">Changed on</label>
 			<label index="tx_ccore_domain_model_matchcomment.comment">Comment</label>
-			<label index="tx_ccore_domain_model_matchcomment.feuser">Feuser</label>
-			<label index="tx_ccore_domain_model_matchcomment.matchid">Matchid</label>
+			<label index="tx_ccore_domain_model_matchcomment.feuser">User</label>
+			<label index="tx_ccore_domain_model_matchcomment.matchid">Match</label>
 			
 			<label index="tx_ccore_domain_model_race">Race / Character</label>
 			<label index="tx_ccore_domain_model_race.picture">A picture</label>

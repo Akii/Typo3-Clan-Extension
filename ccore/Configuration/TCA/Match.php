@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_match'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_match']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchresults',
+		'showRecordFieldList' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchplayers, matchresults',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchresults'),
+		'1' => array('showitem' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchplayers, matchresults'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -60,6 +60,8 @@ $TCA['tx_ccore_domain_model_match'] = array(
 				'minitems' => 0,
 				'maxitems' => 1,
 				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
@@ -82,6 +84,21 @@ $TCA['tx_ccore_domain_model_match'] = array(
 				'foreign_table' => 'tx_ccore_domain_model_clan',
 				'minitems' => 0,
 				'maxitems' => 1,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_ccore_domain_model_clan',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+							),
+						'script' => 'wizard_add.php',
+					)
+				)
 			),
 		),
 		'clan_con' => array(
@@ -169,7 +186,20 @@ $TCA['tx_ccore_domain_model_match'] = array(
 					'expandSingle' => 1
 				)
 			)
-		)
+		),
+		'matchplayers' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.matchplayers',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_ccore_domain_model_matchplayer',
+				'foreign_field' => 'matchid',
+				'appearance' => array(
+					'collapseAll' => 1,
+					'expandSingle' => 1
+				)
+			)
+		),
 	)
 );
 ?>
