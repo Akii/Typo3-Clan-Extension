@@ -9,7 +9,7 @@ $TCA['tx_ccore_domain_model_match'] = array(
 		'showRecordFieldList' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchplayers, matchresults',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchplayers, matchresults'),
+		'1' => array('showitem' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, --div--;Screenshots, screenshots, --div--;Players, matchplayers, --div--;Results, matchresults'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -49,6 +49,21 @@ $TCA['tx_ccore_domain_model_match'] = array(
 				'foreign_table' => 'tx_ccore_domain_model_game',
 				'minitems' => 0,
 				'maxitems' => 1,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_ccore_domain_model_game',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+							),
+						'script' => 'wizard_add.php',
+					)
+				)
 			),
 		),
 		'gamemode' => array(

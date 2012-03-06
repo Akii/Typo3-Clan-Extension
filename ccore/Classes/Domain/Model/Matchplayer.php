@@ -71,7 +71,11 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	 * @return string $name
 	 */
 	public function getName() {
-		return $this->name;
+		// if a fe_user is associated, we prefer that name
+		if($this->feuser !== NULL && $this->feuser->getName() != "")
+			return $this->feuser->getName();
+		else
+			return $this->name;
 	}
 
 	/**

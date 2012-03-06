@@ -36,7 +36,8 @@ $TCA['tx_ccore_domain_model_matchplayer'] = array(
 			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchplayer.languagetag',
 			'config' => array(
 				'type' => 'input',
-				'size' => 30,
+				'size' => 2,
+				'max' => 2,
 				'eval' => 'trim,required'
 			),
 		),

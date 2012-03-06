@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_matchresult'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_matchresult']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, roundnum, resultpro, resultcon, matchid, mapid, playerspro, playerscon',
+		'showRecordFieldList' => 'hidden, roundnum, mapid, resultpro, resultcon, matchid, playerspro, playerscon',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden;;1, roundnum, resultpro, resultcon, matchid, mapid, playerspro, playerscon'),
+		'1' => array('showitem' => 'hidden;;1, roundnum, mapid, resultpro, resultcon, matchid, playerspro, playerscon'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -37,7 +37,7 @@ $TCA['tx_ccore_domain_model_matchresult'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 4,
-				'eval' => 'int,required'
+				'eval' => 'int'
 			),
 		),
 		'resultcon' => array(
@@ -46,7 +46,7 @@ $TCA['tx_ccore_domain_model_matchresult'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 4,
-				'eval' => 'int,required'
+				'eval' => 'int'
 			),
 		),
 		'matchid' => array(

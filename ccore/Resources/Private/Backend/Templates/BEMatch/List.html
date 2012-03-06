@@ -14,12 +14,12 @@
 		<th><f:translate key="tx_ccore_domain_model_match.clan_pro" /></th>
 		<th></th>
 		<th><f:translate key="tx_ccore_domain_model_match.clan_con" /></th>
+		<th><f:translate key="tx_ccore_domain_model_match.result" /></th>
 		<th><f:translate key="tx_ccore_domain_model_match.game" /></th>
 		<th><f:translate key="tx_ccore_domain_model_match.gamemode" /></th>
 		<th><f:translate key="tx_ccore_domain_model_match.screenshots" /></th>
 		<th><f:translate key="tx_ccore_domain_model_match.comments" /></th>
 		<th><f:translate key="tx_ccore_domain_model_match.rounds" /></th>
-		<th><f:translate key="tx_ccore_domain_model_match.result" /></th>
 		<th><f:translate key="functions" /></th>
 	</tr>
 
@@ -29,20 +29,12 @@
 			<td> {match.clanPro.name}</td>
 			<td>&nbsp;vs.&nbsp;</td>
 			<td> {match.clanCon.name}</td>
+			<td> {match.endresult}</td>
 			<td><f:render partial="GameName" arguments="{game : match.game}" /></td>
 			<td> {match.gamemode.name}</td>
-			<td>
-				<f:count subject="{match.screenshots}"/>
-			</td>
-			<td>
-				<f:count subject="{match.comments}" />
-			</td>
-			<td>
-				<f:count subject="{match.matchresults}" />
-			</td>
-			<td>
-				{match.endresult}
-			</td>
+			<td><f:count subject="{match.screenshots}"/></td>
+			<td><f:count subject="{match.comments}" /></td>
+			<td><f:count subject="{match.matchresults}" /></td>
 			<td align="right">
 				<vh:action.edit uid="{match.uid}" tablename="tx_ccore_domain_model_match">
 					<vh:icon file="silk/page_edit.png" width="16" height="16" />
@@ -57,9 +49,9 @@
 
 <table width="400px">
 	<tr>
-		<td>{test.clanPro.name}</td>
+		<td>{test.Titlepro}</td>
 		<td colspan="2">{test.endresult}</td>
-		<td>{test.clanCon.name}</td>
+		<td>{test.Titlecon}</td>
 	</tr>
 	<f:for each="{test.matchresults}" as="result">
 		<tr bgcolor="grey">

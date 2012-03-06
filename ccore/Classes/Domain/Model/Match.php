@@ -387,6 +387,49 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 		
 		return $pro . ':' . $con;
 	}
+	
+	/**
+	 * Function to get the title/name of the first team. Needed for 1vs1 matches (!clanwar)
+	 * to show the players instead of the clans
+	 *
+	 * @return string
+	 */
+	public function getTitlepro() {
+		// normally we use the clan name as title
+		$title = $this->clanPro->getName();
+		
+		if($this->clanwar === false) {
+			// unless it's a 1vs1, then we use the player name
+			$result = array_shift(iterator_to_array($this->matchresults));
+			$playerPro = array_shift(iterator_to_array($result->getPlayerspro()));
+			
+			if($playerPro->getName() != "")
+				$title = $playerPro->getName();
+		}
+		
+		return $title;
+	}
+	
+	/**
+	 * Function to get the title/name of the first team. Needed for 1vs1 matches (!clanwar)
+	 * to show the players instead of the clans
+	 *
+	 * @return string
+	 */
+	public function getTitlecon() {
+		// normally we use the clan name as title
+		$title = $this->clanCon->getName();
+		
+		if($this->clanwar === false) {
+			// unless it's a 1vs1, then we use the player name
+			$result = array_shift(iterator_to_array($this->matchresults));
+			$playerCon = array_shift(iterator_to_array($result->getPlayerscon()));
+			
+			$title = $playerCon->getName();
+		}
+		
+		return $title;
+	}
 
 }
 ?>
