@@ -1,0 +1,14 @@
+<f:layout name="Default" />
+
+<f:section name="docheader">
+	<f:be.menus.actionMenu>
+		<f:be.menus.actionMenuItem label="List All" controller="BEGame" action="list" />
+		<f:be.menus.actionMenuItem label="List Games" controller="BEGame" action="gameList" />
+		<f:be.menus.actionMenuItem label="List Maps" controller="BEGame" action="mapList" /> 
+	</f:be.menus.actionMenu>
+</f:section>
+
+<f:section name="content">
+	<f:flashMessages />
+	<f:render partial="BEGame/Map" arguments="{maps : maps, storagePid : storagePid}" />
+</f:section>
