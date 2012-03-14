@@ -378,14 +378,38 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 	 * @return string
 	 */
 	public function getEndresult() {
+		$pro = $this->getEndresultPro();
+		$con = $this->getEndresultCon();
+		
+		return $pro . ':' . $con;
+	}
+	
+	/**
+	 * Returns the end result for team A
+	 *
+	 * @return int
+	 */
+	public function getEndresultPro() {
 		$pro = 0;
-		$con = 0;
 		foreach($this->matchresults as $result) {
 			$pro += $result->getResultpro();
+		}
+		
+		return $pro;
+	}
+	
+	/**
+	 * Returns the end result for team B
+	 *
+	 * @return int
+	 */
+	public function getEndresultCon() {
+		$con = 0;
+		foreach($this->matchresults as $result) {
 			$con += $result->getResultcon();
 		}
 		
-		return $pro . ':' . $con;
+		return $con;
 	}
 	
 	/**
@@ -398,13 +422,17 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 		// normally we use the clan name as title
 		$title = $this->clanPro->getName();
 		
-		if($this->clanwar === false) {
+		if($this->clanwar === false && $this->matchresults !== null) {
 			// unless it's a 1vs1, then we use the player name
-			$result = array_shift(iterator_to_array($this->matchresults));
-			$playerPro = array_shift(iterator_to_array($result->getPlayerspro()));
 			
-			if($playerPro->getName() != "")
-				$title = $playerPro->getName();
+			if($result = array_shift(iterator_to_array($this->matchresults))) {
+				foreach($result->getPlayers() as $player) {
+					if($player->getTeam() === false) {
+						$title = $player->getName();
+						break;
+					}
+				}
+			}
 		}
 		
 		return $title;
@@ -420,12 +448,17 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 		// normally we use the clan name as title
 		$title = $this->clanCon->getName();
 		
-		if($this->clanwar === false) {
+		if($this->clanwar === false && $this->matchresults !== null) {
 			// unless it's a 1vs1, then we use the player name
-			$result = array_shift(iterator_to_array($this->matchresults));
-			$playerCon = array_shift(iterator_to_array($result->getPlayerscon()));
 			
-			$title = $playerCon->getName();
+			if($result = array_shift(iterator_to_array($this->matchresults))) {
+				foreach($result->getPlayers() as $player) {
+					if($player->getTeam() === true) {
+						$title = $player->getName();
+						break;
+					}
+				}
+			}
 		}
 		
 		return $title;

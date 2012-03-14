@@ -184,9 +184,8 @@ CREATE TABLE tx_ccore_domain_model_match (
 	lname varchar(255) DEFAULT '' NOT NULL,
 	llink varchar(255) DEFAULT '' NOT NULL,
 	report text NOT NULL,
-	screenshots tinytext,
-	matchplayers tinytext,
-	matchresults tinytext,
+	screenshots tinytext NOT NULL,
+	matchresults tinytext NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -233,8 +232,7 @@ CREATE TABLE tx_ccore_domain_model_matchresult (
 	resultpro int(11) DEFAULT '0' NOT NULL,
 	resultcon int(11) DEFAULT '0' NOT NULL,
 	mapid int(11) unsigned DEFAULT '0',
-	playerspro tinytext,
-	playerscon tinytext,
+	players tinytext,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -254,11 +252,12 @@ CREATE TABLE tx_ccore_domain_model_matchplayer (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 
-	matchid int(11) unsigned DEFAULT '0',
+	resultid int(11) unsigned DEFAULT '0',
 	name varchar(255) DEFAULT '' NOT NULL,
 	languagetag varchar(255) DEFAULT '' NOT NULL,
 	feuser varchar(255) DEFAULT '' NOT NULL,
 	race int(11) unsigned DEFAULT '0',
+	team tinyint(4) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

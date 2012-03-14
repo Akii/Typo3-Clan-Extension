@@ -1,6 +1,10 @@
 {namespace vh = Tx_Ccore_ViewHelpers}
 <f:layout name="Default" />
 
+<f:section name="buttonsleft">
+	<f:render partial="buttonsleft" arguments="{tablename: tablename, storagePid: storagePid, uid: uid}"/>
+</f:section>
+
 <f:section name="docheader">
 	<f:be.menus.actionMenu>
 		<f:be.menus.actionMenuItem label="List All" controller="BEGame" action="list" />

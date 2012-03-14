@@ -97,14 +97,18 @@
 			<label index="tx_ccore_domain_model_match.add_label">Create new match</label>
 			<label index="tx_ccore_domain_model_match.edit_label">Edit match</label>
 			<label index="tx_ccore_domain_model_match.delete_label">Delete match</label>
+			<label index="tx_ccore_domain_model_match.view_label">View match</label>
 			
 			
 			<label index="tx_ccore_domain_model_matchresult">recorded rounds and their result</label>
-			<label index="tx_ccore_domain_model_matchresult.round">round number 1, 2, 3...</label>
-			<label index="tx_ccore_domain_model_matchresult.resultpro">Result home clan</label>
-			<label index="tx_ccore_domain_model_matchresult.resultcon">Result enemy clan</label>
+			<label index="tx_ccore_domain_model_matchresult.round">Round</label>
+			<label index="tx_ccore_domain_model_matchresult.resultpro">Result team A</label>
+			<label index="tx_ccore_domain_model_matchresult.resultcon">Result team B</label>
 			<label index="tx_ccore_domain_model_matchresult.matchid">ID of the match this result belongs to</label>
-			<label index="tx_ccore_domain_model_matchresult.mapid">The map being played</label>
+			<label index="tx_ccore_domain_model_matchresult.mapid">Map</label>
+			<label index="tx_ccore_domain_model_matchresult.add_label">Add result</label>
+			<label index="tx_ccore_domain_model_matchresult.edit_label">Edit result</label>
+			<label index="tx_ccore_domain_model_matchresult.delete_label">Delete result</label>
 			
 			
 			<label index="tx_ccore_domain_model_matchplayer">A player who played in this match</label>

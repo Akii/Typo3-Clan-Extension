@@ -35,6 +35,14 @@
 class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_AbstractValueObject {
 
 	/**
+	 * Is in team A or B
+	 *
+	 * @var boolean
+	 * @validate NotEmpty
+	 */
+	protected $team;
+
+	/**
 	 * Name of the player
 	 *
 	 * @var string
@@ -64,6 +72,25 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	 * @lazy
 	 */
 	protected $feuser;
+
+	/**
+	 * returns enemy
+	 *
+	 * @return boolean
+	 */
+	public function getTeam() {
+		return $this->team;
+	}
+	
+	/**
+	 * sets enemy
+	 *
+	 * @param boolean $team
+	 * @return void
+	 */
+	public function setTeam($team) {
+		$this->team = $team;
+	}
 
 	/**
 	 * Returns the name

@@ -25,7 +25,7 @@
 /**
  * Creates links to backend edit/new forms
  */
-class Tx_Ccore_ViewHelpers_Action_DeleteViewHelper extends Tx_Fluid_Core_ViewHelper_TagBasedViewHelper {
+class Tx_Ccore_ViewHelpers_Action_DeleteViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractTagBasedViewHelper {
 
 	/**
 	 * @var string

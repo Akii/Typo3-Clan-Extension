@@ -6,6 +6,8 @@ plugin.tx_ccore {
 		partialRootPath = EXT:ccore/Resources/Private/Partials/
 		# cat=plugin.tx_ccore/file; type=string; label=Path to template layouts (FE)
 		layoutRootPath = EXT:ccore/Resources/Private/Layouts/
+		# cat=plugin.tx_ccore/file; type=string; label=Path to CSS files (FE)
+		cssRootPath = EXT:ccore/Resources/Public/CSS/
 	}
 	persistence {
 		# cat=plugin.tx_ccore; type=int+; label=Default storage PID

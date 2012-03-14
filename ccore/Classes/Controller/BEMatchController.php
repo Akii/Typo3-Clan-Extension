@@ -58,8 +58,8 @@ class Tx_Ccore_Controller_BEMatchController extends Tx_Ccore_Controller_Abstract
 	 * @return void
 	 */
 	public function showAction(Tx_Ccore_Domain_Model_Match $match) {
-		$this->view->assign('_tablename', 'tx_ccore_domain_model_match');
-		$this->view->assign('_uid', $match->getUid());
+		$this->view->assign('tablename', 'tx_ccore_domain_model_match');
+		$this->view->assign('uid', $match->getUid());
 		
 		$this->view->assign('match', $match);
 	}
@@ -70,7 +70,7 @@ class Tx_Ccore_Controller_BEMatchController extends Tx_Ccore_Controller_Abstract
 	 * @return void
 	 */
 	public function listAction() {
-		$this->view->assign('_tablename', 'tx_ccore_domain_model_match');
+		$this->view->assign('tablename', 'tx_ccore_domain_model_match');
 	
 		$match = $this->matchRepository->findByUid(5);
 		$this->view->assign('test', $match);

@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_matchplayer'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_matchplayer']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, name, race, languagetag, feuser, matchid',
+		'showRecordFieldList' => 'hidden, team, name, race, languagetag, feuser, resultid',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden;;1, name, race, languagetag, feuser, matchid'),
+		'1' => array('showitem' => 'hidden;;1, team, name, race, languagetag, feuser, resultid'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -20,6 +20,17 @@ $TCA['tx_ccore_domain_model_matchplayer'] = array(
 			'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config' => array(
 				'type' => 'check',
+			),
+		),
+		'team' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchplayer.team',
+			'config' => array(
+				'type' => 'select',
+				'items' => array(
+					array('Team A', 0),
+					array('Team B', 1)
+				),
 			),
 		),
 		'name' => array(
@@ -82,12 +93,12 @@ $TCA['tx_ccore_domain_model_matchplayer'] = array(
 				'multiple' => 0,
 			),
 		),
-		'matchid' => array(
+		'resultid' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchplayer.matchid',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchplayer.resultid',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_ccore_domain_model_match',
+				'foreign_table' => 'tx_ccore_domain_model_matchresult',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),

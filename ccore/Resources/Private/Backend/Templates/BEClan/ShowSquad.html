@@ -1,10 +1,16 @@
 {namespace vh = Tx_Ccore_ViewHelpers}
 <f:layout name="Default" />
 
+<f:section name="buttonsleft">
+	<div class="buttongroup">
+		<f:link.action controller="BEClan" action="list">
+			<span class="t3-icon t3-icon-actions t3-icon-actions-document t3-icon-document-close">&nbsp;</span>
+		</f:link.action>
+	</div>
+	<f:render partial="buttonsleft" arguments="{tablename: tablename, storagePid: storagePid, uid: uid}"/>
+</f:section>
+
 <f:section name="docheader">
-	<f:link.action controller="BEClan" action="list">
-		<span class="t3-icon t3-icon-actions t3-icon-actions-document t3-icon-document-close">&nbsp;</span>
-	</f:link.action>
 </f:section>
 
 <f:section name="content">

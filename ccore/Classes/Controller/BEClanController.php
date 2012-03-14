@@ -96,7 +96,7 @@ class Tx_Ccore_Controller_BEClanController extends Tx_Ccore_Controller_AbstractC
 	 * @return void
 	 */
 	public function listAction() {
-		$this->view->assign('_tablename', 'tx_ccore_domain_model_clan');
+		$this->view->assign('tablename', 'tx_ccore_domain_model_clan');
 		
 		$clans = $this->clanRepository->findAll();
 		$this->view->assign('clans', $clans);
@@ -112,8 +112,8 @@ class Tx_Ccore_Controller_BEClanController extends Tx_Ccore_Controller_AbstractC
 	 * @return void
 	 */
 	public function showSquadAction(Tx_Ccore_Domain_Model_Squad $squad) {
-		$this->view->assign('_tablename', 'fe_groups');
-		$this->view->assign('_uid', $squad->getUid());
+		$this->view->assign('tablename', 'fe_groups');
+		$this->view->assign('uid', $squad->getUid());
 		
 		$this->view->assign('squad', $squad);
 		

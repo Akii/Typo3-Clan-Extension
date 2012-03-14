@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_match'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_match']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchplayers, matchresults',
+		'showRecordFieldList' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchresults',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, --div--;Screenshots, screenshots, --div--;Players, matchplayers, --div--;Results, matchresults'),
+		'1' => array('showitem' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, --div--;Screenshots, screenshots, --div--;Results, matchresults'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -195,19 +195,6 @@ $TCA['tx_ccore_domain_model_match'] = array(
 			'config' => array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_ccore_domain_model_matchresult',
-				'foreign_field' => 'matchid',
-				'appearance' => array(
-					'collapseAll' => 1,
-					'expandSingle' => 1
-				)
-			)
-		),
-		'matchplayers' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.matchplayers',
-			'config' => array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_ccore_domain_model_matchplayer',
 				'foreign_field' => 'matchid',
 				'appearance' => array(
 					'collapseAll' => 1,

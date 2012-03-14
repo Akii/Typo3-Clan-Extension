@@ -60,7 +60,7 @@ class Tx_Ccore_Controller_BEGameController extends Tx_Ccore_Controller_AbstractC
 	public function initializeView(Tx_Extbase_MVC_View_ViewInterface $view) {
 		parent::initializeView($view);
 		
-		$this->view->assign('_tablename', 'tx_ccore_domain_model_game');
+		$this->view->assign('tablename', 'tx_ccore_domain_model_game');
 	}
 
 	/**
@@ -128,8 +128,8 @@ class Tx_Ccore_Controller_BEGameController extends Tx_Ccore_Controller_AbstractC
 	 * @return void
 	 */
 	public function showAction(Tx_Ccore_Domain_Model_Game $game) {
-		$this->view->assign('_tablename', 'tx_ccore_domain_model_game');
-		$this->view->assign('_uid', $game->getUid());
+		$this->view->assign('tablename', 'tx_ccore_domain_model_game');
+		$this->view->assign('uid', $game->getUid());
 		
 		$this->view->assign('game', $game);
 	}

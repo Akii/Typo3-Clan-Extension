@@ -1,13 +1,138 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
 <f:layout name="Default" />
 
-<f:section name="docheader">
+<f:section name="buttonsleft">
+	<div class="buttongroup">
+		<f:link.action controller="BEMatch" action="list">
+			<span class="t3-icon t3-icon-actions t3-icon-actions-document t3-icon-document-close">&nbsp;</span>
+		</f:link.action>
+	</div>
+	<f:render partial="buttonsleft" arguments="{tablename: tablename, storagePid: storagePid, uid: uid}"/>
 </f:section>
 
-<f:section name="content">
-<h1>Single View for Match</h1>
+<f:section name="docheader">
+	<f:be.menus.actionMenu>
+		<f:be.menus.actionMenuItem label="Details" controller="BEMatch" action="show" arguments="{match : match}" />
+		<f:be.menus.actionMenuItem label="List Screenshots" controller="BEMatch" action="showScreenshots" />
+		<f:be.menus.actionMenuItem label="List Comments" controller="BEMatch" action="showComments" />
+	</f:be.menus.actionMenu>
+</f:section>
 
 <f:flashMessages />
-<f:render partial="Match/Properties" arguments="{match:match}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="create">New Match</f:link.action>
+
+<f:section name="content">
+<h2>Single View for Match {match.Titlepro} vs. {match.Titlecon}</h2>
+
+<table class="t3-table-info">
+	<tr>
+		<td><strong>Clanwar:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">
+			<f:if condition="{match.clanwar}">
+				<f:then>true</f:then>
+				<f:else>false</f:else>
+			</f:if>
+		&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Matchdate:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4"><f:format.date date="{match.matchdate}" format="d.m.y, H:i" />&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Game:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4"><f:render partial="gameName" arguments="{game : match.game}"/>&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Title:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{match.Titlepro} vs. {match.Titlecon}&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Gamemode:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{match.gamemode.name}&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>League Name:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{match.lname}&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>League Link:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{match.llink}&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Report:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{match.report}&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Screenshots:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4"><f:count subject="{match.screenshots}" />&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Comments:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4"><f:count subject="{match.comments}" />&nbsp;</td>
+	</tr>
+</table>
+<br/><br/>
+<h2>Listing for Rounds</h2>
+
+<table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+	<tr class="t3-row-header">
+		<th colspan="2">&nbsp;<f:translate key="tx_ccore_domain_model_matchresult.round" /></th>
+		<th><f:translate key="tx_ccore_domain_model_matchresult.resultpro" /></th>
+		<th><f:translate key="tx_ccore_domain_model_matchresult.resultcon" /></th>
+		<th><f:translate key="tx_ccore_domain_model_matchresult.mapid" /></th>
+		<th><f:translate key="functions" />&nbsp;</th>
+	</tr>
+	<!--<tr class="c-headLine">
+		<td class="col-icon">
+			<vh:action.new pid="{storagePid}" tablename="tx_ccore_domain_model_matchresult" params="&defVals[tx_ccore_domain_model_matchresult][matchid]={match.uid}">
+				<vh:icon file="silk/add.png" width="16" height="16" />
+			</vh:action.new>
+		</td>
+		<td class="col-title"><f:translate key="tx_ccore_domain_model_matchresult.add_label" /></td>
+		<td colspan="4"></td>
+	</tr>-->
+
+	<f:for each="{match.matchresults}" as="result">
+		<tr class="db_list_normal firstcol">
+			<td colspan="2"> {result.roundnum}</td>
+			<td>
+				<f:if condition="{clan.slogan}">
+					<f:then>{clan.slogan}</f:then>
+					<f:else><f:translate key="general.no_slogan"/></f:else>
+				</f:if>
+			</td>
+			<td>
+				<f:if condition="{clan.about}">
+					<f:then>
+						<f:format.crop maxCharacters="80" respectHtml="false">
+							<f:format.stripTags>
+									{clan.about}
+							</f:format.stripTags>
+						</f:format.crop>
+					</f:then>
+					<f:else>	
+						<f:translate key="general.no_about"/>
+					</f:else>
+				</f:if>
+			</td>
+			<td>
+				<f:if condition="{clan.logo}">
+					<f:then>
+						<f:image alt="{clan.logo}" src="../uploads/tx_ccore/clan/{clan.logo}" maxHeight="32c" maxWidth="32c"/>
+					</f:then>
+					<f:else><f:translate key="general.no_logo" /></f:else>
+				</f:if>
+			</td>
+			<td align="right">
+				<vh:action.edit uid="{result.uid}" tablename="tx_ccore_domain_model_matchresult">
+					<vh:icon file="silk/page_edit.png" width="16" height="16" />
+				</vh:action.edit>
+				<vh:action.delete uid="{result.uid}" tablename="tx_ccore_domain_model_matchresult">
+					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+				</vh:action.delete>
+				&nbsp;
+			</td>
+		</tr>
+	</f:for>
+</table>
+
 </f:section>

@@ -70,7 +70,7 @@ class Tx_Ccore_Controller_BEUserController extends Tx_Ccore_Controller_AbstractC
 	 * @return void
 	 */
 	public function listAction() {
-		$this->view->assign('_tablename', 'fe_users');
+		$this->view->assign('tablename', 'fe_users');
 		
 		$args = $this->request->getArguments();
 		$search = $args['searchform']['search'];
@@ -91,8 +91,8 @@ class Tx_Ccore_Controller_BEUserController extends Tx_Ccore_Controller_AbstractC
 	 * @return void
 	 */
 	public function showAction(Tx_Ccore_Domain_Model_User $user) {
-		$this->view->assign('_tablename', 'fe_users');
-		$this->view->assign('_uid', $user->getUid());
+		$this->view->assign('tablename', 'fe_users');
+		$this->view->assign('uid', $user->getUid());
 		
 		$this->view->assign('user', $user);
 	}

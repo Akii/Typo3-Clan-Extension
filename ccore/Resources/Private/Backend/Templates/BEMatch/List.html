@@ -1,7 +1,13 @@
 {namespace vh = Tx_Ccore_ViewHelpers}
 <f:layout name="Default" />
+
+<f:section name="buttonsleft">
+	<f:render partial="buttonsleft" arguments="{tablename: tablename, storagePid: storagePid, uid: uid}"/>
+</f:section>
+
 <f:section name="docheader">
 </f:section>
+
 <f:section name="content">
 
 <h2>Listing for Match</h2>
@@ -23,60 +29,32 @@
 		<th><f:translate key="functions" /></th>
 	</tr>
 
-	<f:for each="{matches}" as="match">
-		<tr class="db_list_normal firstcol">
-			<td> <f:format.date date="{match.matchdate}" format="d.m.y, H:i" /></td>
-			<td> {match.clanPro.name}</td>
-			<td>&nbsp;vs.&nbsp;</td>
-			<td> {match.clanCon.name}</td>
-			<td> {match.endresult}</td>
-			<td><f:render partial="GameName" arguments="{game : match.game}" /></td>
-			<td> {match.gamemode.name}</td>
-			<td><f:count subject="{match.screenshots}"/></td>
-			<td><f:count subject="{match.comments}" /></td>
-			<td><f:count subject="{match.matchresults}" /></td>
-			<td align="right">
-				<vh:action.edit uid="{match.uid}" tablename="tx_ccore_domain_model_match">
-					<vh:icon file="silk/page_edit.png" width="16" height="16" />
-				</vh:action.edit>
-				<vh:action.delete uid="{match.uid}" tablename="tx_ccore_domain_model_match">
-					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
-				</vh:action.delete>&nbsp;
-			</td>
-		</tr>
-	</f:for>
-</table>
-
-<table width="400px">
-	<tr>
-		<td>{test.Titlepro}</td>
-		<td colspan="2">{test.endresult}</td>
-		<td>{test.Titlecon}</td>
-	</tr>
-	<f:for each="{test.matchresults}" as="result">
-		<tr bgcolor="grey">
-			<td colspan="2">Round {result.roundnum}&nbsp;{result.mapid.title}</td>
-			<td colspan="2" align="right">{result.resultpro}:{result.resultcon}</td>
-		</tr>
-		<tr>
-			<td>
-				<f:for each="{result.playerspro}" as="player" iteration="blah">
-					<f:if condition="{blah.isLast}">
-						<f:then>{player.name}</f:then>
-						<f:else>{player.name}, </f:else>
-					</f:if>
-				</f:for>
-			</td>
-			<td colspan="2">{result.resultpro}:{result.resultcon}</td>
-			<td>
-				<f:for each="{result.playerscon}" as="player" iteration="it">
-					<f:if condition="{it.isLast}">
-						<f:then>{player.name}</f:then>
-						<f:else>{player.name}, </f:else>
-					</f:if>
-				</f:for>
-			</td>
-		</tr>
-	</f:for>
+	<f:widget.paginate objects="{matches}" as="pagMatches" configuration="{itemsPerPage: 250, insertAbove: 0, insertBelow: 0}">
+		<f:for each="{pagMatches}" as="match">
+			<tr class="db_list_normal firstcol">
+				<td> <f:format.date date="{match.matchdate}" format="d.m.y, H:i" /></td>
+				<td> {match.clanPro.name}</td>
+				<td>&nbsp;vs.&nbsp;</td>
+				<td> {match.clanCon.name}</td>
+				<td> {match.endresult}</td>
+				<td><f:render partial="GameName" arguments="{game : match.game}" /></td>
+				<td> {match.gamemode.name}</td>
+				<td><f:count subject="{match.screenshots}"/></td>
+				<td><f:count subject="{match.comments}" /></td>
+				<td><f:count subject="{match.matchresults}" /></td>
+				<td align="right">
+					<f:link.action action="show" arguments="{match : match}"  title="{f:translate(key: 'tx_ccore_domain_model_match.view_label')}">
+						<vh:icon file="silk/magnifier.png" width="16" height="16" />
+					</f:link.action>
+					<vh:action.edit uid="{match.uid}" tablename="tx_ccore_domain_model_match">
+						<vh:icon file="silk/page_edit.png" width="16" height="16" />
+					</vh:action.edit>
+					<vh:action.delete uid="{match.uid}" tablename="tx_ccore_domain_model_match">
+						<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+					</vh:action.delete>&nbsp;
+				</td>
+			</tr>
+		</f:for>
+	</f:widget.paginate>
 </table>
 </f:section>

@@ -1,6 +1,10 @@
 {namespace vh = Tx_Ccore_ViewHelpers}
 <f:layout name="Default" />
 
+<f:section name="buttonsleft">
+	<f:render partial="buttonsleft" arguments="{tablename: tablename, storagePid: storagePid, uid: uid}"/>
+</f:section>
+
 <f:section name="docheader">
 </f:section>
 
@@ -131,7 +135,7 @@
 			</td>
 			<td align="right">
 				<f:link.action action="showSquad" arguments="{squad : squad}"  title="{f:translate(key: 'fe_groups.view_label')}">
-					 <vh:icon file="silk/zoom.png" width="16" height="16" />
+					 <vh:icon file="silk/magnifier.png" width="16" height="16" />
 				</f:link.action>
 				<vh:action.edit uid="{squad.uid}" tablename="fe_groups">
 					<vh:icon file="silk/page_edit.png" width="16" height="16" />

@@ -25,7 +25,7 @@
 /**
  * Creates links to backend edit/new forms
  */
-class Tx_Ccore_ViewHelpers_Action_NewViewHelper extends Tx_Fluid_Core_ViewHelper_TagBasedViewHelper {
+class Tx_Ccore_ViewHelpers_Action_NewViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractTagBasedViewHelper {
 
 	/**
 	 * @var string
@@ -47,10 +47,14 @@ class Tx_Ccore_ViewHelpers_Action_NewViewHelper extends Tx_Fluid_Core_ViewHelper
 	 * Does things…
 	 * @param string $tablename Name of the table
 	 * @param int $pid Storage page ID
+	 * @param string $params Optional parameters
 	 */
-	public function render($tablename, $pid) {
-		$params = '&pid='.intval($pid).'&edit['.$tablename.']['.intval($pid).']=new';
-		$js = t3lib_BEfunc::editOnClick($params,$this->doc->backPath);
+	public function render($tablename, $pid, $params=NULL) {
+		$parameters = '&pid='.intval($pid);
+		if($params !== NULL) $parameters .= $params;
+		$parameters .= '&edit['.$tablename.']['.intval($pid).']=new';
+		
+		$js = t3lib_BEfunc::editOnClick($parameters,$this->doc->backPath);
 		
 		// localization
 		$label = Tx_Extbase_Utility_Localization::translate(

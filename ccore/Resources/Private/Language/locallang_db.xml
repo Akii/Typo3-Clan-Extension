@@ -66,16 +66,15 @@
 			<label index="tx_ccore_domain_model_matchresult.resultcon">Result B</label>
 			<label index="tx_ccore_domain_model_matchresult.matchid">Match</label>
 			<label index="tx_ccore_domain_model_matchresult.mapid">Map</label>
-			<label index="tx_ccore_domain_model_matchresult.playerspro">Team A</label>
-			<label index="tx_ccore_domain_model_matchresult.playerscon">Team B</label>
+			<label index="tx_ccore_domain_model_matchresult.playerspro">Players</label>
 			
 			<label index="tx_ccore_domain_model_matchplayer">Matchplayer</label>
 			<label index="tx_ccore_domain_model_matchplayer.name">Name</label>
 			<label index="tx_ccore_domain_model_matchplayer.race">Race/Character</label>
 			<label index="tx_ccore_domain_model_matchplayer.languagetag">Language</label>
-			<label index="tx_ccore_domain_model_matchplayer.enemy">Enemy</label>
+			<label index="tx_ccore_domain_model_matchplayer.team">Team</label>
 			<label index="tx_ccore_domain_model_matchplayer.feuser">Feuser</label>
-			<label index="tx_ccore_domain_model_matchplayer.matchid">Matchid</label>
+			<label index="tx_ccore_domain_model_matchplayer.resultid">Resultid</label>
 			
 			<label index="tx_ccore_domain_model_matchcomment">Match comment</label>
 			<label index="tx_ccore_domain_model_matchcomment.createdon">Created on</label>

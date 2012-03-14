@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_matchresult'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_matchresult']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, roundnum, mapid, resultpro, resultcon, matchid, playerspro, playerscon',
+		'showRecordFieldList' => 'hidden, roundnum, mapid, resultpro, resultcon, matchid, players',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden;;1, roundnum, mapid, resultpro, resultcon, matchid, playerspro, playerscon'),
+		'1' => array('showitem' => 'hidden;;1, roundnum, mapid, resultpro, resultcon, matchid, players'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -84,32 +84,15 @@ $TCA['tx_ccore_domain_model_matchresult'] = array(
 				)
 			),
 		),
-		'playerspro' => array(
+		'players' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult.playerspro',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult.players',
 			'config' => array(
-				'type' => 'select',
+				'type' => 'inline',
 				'foreign_table' => 'tx_ccore_domain_model_matchplayer',
-				'foreign_table_where' => 'AND matchid=###REC_FIELD_matchid###',
-				'size' => 10,
-				'autoSizeMax' => 30,
-				'maxitems' => 9999,
-				'multiple' => 0,
+				'foreign_field' => 'resultid'
 			)
 		),
-		'playerscon' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult.playerscon',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_ccore_domain_model_matchplayer',
-				'foreign_table_where' => 'AND matchid=###REC_FIELD_matchid###',
-				'size' => 10,
-				'autoSizeMax' => 30,
-				'maxitems' => 9999,
-				'multiple' => 0,
-			)
-		)
 	),
 );
 ?>

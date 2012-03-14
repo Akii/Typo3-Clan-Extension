@@ -69,12 +69,7 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	/**
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
 	 */
-	protected $playerspro;
-	
-	/**
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
-	 */
-	protected $playerscon;
+	protected $players;
 
 	/**
 	 * Returns the round
@@ -158,8 +153,8 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer> $obj
 	 * @return void
 	 */
-	public function setPlayerspro(Tx_Extbase_Persistence_ObjectStorage $obj) {
-		$this->playerspro = $obj;
+	public function setPlayers(Tx_Extbase_Persistence_ObjectStorage $obj) {
+		$this->players = $obj;
 	}
 	
 	/**
@@ -168,8 +163,8 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
 	 * @return void
 	 */
-	public function addPlayerspro(Tx_Ccore_Domain_Model_Matchplayer $player) {
-		$this->playerspro->attach($player);
+	public function addPlayers(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->players->attach($player);
 	}
 	
 	/**
@@ -178,53 +173,41 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
 	 * @return void
 	 */
-	public function removePlayerspro(Tx_Ccore_Domain_Model_Matchplayer $player) {
-		$this->playerspro->remove($player);
+	public function removePlayers(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->players->remove($player);
 	}
 	
 	/**
-	 * @return Tx_Ccore_Domain_Model_Matchplayer
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
+	 */
+	public function getPlayers() {
+		return $this->players;
+	}
+	
+	/**
+	 * returns players of team A
+	 *
+	 * @return array
 	 */
 	public function getPlayerspro() {
-		return $this->playerspro;
+		$out = array();
+		foreach($this->players as $player) {
+			if($player->getTeam() === false) $out[] = $player;
+		}
+		return $out;
 	}
 	
 	/**
-	 * Sets players
-	 * 
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer> $obj
-	 * @return void
-	 */
-	public function setPlayerscon(Tx_Extbase_Persistence_ObjectStorage $obj) {
-		$this->playerscon = $obj;
-	}
-	
-	/**
-	 * Adds a player
+	 * returns players of team B
 	 *
-	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
-	 * @return void
-	 */
-	public function addPlayerscon(Tx_Ccore_Domain_Model_Matchplayer $player) {
-		$this->playerscon->attach($player);
-	}
-	
-	/**
-	 * Removes a player
-	 *
-	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
-	 * @return void
-	 */
-	public function removePlayerscon(Tx_Ccore_Domain_Model_Matchplayer $player) {
-		$this->playerscon->remove($player);
-	}
-	
-	/**
-	 * @return Tx_Ccore_Domain_Model_Matchplayer
+	 * @return array
 	 */
 	public function getPlayerscon() {
-		return $this->playerscon;
+		$out = array();
+		foreach($this->players as $player) {
+			if($player->getTeam() === true) $out[] = $player;
+		}
+		return $out;
 	}
-
 }
 ?>

@@ -4,13 +4,13 @@ if(!defined('TYPO3_MODE')) die ('Access denied.');
 Tx_Extbase_Utility_Extension::registerPlugin(
 	$_EXTKEY,
 	'Matchlist',
-	'Match List'
+	'ccore :: Match List'
 );
 
 Tx_Extbase_Utility_Extension::registerPlugin(
 	$_EXTKEY,
-	'Ucp',
-	'User Control Panel'
+	'Latestmatch',
+	'ccore :: Last Matches'
 );
 
 if (TYPO3_MODE === 'BE') {
@@ -46,7 +46,7 @@ if (TYPO3_MODE === 'BE') {
 		),
 		array(
 			'access' => 'user,group',
-			'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
+			'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/silk/house.png',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_clanmgmt.xml',
 		)
 	);
@@ -64,7 +64,7 @@ if (TYPO3_MODE === 'BE') {
 		),
 		array(
 			'access' => 'user,group',
-			'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
+			'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/silk/controller_add.png',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_gamemgmt.xml',
 		)
 	);
@@ -82,7 +82,7 @@ if (TYPO3_MODE === 'BE') {
 		),
 		array(
 			'access' => 'user,group',
-			'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
+			'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/silk/user_edit.png',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_usermgmt.xml',
 		)
 	);
@@ -100,7 +100,7 @@ if (TYPO3_MODE === 'BE') {
 		),
 		array(
 			'access' => 'user,group',
-			'icon'   => 'EXT:' . $_EXTKEY . '/ext_icon.gif',
+			'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/silk/medal_gold_2.png',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_matchmgmt.xml',
 		)
 	);
@@ -109,6 +109,7 @@ if (TYPO3_MODE === 'BE') {
 
 
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Clan Core');
+t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/CSS', 'Clan Core (CSS)');
 
 $feuserColumns = array(
 	'txccorepoints' => array(
@@ -178,7 +179,7 @@ $TCA['tx_ccore_domain_model_clan'] = array(
 		'cruser_id' => 'cruser_id',
 		'delete' => 'deleted',
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Clan.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_clan.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/group.png'
 	),
 );
 
@@ -193,7 +194,7 @@ $TCA['tx_ccore_domain_model_game'] = array(
 		'cruser_id' => 'cruser_id',
 		'delete' => 'deleted',
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Game.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_game.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/controller.png'
 	),
 );
 
@@ -214,7 +215,7 @@ $TCA['tx_ccore_domain_model_point'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Point.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_points.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/bullet_purple.png'
 	),
 );
 
@@ -232,7 +233,7 @@ $TCA['tx_ccore_domain_model_gamemode'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Gamemode.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_gamemode.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/bell.png'
 	),
 );
 
@@ -250,7 +251,7 @@ $TCA['tx_ccore_domain_model_map'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Map.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_map.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/map.png'
 	),
 );
 
@@ -277,7 +278,7 @@ $TCA['tx_ccore_domain_model_server'] = array(
 			'endtime' => 'endtime',
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Server.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_server.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/server.png'
 	),
 );
 
@@ -299,7 +300,7 @@ $TCA['tx_ccore_domain_model_match'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Match.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_match.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/medal_gold_2.png'
 	)
 );
 
@@ -317,7 +318,7 @@ $TCA['tx_ccore_domain_model_matchscreenshot'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchscreenshot.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_matchscreenshot.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/picture.png'
 	),
 );
 
@@ -338,7 +339,7 @@ $TCA['tx_ccore_domain_model_matchresult'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchresult.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_matchresult.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/report.png'
 	),
 );
 
@@ -347,8 +348,10 @@ t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_matchplayer');
 $TCA['tx_ccore_domain_model_matchplayer'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchplayer',
-		'label' => 'name',
-		'label_alt' => 'feuser',
+		'label' => 'team',
+		'label_alt' => 'name, feuser',
+		'label_alt_force' => 1,
+		'default_sortby' => 'ORDER BY team',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -357,7 +360,7 @@ $TCA['tx_ccore_domain_model_matchplayer'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchplayer.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_matchplayer.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/user_add.png'
 	),
 );
 
@@ -375,7 +378,7 @@ $TCA['tx_ccore_domain_model_matchcomment'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchcomment.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_matchcomment.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/user_comments.png'
 	)
 );
 
@@ -394,7 +397,7 @@ $TCA['tx_ccore_domain_model_race'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Race.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_ccore_domain_model_race.gif'
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/flag_blue.png'
 	),
 );
 
