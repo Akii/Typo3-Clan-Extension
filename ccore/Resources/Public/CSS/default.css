@@ -1,0 +1,34 @@
+.match_details .match_head > td {
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+
+.match_details .match_head h2 {
+	margin: 5px;
+}
+
+.match_details .match_spacer > td {
+	height: 5px;
+}
+
+.match_round {
+	font-size: 80%;
+}
+
+.match_row > td {
+	border-bottom: 1px solid #666;
+}
+
+.player_row {
+	margin: 5px;
+	font-size: 80%;
+	display: block;
+}
+
+.player_row_right {
+	text-align: right;
+}
+
+.player_row li {
+	list-style: none;
+}

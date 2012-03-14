@@ -1,0 +1,14 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
+<f:if condition="{tablename}">
+	<div class="buttongroup">
+		<vh:action.new pid="{storagePid}" tablename="{tablename}">
+			<vh:icon file="silk/add.png" width="16" height="16" />
+		</vh:action.new>
+		
+		<f:if condition="{uid}">
+			<vh:action.edit uid="{uid}" tablename="{tablename}">
+				<vh:icon file="silk/page_edit.png" width="16" height="16" />
+			</vh:action.edit>
+		</f:if>
+	</div>
+</f:if>

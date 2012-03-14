@@ -1,0 +1,30 @@
+<f:layout name="center_content"/>
+<f:section name="main">
+	<h2 class="myClass">Matches</h2>
+	<f:for each="{matches}" as="match">
+		<div class="row">
+			<div class="date-center"> <f:format.date date="{match.matchdate}" format="d.m.y"/></div>
+			<div class="info-middle">
+				<a href="#">
+					<f:image alt="{match.game.title}" src="uploads/tx_ccore/game/{match.game.logo}" maxHeight="13c" maxWidth="13c"/>
+				</a>
+				<f:link.action action="showMatch" arguments="{match:match}">
+					{match.Titlepro} vs. {match.Titlecon}
+				</f:link.action>
+			</div>
+			<div class="info-center">
+				<f:if condition="{match.endresultPro} == {match.endresultCon}">
+					<font color="#FF6600">{match.endresult}</font>
+				</f:if>
+				
+				<f:if condition="{match.endresultPro} < {match.endresultCon}">
+					<font color="#DD0000">{match.endresult}</font>
+				</f:if>
+				
+				<f:if condition="{match.endresultPro} > {match.endresultCon}">
+					<font color="#00CC00">{match.endresult}</font>
+				</f:if>
+			</div>
+		</div>
+	</f:for>
+</f:section>

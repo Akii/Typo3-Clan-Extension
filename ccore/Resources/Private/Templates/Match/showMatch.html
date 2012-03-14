@@ -1,0 +1,66 @@
+<f:layout name="center_content" />
+<f:section name="main">
+<div class="match_details">
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><f:image id="picPro" title="{match.clanPro.name}" alt="{match.clanPro.name}" src="uploads/tx_ccore/clan/{match.clanPro.logo}" maxHeight="128c" maxWidth="128c"/></td>
+			<td colspan="2" align="center"><h1>vs.</h1></td>
+			<td align="right"><f:image id="picCon" title="{match.clanCon.name}" alt="{match.clanCon.name}" src="uploads/tx_ccore/clan/{match.clanCon.logo}" maxHeight="128c" maxWidth="128c"/></td>
+		</tr>
+		<tr class="match_spacer"><td colspan="4"></td></tr>
+		<tr class="match_head">
+			<td><h2>{match.Titlepro}</h2></td>
+			<td colspan="2" align="center">
+				<f:if condition="{match.endresultPro} == {match.endresultCon}">
+					<font color="#FF6600">{match.endresult}</font>
+				</f:if>
+				
+				<f:if condition="{match.endresultPro} < {match.endresultCon}">
+					<font color="#DD0000">{match.endresult}</font>
+				</f:if>
+				
+				<f:if condition="{match.endresultPro} > {match.endresultCon}">
+					<font color="#00CC00">{match.endresult}</font>
+				</f:if>
+			</td>
+			<td align="right"><h2>{match.Titlecon}</h2></td>
+		</tr>
+		
+		<tr class="match_spacer"><td colspan="4"></td></tr>
+		<f:for each="{match.matchresults}" as="round">
+			<tr class="match_round">
+				<td colspan="3"><h2>{round.mapid.title}</h2></td>
+				<td align="right">
+					<f:if condition="{round.resultpro} == {round.resultcon}">
+						<font color="#FF6600">{round.resultpro}:{round.resultcon}</font>
+					</f:if>
+					
+					<f:if condition="{round.resultpro} < {round.resultcon}">
+						<font color="#DD0000">{round.resultpro}:{round.resultcon}</font>
+					</f:if>
+					
+					<f:if condition="{round.resultpro} > {round.resultcon}">
+						<font color="#00CC00">{round.resultpro}:{round.resultcon}</font>
+					</f:if>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<ul class="player_row">
+						<f:for each="{round.playerspro}" as="players">
+							<li>{players.name}</li>
+						</f:for>
+					</ul>
+				</td>
+				<td colspan="2">
+					<ul class="player_row player_row_right">
+						<f:for each="{round.playerscon}" as="players">
+							<li>{players.name}</li>
+						</f:for>
+					</ul>
+				</td>
+			</tr>
+		</f:for>
+	</table>
+</div>
+</f:section>
