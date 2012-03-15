@@ -1,34 +1,80 @@
-.match_details .match_head > td {
-	border-top: 1px solid #666;
-	border-bottom: 1px solid #666;
+/*
+	SC2 Match
+*/
+.match_sc2 .blue, .match_sc2 a {
+	color: #10588F;
+	font-weight: bold;
+	text-decoration: none;
+}
+.match_sc2 .img_col img {
+	border: 1px solid #EEE;
 }
 
-.match_details .match_head h2 {
-	margin: 5px;
+.match_sc2 .col_left {
+	padding: 0px 5px 0px 0px;
 }
 
-.match_details .match_spacer > td {
-	height: 5px;
+.match_sc2 .col_right {
+	padding: 0px 0px 0px 5px;
 }
 
-.match_round {
+.match_sc2 .head_col td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.match_sc2 .head_col span {
+	font-size: 1.2em;
+}
+
+.match_sc2 .round_col td {
+	border-top: 1px solid #CCC;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.match_sc2 .colored {
+	background-color: #FCFDFF;
+}
+
+.match_sc2 .round_col:last-child td {
+	border-bottom: 1px solid #CCC;
+}
+
+.match_sc2 .center_col {
+	font-weight: bold;
+	background-color: #E1F1FD;
+}
+
+.match_sc2 .players_left, .match_sc2 .players_right {
 	font-size: 80%;
-}
-
-.match_row > td {
-	border-bottom: 1px solid #666;
-}
-
-.player_row {
-	margin: 5px;
-	font-size: 80%;
-	display: block;
-}
-
-.player_row_right {
-	text-align: right;
-}
-
-.player_row li {
 	list-style: none;
+}
+
+.match_sc2 .players_left li span, .match_sc2 .players_right li span {
+	height: 22px;
+	padding-right: 5px;
+	padding-left: 5px;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.match_sc2 .players_left li {
+	width: 100%;
+	float: right;
+	clear: right;
+}
+
+.match_sc2 .players_right li {
+	width: 100%;
+	float: left;
+	clear: left;
+}
+
+.match_sc2 .players_left li img {
+	float: right;
+}
+
+.match_sc2 .players_right li img {
+	float: left;
 }

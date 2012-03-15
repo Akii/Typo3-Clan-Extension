@@ -71,18 +71,43 @@ class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractCo
 	
 	/**
 	 * displays match details
-	 * no need to validate the view, simply redirect to the list instead
+	 * in case no $match is passed, a list is shown
+	 * is a router for custom templates/views like sc2/lol
 	 *
 	 * @param Tx_Ccore_Domain_Model_Match $match
-	 * @dontvalidate $match
 	 * @return void
 	 */
 	public function showMatchAction(Tx_Ccore_Domain_Model_Match $match = NULL) {
-		if($match === null)
-			$this->redirect('matchList');
+		if($match === null) {
+			//$this->flashMessages->add('No match found.*');
+			$this->forward('matchList');
+		}
+		
+		if($match->getGame()->getTag() == "sc2")
+			$this->forward('showSc2Match', null, null, array('match' => $match));
+		//elseif($match->getGame()->getTag() == "sc2")
 		
 		$this->view->assign('match', $match);
 	}
-
+	
+	/**
+	 * custom view for sc2 matches
+	 *
+	 * @param Tx_Ccore_Domain_Model_Match $match
+	 * @return void
+	 */
+	public function showSc2MatchAction(Tx_Ccore_Domain_Model_Match $match) {
+		$this->view->assign('match', $match);
+	}
+	
+	/**
+	 * custom view for LoL matches
+	 *
+	 * @param Tx_Ccore_Domain_Model_Match $match
+	 * @return void
+	 */
+	 public function showLolMatchAction(Tx_Ccore_Domain_Model_Match $match) {
+		$this->view->assign('match', $match);
+	}
 }
 ?>
