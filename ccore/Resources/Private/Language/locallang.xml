@@ -87,8 +87,8 @@
 			<label index="tx_ccore_domain_model_match.report">Matchreport</label>
 			<label index="tx_ccore_domain_model_match.game">Game</label>
 			<label index="tx_ccore_domain_model_match.gamemode">Gamemode</label>
-			<label index="tx_ccore_domain_model_match.clan_pro">Own Clan</label>
-			<label index="tx_ccore_domain_model_match.clan_con">Enemy Clan</label>
+			<label index="tx_ccore_domain_model_match.clan_pro">Team A</label>
+			<label index="tx_ccore_domain_model_match.clan_con">Team B</label>
 			<label index="tx_ccore_domain_model_match.clanwar">Clanwar</label>
 			<label index="tx_ccore_domain_model_match.screenshots">Screenshots</label>
 			<label index="tx_ccore_domain_model_match.comments">Comments</label>
@@ -106,6 +106,8 @@
 			<label index="tx_ccore_domain_model_matchresult.resultcon">Result team B</label>
 			<label index="tx_ccore_domain_model_matchresult.matchid">ID of the match this result belongs to</label>
 			<label index="tx_ccore_domain_model_matchresult.mapid">Map</label>
+			<label index="tx_ccore_domain_model_matchresult.players">Players</label>
+			<label index="tx_ccore_domain_model_matchresult.bans">Bans</label>
 			<label index="tx_ccore_domain_model_matchresult.add_label">Add result</label>
 			<label index="tx_ccore_domain_model_matchresult.edit_label">Edit result</label>
 			<label index="tx_ccore_domain_model_matchresult.delete_label">Delete result</label>

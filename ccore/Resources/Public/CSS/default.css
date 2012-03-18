@@ -1,11 +1,20 @@
 /*
 	SC2 Match
 */
+.match_sc2 {
+	font-size: 1.4em;
+}
 .match_sc2 .blue, .match_sc2 a {
 	color: #10588F;
 	font-weight: bold;
 	text-decoration: none;
 }
+
+.match_sc2 a:hover {
+	font-weight: bold;
+	text-decoration: none;
+}
+
 .match_sc2 .img_col img {
 	border: 1px solid #EEE;
 }
@@ -58,11 +67,46 @@
 	vertical-align: middle;
 	display: table-cell;
 }
-
-.match_sc2 .players_left li {
+/*
+.match_sc2 .maps_right li {
 	width: 100%;
-	float: right;
-	clear: right;
+	float: left;
+	clear: left;
+	border-top: 1px solid #CCC;
+	padding: 2px 0px;
+}
+
+.match_sc2 .maps_right:last-child li {
+	border-bottom: 1px solid #CCC;
+}
+
+.match_sc2 .maps_right li span {
+	height: 32px;
+}*/
+
+.match_sc2 .maps {
+	font-size: 80%;
+}
+
+.match_sc2 .maps tr:first-child td {
+	border-top: 1px solid #CCC;
+}
+
+.match_sc2 .maps tr td {
+	border-bottom: 1px solid #CCC;
+	padding: 2px 0px;
+}
+
+.match_sc2 .maps tr td:nth-child(2) {
+	padding-left: 5px;
+}
+
+.match_sc2 .maps tr td:nth-child(3) {
+	padding-right: 5px;
+}
+
+.match_sc2 .maps tr:hover td {
+	background: #E1F1FD;
 }
 
 .match_sc2 .players_right li {
@@ -77,4 +121,10 @@
 
 .match_sc2 .players_right li img {
 	float: left;
+}
+
+.match_sc2 .screenshots img {
+	border: 1px solid #CCC;
+	padding: 3px;
+	margin: 5px;
 }

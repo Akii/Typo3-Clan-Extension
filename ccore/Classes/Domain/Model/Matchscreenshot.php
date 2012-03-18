@@ -78,6 +78,10 @@ class Tx_Ccore_Domain_Model_Matchscreenshot extends Tx_Extbase_DomainObject_Abst
 	  * @return void
 	  */
 	 public function setCaption($caption) { $this->caption = $caption; }
-	
+	 
+	 /**
+	  * @return string
+	  */
+	 public function getName() { return $this->screenshot; }
 }
 ?>

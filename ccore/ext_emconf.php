@@ -29,7 +29,9 @@ $EM_CONF[$_EXTKEY] = array(
 			'fluid' => ''
 		),
 		'conflicts' => array(),
-		'suggests' => array()
+		'suggests' => array(
+			'perfectlightbox' => ''
+		)
 	)
 );
 ?>

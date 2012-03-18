@@ -66,6 +66,8 @@
 			<label index="tx_ccore_domain_model_matchresult.resultcon">Result B</label>
 			<label index="tx_ccore_domain_model_matchresult.matchid">Match</label>
 			<label index="tx_ccore_domain_model_matchresult.mapid">Map</label>
+			<label index="tx_ccore_domain_model_matchresult.banspro">Bans Team A</label>
+			<label index="tx_ccore_domain_model_matchresult.banscon">Bans Team B</label>
 			<label index="tx_ccore_domain_model_matchresult.playerspro">Players</label>
 			
 			<label index="tx_ccore_domain_model_matchplayer">Matchplayer</label>

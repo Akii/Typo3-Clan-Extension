@@ -59,7 +59,7 @@
 	</tr>
 	<tr>
 		<td><strong>Report:&nbsp;&nbsp;</strong></td>
-		<td width="80%" class="bgColor4">{match.report}&nbsp;</td>
+		<td width="80%" class="bgColor4"><f:format.html>{match.report}</f:format.html>&nbsp;</td>
 	</tr>
 	<tr>
 		<td><strong>Screenshots:&nbsp;&nbsp;</strong></td>
@@ -68,6 +68,10 @@
 	<tr>
 		<td><strong>Comments:&nbsp;&nbsp;</strong></td>
 		<td width="80%" class="bgColor4"><f:count subject="{match.comments}" />&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Result:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{match.Endresult}&nbsp;</td>
 	</tr>
 </table>
 <br/><br/>
@@ -79,6 +83,8 @@
 		<th><f:translate key="tx_ccore_domain_model_matchresult.resultpro" /></th>
 		<th><f:translate key="tx_ccore_domain_model_matchresult.resultcon" /></th>
 		<th><f:translate key="tx_ccore_domain_model_matchresult.mapid" /></th>
+		<th><f:translate key="tx_ccore_domain_model_matchresult.players" /></th>
+		<th><f:translate key="tx_ccore_domain_model_matchresult.bans" /></th>
 		<th><f:translate key="functions" />&nbsp;</th>
 	</tr>
 	<!--<tr class="c-headLine">
@@ -94,33 +100,16 @@
 		<tr class="db_list_normal firstcol">
 			<td colspan="2"> {result.roundnum}</td>
 			<td>
-				<f:if condition="{clan.slogan}">
-					<f:then>{clan.slogan}</f:then>
-					<f:else><f:translate key="general.no_slogan"/></f:else>
-				</f:if>
+				{result.resultpro}
 			</td>
 			<td>
-				<f:if condition="{clan.about}">
-					<f:then>
-						<f:format.crop maxCharacters="80" respectHtml="false">
-							<f:format.stripTags>
-									{clan.about}
-							</f:format.stripTags>
-						</f:format.crop>
-					</f:then>
-					<f:else>	
-						<f:translate key="general.no_about"/>
-					</f:else>
-				</f:if>
+				{result.resultcon}
 			</td>
 			<td>
-				<f:if condition="{clan.logo}">
-					<f:then>
-						<f:image alt="{clan.logo}" src="../uploads/tx_ccore/clan/{clan.logo}" maxHeight="32c" maxWidth="32c"/>
-					</f:then>
-					<f:else><f:translate key="general.no_logo" /></f:else>
-				</f:if>
+				{result.mapid.title}
 			</td>
+			<td><f:count subject="{result.players}" /></td>
+			<td><f:count subject="{result.banspro}" />+<f:count subject="{result.banscon}" /></td>
 			<td align="right">
 				<vh:action.edit uid="{result.uid}" tablename="tx_ccore_domain_model_matchresult">
 					<vh:icon file="silk/page_edit.png" width="16" height="16" />

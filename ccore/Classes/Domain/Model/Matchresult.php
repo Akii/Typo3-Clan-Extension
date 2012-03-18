@@ -67,6 +67,16 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	protected $mapid;
 	
 	/**
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Race>
+	 */
+	protected $banspro;
+	
+	/**
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Race>
+	 */
+	protected $banscon;
+	
+	/**
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
 	 */
 	protected $players;
@@ -145,6 +155,44 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	 */
 	public function setMapid(Tx_Ccore_Domain_Model_Map $mapid) {
 		$this->mapid = $mapid;
+	}
+	
+	/**
+	 * Sets banspro
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Race> $obj
+	 * @return void
+	 */
+	public function setBanspro(Tx_Ccore_Domain_Model_Race $obj) {
+		$this->banspro = $obj;
+	}
+	
+	/**
+	 * Gets banspro
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Race>
+	 */
+	public function getBanspro() {
+		return $this->banspro;
+	}
+	
+	/**
+	 * Sets banscon
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Race> $obj
+	 * @return void
+	 */
+	public function setBanscon(Tx_Ccore_Domain_Model_Race $obj) {
+		$this->banscon = $obj;
+	}
+	
+	/**
+	 * Gets banscon
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Race>
+	 */
+	public function getBanscon() {
+		return $this->banscon;
 	}
 	
 	/**

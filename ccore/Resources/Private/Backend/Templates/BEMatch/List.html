@@ -33,9 +33,9 @@
 		<f:for each="{pagMatches}" as="match">
 			<tr class="db_list_normal firstcol">
 				<td> <f:format.date date="{match.matchdate}" format="d.m.y, H:i" /></td>
-				<td> {match.clanPro.name}</td>
+				<td> {match.Titlepro}</td>
 				<td>&nbsp;vs.&nbsp;</td>
-				<td> {match.clanCon.name}</td>
+				<td> {match.Titlecon}</td>
 				<td> {match.endresult}</td>
 				<td><f:render partial="GameName" arguments="{game : match.game}" /></td>
 				<td> {match.gamemode.name}</td>

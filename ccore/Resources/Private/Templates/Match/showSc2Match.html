@@ -2,6 +2,7 @@
 <f:section name="main">
 <div class="match_details">
 	<div class="match_sc2">
+		<h2 class="myClass">Match details</h2>
 		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr class="img_col">
 				<td colspan="2" align="right" class="col_left">
@@ -59,6 +60,48 @@
 				</tr>
 			</f:for>
 		</table>
+		<!-- match details -->
+		<br/>
+		<h2 class="myClass">Maps played</h2>
+		<div>
+		<table class="maps" cellpadding="0" cellspacing="0" width="100%">
+		<f:for each="{match.matchresults}" as="result">
+			<tr>
+				<td width="64px">
+					<a href="/uploads/tx_ccore/map/{result.mapid.image}" rel="lightbox[lb10]" title="Round {result.roundnum}: {result.mapid.title}">
+						<f:image alt="{result.mapid.title}" src="uploads/tx_ccore/map/{result.mapid.image}" height="32c" width="64c"/>
+					</a>
+				</td>
+				<td>{result.mapid.title}</td>
+				<td align="right" class="colored">
+					<span class="{f:if(condition: '{result.resultpro} > {result.resultcon}', then: 'blue')}">{result.resultpro}</span>
+						:
+					<span class="{f:if(condition: '{result.resultpro} < {result.resultcon}', then: 'blue')}">{result.resultcon}</span>
+				</td>
+			</tr>
+		</f:for>
+		</table>
+		</div>
+		<div style="clear: both"></div>
+		<!-- maps played -->
+		<br/>
+		<h2 class="myClass">Matchreport</h2>
+		<div class="rte_content">
+		<f:format.html>
+			{match.report}
+		</f:format.html>
+		</div>
+		<f:if condition="{f:count(subject: '{match.screenshots}')} > 0">
+			<br/>
+			<h2 class="myClass">Screenshots</h2>
+			<div class="screenshots">
+			<f:for each="{match.screenshots}" as="screenshot">
+				<a href="/uploads/tx_ccore/match/{screenshot.name}" rel="lightbox[lb20]" title="{screenshot.caption}">
+					<f:image alt="{screenshot.caption}" src="uploads/tx_ccore/match/{screenshot.name}" height="64c" width="64c"/>
+				</a>
+			</f:for>
+			</div><!-- screenshots -->
+		</f:if>
 	</div><!-- /match_sc2 -->
 </div>
 </f:section>

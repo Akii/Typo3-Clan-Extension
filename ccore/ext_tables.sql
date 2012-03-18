@@ -232,6 +232,8 @@ CREATE TABLE tx_ccore_domain_model_matchresult (
 	resultpro int(11) DEFAULT '0' NOT NULL,
 	resultcon int(11) DEFAULT '0' NOT NULL,
 	mapid int(11) unsigned DEFAULT '0',
+	banspro tinytext,
+	banscon tinytext,
 	players tinytext,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
