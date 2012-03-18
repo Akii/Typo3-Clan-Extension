@@ -40,6 +40,11 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 	protected $clanwar;
 	
 	/**
+	 * @var boolean
+	 */
+	protected $disableComments;
+	
+	/**
 	 * Date the match takes/took place
 	 *
 	 * @var DateTime
@@ -107,15 +112,6 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 	protected $matchplayers;
 
 	/**
-	 * Returns the matchdate
-	 *
-	 * @return DateTime $matchdate
-	 */
-	public function getMatchdate() {
-		return $this->matchdate;
-	}
-
-	/**
 	 * @return boolean
 	 */
 	public function getClanwar() {
@@ -128,6 +124,30 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
 	 */
 	public function setClanwar($cw) {
 		$this->clanwar = $cw;
+	}
+	
+	/**
+	 * @return boolean
+	 */
+	public function getDisableComments() {
+		return $this->disableComments;
+	}
+	
+	/**
+	 * @param boolean $com
+	 * @return void
+	 */
+	public function setDisableComments($com) {
+		$this->disableComments = $com;
+	}
+	
+	/**
+	 * Returns the matchdate
+	 *
+	 * @return DateTime $matchdate
+	 */
+	public function getMatchdate() {
+		return $this->matchdate;
 	}
 
 	/**

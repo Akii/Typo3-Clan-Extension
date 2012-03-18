@@ -78,63 +78,18 @@ class Tx_Ccore_Controller_BEMatchController extends Tx_Ccore_Controller_Abstract
 		$matches = $this->matchRepository->findAll();
 		$this->view->assign('matches', $matches);
 	}
-	
-	/**
-	 * action new
-	 *
-	 * @param $newMatch
-	 * @dontvalidate $newMatch
-	 * @return void
-	 */
-	public function newAction(Tx_Ccore_Domain_Model_Match $newMatch = NULL) {
-		$this->view->assign('newMatch', $newMatch);
-	}
 
 	/**
-	 * action create
-	 *
-	 * @param $newMatch
-	 * @return void
-	 */
-	public function createAction(Tx_Ccore_Domain_Model_Match $newMatch) {
-		$this->matchRepository->add($newMatch);
-		$this->flashMessageContainer->add('Your new Match was created.');
-		$this->redirect('list');
-	}
-
-	/**
-	 * action edit
+	 * action showScreenshots
 	 *
 	 * @param $match
 	 * @return void
 	 */
-	public function editAction(Tx_Ccore_Domain_Model_Match $match) {
+	public function showScreenshotsAction(Tx_Ccore_Domain_Model_Match $match) {
+		$this->view->assign('tablename', 'tx_ccore_domain_model_match');
+		$this->view->assign('uid', $match->getUid());
+		
 		$this->view->assign('match', $match);
 	}
-
-	/**
-	 * action update
-	 *
-	 * @param $match
-	 * @return void
-	 */
-	public function updateAction(Tx_Ccore_Domain_Model_Match $match) {
-		$this->matchRepository->update($match);
-		$this->flashMessageContainer->add('Your Match was updated.');
-		$this->redirect('list');
-	}
-
-	/**
-	 * action delete
-	 *
-	 * @param $match
-	 * @return void
-	 */
-	public function deleteAction(Tx_Ccore_Domain_Model_Match $match) {
-		$this->matchRepository->remove($match);
-		$this->flashMessageContainer->add('Your Match was removed.');
-		$this->redirect('list');
-	}
-
 }
 ?>

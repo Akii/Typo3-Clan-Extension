@@ -43,6 +43,7 @@
 			
 			<label index="tx_ccore_domain_model_match">Match</label>
 			<label index="tx_ccore_domain_model_match.clanwar">Clanwar</label>
+			<label index="tx_ccore_domain_model_match.disable_comments">Disable comments</label>
 			<label index="tx_ccore_domain_model_match.matchdate">Matchdate</label>
 			<label index="tx_ccore_domain_model_match.lname">League Name</label>
 			<label index="tx_ccore_domain_model_match.llink">League Link</label>

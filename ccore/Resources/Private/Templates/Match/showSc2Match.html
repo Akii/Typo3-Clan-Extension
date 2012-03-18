@@ -85,12 +85,14 @@
 		<div style="clear: both"></div>
 		<!-- maps played -->
 		<br/>
-		<h2 class="myClass">Matchreport</h2>
-		<div class="rte_content">
-		<f:format.html>
-			{match.report}
-		</f:format.html>
-		</div>
+		<f:if condition="{match.report}">
+			<h2 class="myClass">Matchreport</h2>
+			<div class="rte_content">
+			<f:format.html>
+				{match.report}
+			</f:format.html>
+			</div>
+		</f:if>
 		<f:if condition="{f:count(subject: '{match.screenshots}')} > 0">
 			<br/>
 			<h2 class="myClass">Screenshots</h2>
@@ -101,6 +103,10 @@
 				</a>
 			</f:for>
 			</div><!-- screenshots -->
+		</f:if>
+		<f:if condition="{match.disableComments} == 0">
+			<br />
+			<h2 class="myClass">Comments</h2>
 		</f:if>
 	</div><!-- /match_sc2 -->
 </div>

@@ -1,0 +1,30 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="buttonsleft">
+	<div class="buttongroup">
+		<f:link.action controller="BEMatch" action="list">
+			<span class="t3-icon t3-icon-actions t3-icon-actions-document t3-icon-document-close">&nbsp;</span>
+		</f:link.action>
+	</div>
+	<f:render partial="buttonsleft" arguments="{tablename: tablename, storagePid: storagePid, uid: uid}"/>
+</f:section>
+
+<f:section name="docheader">
+	<f:be.menus.actionMenu>
+		<f:be.menus.actionMenuItem label="Details" controller="BEMatch" action="show" arguments="{match: match}" />
+		<f:be.menus.actionMenuItem label="List Screenshots" controller="BEMatch" action="showScreenshots" arguments="{match: match}" />
+		<f:if condition="{match.disableComments} == 0">
+			<f:be.menus.actionMenuItem label="List Comments" controller="BEMatch" action="showComments" arguments="{match: match}" />
+		</f:if>
+	</f:be.menus.actionMenu>
+</f:section>
+
+<f:flashMessages />
+
+<f:section name="content">
+<h2>Screenshots for Match {match.Titlepro} vs. {match.Titlecon}</h2>
+
+
+
+</f:section>

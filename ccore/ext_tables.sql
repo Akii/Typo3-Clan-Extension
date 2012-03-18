@@ -176,6 +176,7 @@ CREATE TABLE tx_ccore_domain_model_match (
 
 	
 	clanwar tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	disable_comments tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	matchdate int(11) DEFAULT '0' NOT NULL,
 	game int(11) unsigned DEFAULT '0',
 	gamemode int(11) unsigned DEFAULT '0',

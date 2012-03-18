@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_match'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_match']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchresults',
+		'showRecordFieldList' => 'hidden, clanwar, disable_comments, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchresults',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden, clanwar, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, --div--;Screenshots, screenshots, --div--;Results, matchresults'),
+		'1' => array('showitem' => 'hidden, clanwar, disable_comments, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, --div--;Screenshots, screenshots, --div--;Results, matchresults'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -25,6 +25,13 @@ $TCA['tx_ccore_domain_model_match'] = array(
 		'clanwar' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.clanwar',
+			'config' => array(
+				'type' => 'check',
+			),
+		),
+		'disable_comments' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.disable_comments',
 			'config' => array(
 				'type' => 'check',
 			),

@@ -12,9 +12,11 @@
 
 <f:section name="docheader">
 	<f:be.menus.actionMenu>
-		<f:be.menus.actionMenuItem label="Details" controller="BEMatch" action="show" arguments="{match : match}" />
-		<f:be.menus.actionMenuItem label="List Screenshots" controller="BEMatch" action="showScreenshots" />
-		<f:be.menus.actionMenuItem label="List Comments" controller="BEMatch" action="showComments" />
+		<f:be.menus.actionMenuItem label="Details" controller="BEMatch" action="show" arguments="{match: match}" />
+		<f:be.menus.actionMenuItem label="List Screenshots" controller="BEMatch" action="showScreenshots" arguments="{match: match}" />
+		<f:if condition="{match.disableComments} == 0">
+			<f:be.menus.actionMenuItem label="List Comments" controller="BEMatch" action="showComments" arguments="{match: match}" />
+		</f:if>
 	</f:be.menus.actionMenu>
 </f:section>
 
@@ -28,6 +30,15 @@
 		<td><strong>Clanwar:&nbsp;&nbsp;</strong></td>
 		<td width="80%" class="bgColor4">
 			<f:if condition="{match.clanwar}">
+				<f:then>true</f:then>
+				<f:else>false</f:else>
+			</f:if>
+		&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Disable Comments:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">
+			<f:if condition="{match.disableComments}">
 				<f:then>true</f:then>
 				<f:else>false</f:else>
 			</f:if>
@@ -59,7 +70,11 @@
 	</tr>
 	<tr>
 		<td><strong>Report:&nbsp;&nbsp;</strong></td>
-		<td width="80%" class="bgColor4"><f:format.html>{match.report}</f:format.html>&nbsp;</td>
+		<td width="80%" class="bgColor4">
+			<div class="rte_content">
+				<f:format.html>{match.report}</f:format.html>
+			</div>
+		&nbsp;</td>
 	</tr>
 	<tr>
 		<td><strong>Screenshots:&nbsp;&nbsp;</strong></td>
