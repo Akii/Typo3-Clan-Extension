@@ -1,0 +1,16 @@
+plugin.tx_mmforumextb {
+	view {
+		# cat=plugin.tx_mmforumextb/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:mm_forum_extb/Resources/Private/Templates/
+		# cat=plugin.tx_mmforumextb/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:mm_forum_extb/Resources/Private/Partials/
+		# cat=plugin.tx_mmforumextb/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:mm_forum_extb/Resources/Private/Layouts/
+		# cat=plugin.tx_mmforumextb/file; type=string; label=Path to CSS files (FE)
+		cssRootPath = EXT:mm_forum_extb/Resources/Public/CSS/
+	}
+	persistence {
+		# cat=plugin.tx_mmforumextb; type=int+; label=Default storage PID
+		storagePid = 8
+	}
+}
