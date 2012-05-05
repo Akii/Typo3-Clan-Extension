@@ -7,10 +7,10 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="changedon.description">Time it was changed</label>
+			<label index="changedon.description">Time the comment was last changed by the user.</label>
 			<label index="comment.description">The comment</label>
-			<label index="feuser.description">fe_user relationship</label>
-			<label index="matchid.description">ID of the match</label>
+			<label index="feuserid.description">FE user</label>
+			<label index="matchid.description">The match this comment was posted on.</label>
 		</languageKey>
 	</data>
 </T3locallang>

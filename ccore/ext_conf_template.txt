@@ -1,2 +1,0 @@
-# cat=page/enable; type=int+; label=UID of the main clan
-mainclan = 0

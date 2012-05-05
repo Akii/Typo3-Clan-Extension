@@ -33,18 +33,6 @@
  *
  */
 class Tx_Ccore_Domain_Repository_MatchRepository extends Tx_Extbase_Persistence_Repository {
-	
-	/**
-	 * Default ordering
-	 *
-	 * @override
-	 */
-	public function findAll() {
-		$query = $this->createQuery();
-		
-		return $query
-			->setOrderings(array('matchdate' => Tx_Extbase_Persistence_Query::ORDER_DESCENDING))
-			->execute();
-	}
+
 }
 ?>

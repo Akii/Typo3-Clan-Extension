@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_clan'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_clan']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'name, tag, slogan, homepage, about, logo',
+		'showRecordFieldList' => 'name, tag, lang, slogan, homepage, about, picture',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name, tag, slogan, homepage, about, logo'),
+		'1' => array('showitem' => 'name, tag, lang, slogan, homepage, about, picture'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -30,6 +30,16 @@ $TCA['tx_ccore_domain_model_clan'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
+				'eval' => 'trim,required'
+			),
+		),
+		'lang' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_clan.lang',
+			'config' => array(
+				'type' => 'input',
+				'size' => 2,
+				'max' => 2,
 				'eval' => 'trim,required'
 			),
 		),
@@ -85,9 +95,9 @@ $TCA['tx_ccore_domain_model_clan'] = array(
 			),
 			'defaultExtras' => 'richtext[]:rte_transform[mode=ts_css]'
 		),
-		'logo' => array(
+		'picture' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_clan.logo',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_clan.picture',
 			'config' => array(
 				'type' => 'group',
 				'internal_type' => 'file',

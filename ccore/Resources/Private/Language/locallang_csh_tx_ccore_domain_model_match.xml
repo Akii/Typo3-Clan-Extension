@@ -7,12 +7,20 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="clanwar.description">If the match is marked as clanwar, the view will display Clan1 vs. Clan2 instead of player1 vs. player2.</label>
-			<label index="matchdate.description">Date the match takes/took place</label>
-			<label index="lname.description">name of the league</label>
+			<label index="disable_comments.description">Disables the comments for this match or clanwar.</label>
+			<label index="matchdate.description">Date the match takes/took place.</label>
+			<label index="leagueid.description">Select an existing league or create a new one.</label>
 			<label index="llink.description">link to the league overview</label>
-			<label index="report.description">Match report</label>
-			<label index="game.description">The game this match took place in</label>
+			<label index="gameid.description">The game this match took place in</label>
+			<label index="gamemodeid.description">The gamemode for this match (1vs1, 2vs2, ...)</label>
+			<label index="clanproid.description">The clan of team A</label>
+			<label index="clanconid.description">The clan of team B</label>
+			<label index="playerproid.description">The player of team A (sc2 1vs1 only)</label>
+			<label index="playerconid.description">The player of team B (sc2 1vs1 only)</label>
+			<label index="rounds.description">Maps played in this match, with results.</label>
+			<label index="clanwarid.description">If this is a child match, the clanwarid is referenced here.</label>
+			<label index="matches.description">If this is a clanwar, child matches are referenced here.</label>
+			<label index="tx_extbase_type.description">Internal (disregard).</label>
 		</languageKey>
 	</data>
 </T3locallang>

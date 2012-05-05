@@ -57,6 +57,7 @@ class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractCo
 	 * @return void
 	 */
 	public function matchListAction() {
+		$this->view->assign('matchDetailPageUid', $this->settings['lastMatches']['matchDetailPage']);
 		$this->view->assign('matches', $this->matchRepository->findAll());
 	}
 	
@@ -78,14 +79,45 @@ class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractCo
 	 * @return void
 	 */
 	public function showMatchAction(Tx_Ccore_Domain_Model_Match $match = NULL) {
+		global $GLOBALS;
+		
 		if($match === null) {
 			//$this->flashMessages->add('No match found.*');
 			$this->forward('matchList');
 		}
 		
+		// Dirty but probably faster than using extbase :)
+		// Fetch the results of all matches played against clan contra
+		$query = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
+			'matchid, SUM(resultpro - resultcon) as result',
+			'tx_ccore_domain_model_matchresult',
+			'matchid IN(SELECT uid FROM tx_ccore_domain_model_match 
+									WHERE clan_con = '. intval($match->getClanCon()) .' 
+									AND game = '. intval($match->getGame()->getUid()) .'
+									AND gamemode = '. intval($match->getGamemode()->getUid()) .')',
+			'matchid'
+		);
+		
+		$won = $lost = $draw = 0;
+		
+		// calculate statistics
+		while($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($query)) {
+			if($row['result'] < 0) {
+				$lost++;
+			} else if($row['result'] == 0) {
+				$draw++;
+			} else {
+				$won++;
+			}
+		}
+		
 		if($match->getGame()->getTag() == "sc2")
-			$this->forward('showSc2Match', null, null, array('match' => $match));
-		//elseif($match->getGame()->getTag() == "sc2")
+			$this->forward('showSc2Match', null, null, array('match' => $match, 'stats' => array('won' => $won, 'lost' => $lost, 'draw' => $draw)));
+		
+		$this->view->assign('won', $won);
+		$this->view->assign('lost', $lost);
+		$this->view->assign('draw', $draw);
+		$this->view->assign('all_matches', $won + $lost + $draw);
 		
 		$this->view->assign('match', $match);
 	}
@@ -94,9 +126,17 @@ class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractCo
 	 * custom view for sc2 matches
 	 *
 	 * @param Tx_Ccore_Domain_Model_Match $match
+	 * @param array $stats
 	 * @return void
 	 */
-	public function showSc2MatchAction(Tx_Ccore_Domain_Model_Match $match) {
+	public function showSc2MatchAction(Tx_Ccore_Domain_Model_Match $match, $stats = null) {
+		extract($stats);
+	
+		$this->view->assign('won', $won);
+		$this->view->assign('lost', $lost);
+		$this->view->assign('draw', $draw);
+		$this->view->assign('all_matches', $won + $lost + $draw);
+		
 		$this->view->assign('match', $match);
 	}
 	

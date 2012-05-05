@@ -41,7 +41,16 @@ class Tx_Ccore_Domain_Model_User extends Tx_Extbase_Domain_Model_FrontendUser {
 	/**
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Point>
 	 */
-	protected $txccorepoints;
+	protected $txCcorePoints;
+	
+	public function __construct() {
+		$this->initStorageObjects();
+	}
+	
+	protected function initStorageObjects() {
+		$this->usergroup 		= new Tx_Extbase_Persistence_ObjectStorage();
+		$this->txCcorePoints 	= new Tx_Extbase_Persistence_ObjectStorage();
+	}
 	
 	/**
 	 * Sets the usergroups. Keep in mind that the property is called "usergroup"
@@ -82,8 +91,8 @@ class Tx_Ccore_Domain_Model_User extends Tx_Extbase_Domain_Model_FrontendUser {
 	 *
 	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Point>
 	 */
-	public function getTxccorepoints() {
-		return $this->txccorepoints;
+	public function getTxCcorePoints() {
+		return $this->txCcorePoints;
 	}
 	
 	/**
@@ -93,7 +102,7 @@ class Tx_Ccore_Domain_Model_User extends Tx_Extbase_Domain_Model_FrontendUser {
 	 */
 	public function getCalcPoints() {
 		$i = 0;
-		foreach($this->txccorepoints as $obj) {
+		foreach($this->txCcorePoints as $obj) {
 			$i += $obj->getValue();
 		}
 		return $i;
@@ -105,8 +114,8 @@ class Tx_Ccore_Domain_Model_User extends Tx_Extbase_Domain_Model_FrontendUser {
 	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Point> $point Obj storage containing the points
 	 * @return void
 	 */
-	public function setTxccorepoints(Tx_Extbase_Persistence_ObjectStorage $point) {
-		$this->txccorepoints = $point;
+	public function setTxCcorePoints(Tx_Extbase_Persistence_ObjectStorage $point) {
+		$this->txCcorePoints = $point;
 	}
 	
 	/**
@@ -115,8 +124,8 @@ class Tx_Ccore_Domain_Model_User extends Tx_Extbase_Domain_Model_FrontendUser {
 	 * @param Tx_Ccore_Domain_Model_Point $point
 	 * @return void
 	 */
-	public function addTxccorepoints(Tx_Ccore_Domain_Model_Point $point) {
-		$this->txccorepoints->attach($point);
+	public function addTxCcorePoints(Tx_Ccore_Domain_Model_Point $point) {
+		$this->txCcorePoints->attach($point);
 	}
 	
 	/**
@@ -125,8 +134,8 @@ class Tx_Ccore_Domain_Model_User extends Tx_Extbase_Domain_Model_FrontendUser {
 	 * @param Tx_Ccore_Domain_Model_Point $point
 	 * @return void
 	 */
-	public function removeTxccorepoints(Tx_Ccore_Domain_Model_Point $point) {
-		$this->txccorepoints->detach($point);
+	public function removeTxCcorePoints(Tx_Ccore_Domain_Model_Point $point) {
+		$this->txCcorePoints->detach($point);
 	}
 }
 ?>

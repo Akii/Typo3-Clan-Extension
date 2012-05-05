@@ -32,15 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_AbstractValueObject {
-
-	/**
-	 * round number 1, 2, 3...
-	 *
-	 * @var integer
-	 * @validate NotEmpty
-	 */
-	protected $roundnum;
+class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * Result home clan
@@ -79,25 +71,16 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	/**
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
 	 */
-	protected $players;
-
-	/**
-	 * Returns the round
-	 *
-	 * @return integer $roundnum
-	 */
-	public function getRoundnum() {
-		return $this->roundnum;
+	protected $matchplayers;
+	
+	public function __construct() {
+		$this->initStorageObjects();
 	}
-
-	/**
-	 * Sets the round
-	 *
-	 * @param integer $roundnum
-	 * @return void
-	 */
-	public function setRoundnum($roundnum) {
-		$this->roundnum = $roundnum;
+	
+	protected function initStorageObjects() {
+		$this->banspro 		= new Tx_Extbase_Persistence_ObjectStorage();
+		$this->banscon 		= new Tx_Extbase_Persistence_ObjectStorage();
+		$this->matchplayers = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -141,7 +124,7 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	/**
 	 * Returns the mapid
 	 *
-	 * @return Tx_Ccore_Domain_Model_Map $mapid
+	 * @return Tx_Ccore_Domain_Model_Map
 	 */
 	public function getMapid() {
 		return $this->mapid;
@@ -196,13 +179,13 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	}
 	
 	/**
-	 * Sets players
+	 * Sets matchplayers
 	 * 
 	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer> $obj
 	 * @return void
 	 */
-	public function setPlayers(Tx_Extbase_Persistence_ObjectStorage $obj) {
-		$this->players = $obj;
+	public function setMatchplayers(Tx_Extbase_Persistence_ObjectStorage $obj) {
+		$this->matchplayers = $obj;
 	}
 	
 	/**
@@ -211,8 +194,8 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
 	 * @return void
 	 */
-	public function addPlayers(Tx_Ccore_Domain_Model_Matchplayer $player) {
-		$this->players->attach($player);
+	public function addMatchplayers(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->matchplayers->attach($player);
 	}
 	
 	/**
@@ -221,41 +204,48 @@ class Tx_Ccore_Domain_Model_Matchresult extends Tx_Extbase_DomainObject_Abstract
 	 * @param Tx_Ccore_Domain_Model_Matchplayer $player
 	 * @return void
 	 */
-	public function removePlayers(Tx_Ccore_Domain_Model_Matchplayer $player) {
-		$this->players->remove($player);
+	public function removeMatchplayers(Tx_Ccore_Domain_Model_Matchplayer $player) {
+		$this->matchplayers->detach($player);
 	}
 	
 	/**
 	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Ccore_Domain_Model_Matchplayer>
 	 */
 	public function getPlayers() {
-		return $this->players;
+		return $this->matchplayers;
 	}
 	
 	/**
-	 * returns players of team A
+	 * @see Matchdata.getResult()
 	 *
-	 * @return array
+	 * @return int
 	 */
-	public function getPlayerspro() {
-		$out = array();
-		foreach($this->players as $player) {
-			if($player->getTeam() === false) $out[] = $player;
-		}
-		return $out;
-	}
-	
-	/**
-	 * returns players of team B
-	 *
-	 * @return array
-	 */
-	public function getPlayerscon() {
-		$out = array();
-		foreach($this->players as $player) {
-			if($player->getTeam() === true) $out[] = $player;
-		}
-		return $out;
-	}
+    public function getResult() { return $this->resultpro - $this->resultcon; }
+    
+    /**
+     * returns all players from team A
+     *
+     * @return array
+     */
+    public function getPlayerspro() {
+        $out = array();
+        foreach($this->matchplayers as $player) {
+            if($player->getTeam() == 0) $out[] = $player;
+        }
+        return $out;
+    }
+    
+    /**
+     * returns all players from team B
+     *
+     * @return array
+     */
+    public function getPlayerscon() {
+        $out = array();
+        foreach($this->matchplayers as $player) {
+            if($player->getTeam() == 1) $out[] = $player;
+        }
+        return $out;
+    }
 }
 ?>

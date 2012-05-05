@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_map'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_map']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, title, description, image, download, game, modes',
+		'showRecordFieldList' => 'hidden, title, description, picture, picture_big, download, gameid, modes',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden, title, description, image, download, game, modes'),
+		'1' => array('showitem' => 'hidden, title, description, picture, picture_big, download, gameid, modes'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -53,9 +53,22 @@ $TCA['tx_ccore_domain_model_map'] = array(
 			),
 			'defaultExtras' => 'richtext[]:rte_transform[mode=ts_css]'
 		),
-		'image' => array(
+		'picture' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_map.image',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_map.picture',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'uploadfolder' => 'uploads/tx_ccore/map',
+				'show_thumbs' => 1,
+				'size' => 5,
+				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'disallowed' => '',
+			),
+		),
+		'picture_big' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_map.picture_big',
 			'config' => array(
 				'type' => 'group',
 				'internal_type' => 'file',
@@ -85,9 +98,9 @@ $TCA['tx_ccore_domain_model_map'] = array(
 				)
 			),
 		),
-		'game' => array(
+		'gameid' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_map.game',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_map.gameid',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_ccore_domain_model_game',

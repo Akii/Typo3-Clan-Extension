@@ -32,12 +32,17 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Ccore_Domain_Model_Race extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Tx_Ccore_Domain_Model_Race extends Tx_Extbase_DomainObject_AbstractEntity {
 	
 	/**
 	 * @var string
 	 */
 	protected $picture;
+	
+	/**
+	 * @var string
+	 */
+	protected $pictureBig;
 	
 	/**
 	 * @var string
@@ -54,6 +59,21 @@ class Tx_Ccore_Domain_Model_Race extends Tx_Extbase_DomainObject_AbstractValueOb
 	 * @return void
 	 */
 	public function setPicture($pic) { $this->picture = $pic; }
+	
+	/**
+	 * Gets pictureBig
+	 *
+	 * @return string
+	 */
+	public function getPictureBig() { return $this->pictureBig; }
+	
+	/**
+	 * Sets pictureBig
+	 *
+	 * @param string $picture
+	 * @return void
+	 */
+	public function setPictureBig($picture) { $this->pictureBig = $picture; }
 	
 	/**
 	 * @return string

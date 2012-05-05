@@ -10,7 +10,7 @@
 			<label index="title.description">Title (name) of the game</label>
 			<label index="tag.description">Short name for the game (e.g. sc2) </label>
 			<label index="description.description">Description of the game</label>
-			<label index="logo.description">Logo of the game</label>
+			<label index="picture.description">Logo of the game</label>
 		</languageKey>
 	</data>
 </T3locallang>

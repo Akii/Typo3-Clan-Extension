@@ -7,7 +7,8 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-			<label index="picture.description">A picture of the race/character</label>
+			<label index="picture.description">A small picture to show in the matches.</label>
+			<label index="picture_big.description">A bigger picture to display details.</label>
 			<label index="caption.description">A caption</label>
 		</languageKey>
 	</data>

@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_matchcomment'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_matchcomment']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, createdon, changedon, comment, feuser, matchid',
+		'showRecordFieldList' => 'hidden, matchid, feuserid, changedon, comment',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden;;1, createdon, changedon, comment, feuser, matchid'),
+		'1' => array('showitem' => 'hidden;;1, matchid, feuserid, changedon, comment'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -22,16 +22,25 @@ $TCA['tx_ccore_domain_model_matchcomment'] = array(
 				'type' => 'check',
 			),
 		),
-		'createdon' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchcomment.createdon',
+		'matchid' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchcomment.matchid',
 			'config' => array(
-				'type' => 'input',
-				'size' => 12,
-				'max' => 20,
-				'eval' => 'datetime',
-				'checkbox' => 1,
-				'default' => time()
+				'type' => 'select',
+				'foreign_table' => 'tx_ccore_domain_model_match',
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
+		),
+		'feuserid' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchcomment.feuserid',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'fe_users',
+				//'foreign_table_where' => 'AND fe_users.pid=###CURRENT_PID### ORDER BY fe_users.uid',
+				'minitems' => 0,
+				'maxitems' => 1,
 			),
 		),
 		'changedon' => array(
@@ -67,27 +76,6 @@ $TCA['tx_ccore_domain_model_matchcomment'] = array(
 	      		),
 			),
 			'defaultExtras' => 'richtext[]:rte_transform[mode=ts_css]'
-		),
-		'feuser' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchcomment.feuser',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'fe_users',
-				'foreign_table_where' => 'AND fe_users.pid=###CURRENT_PID### ORDER BY fe_users.uid',
-				'minitems' => 0,
-				'maxitems' => 1,
-			),
-		),
-		'matchid' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchcomment.matchid',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_ccore_domain_model_match',
-				'minitems' => 0,
-				'maxitems' => 1,
-			),
 		),
 	),
 );

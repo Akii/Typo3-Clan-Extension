@@ -9,85 +9,91 @@
 			<label index="tx_ccore_domain_model_clan">Clan</label>
 			<label index="tx_ccore_domain_model_clan.name">Name</label>
 			<label index="tx_ccore_domain_model_clan.tag">Tag</label>
+			<label index="tx_ccore_domain_model_clan.lang">Language</label>
 			<label index="tx_ccore_domain_model_clan.slogan">Slogan</label>
 			<label index="tx_ccore_domain_model_clan.about">About</label>
-			<label index="tx_ccore_domain_model_clan.logo">Logo</label>
+			<label index="tx_ccore_domain_model_clan.picture">Logo</label>
 			<label index="tx_ccore_domain_model_clan.homepage">Homepage</label>
 			
 			<label index="tx_ccore_domain_model_game">Game</label>
 			<label index="tx_ccore_domain_model_game.title">Title</label>
 			<label index="tx_ccore_domain_model_game.tag">Tag</label>
 			<label index="tx_ccore_domain_model_game.description">Description</label>
-			<label index="tx_ccore_domain_model_game.logo">Logo</label>
-			
-			<label index="tx_ccore_domain_model_points">Points</label>
-			<label index="tx_ccore_domain_model_points.feuserid">Feuserid</label>
-			<label index="tx_ccore_domain_model_points.note">Note</label>
-			<label index="tx_ccore_domain_model_points.value">Value</label>
+			<label index="tx_ccore_domain_model_game.picture">Logo</label>
 			
 			<label index="tx_ccore_domain_model_gamemode">Gamemode</label>
 			<label index="tx_ccore_domain_model_gamemode.name">Name</label>
 			
+			<label index="tx_ccore_domain_model_points">Points</label>
+			<label index="tx_ccore_domain_model_points.feuserid">FE User</label>
+			<label index="tx_ccore_domain_model_points.note">Note</label>
+			<label index="tx_ccore_domain_model_points.value">Value</label>
+			
+			<label index="tx_ccore_domain_model_league">League</label>
+			<label index="tx_ccore_domain_model_league.lname">League Name</label>
+			
 			<label index="tx_ccore_domain_model_map">Map</label>
 			<label index="tx_ccore_domain_model_map.title">Title</label>
 			<label index="tx_ccore_domain_model_map.description">Description</label>
-			<label index="tx_ccore_domain_model_map.image">Image</label>
+			<label index="tx_ccore_domain_model_map.picture">Small Picture</label>
+			<label index="tx_ccore_domain_model_map.picture_big">Large Picture</label>
 			<label index="tx_ccore_domain_model_map.download">Download</label>
-			<label index="tx_ccore_domain_model_map.game">Game</label>
+			<label index="tx_ccore_domain_model_map.gameid">Game</label>
 			<label index="tx_ccore_domain_model_map.modes">Modes</label>
 			
-			<label index="tx_ccore_domain_model_server">Server</label>
-			<label index="tx_ccore_domain_model_server.name">Name</label>
-			<label index="tx_ccore_domain_model_server.ip">Ip</label>
-			<label index="tx_ccore_domain_model_server.game">Game</label>
+			<label index="tx_ccore_domain_model_matchdata">Matchdata</label>
+			<label index="tx_ccore_domain_model_matchdata.disable_comments">Disable comments</label>
+			<label index="tx_ccore_domain_model_matchdata.matchdate">Matchdate</label>
+			<label index="tx_ccore_domain_model_matchdata.matchtype">Match Type</label>
+			<label index="tx_ccore_domain_model_matchdata.leagueid">League</label>
+			<label index="tx_ccore_domain_model_matchdata.llink">League Link</label>
+			<label index="tx_ccore_domain_model_matchdata.gameid">Game</label>
+			<label index="tx_ccore_domain_model_matchdata.clanproid">Clan Team A</label>
+			<label index="tx_ccore_domain_model_matchdata.clanconid">Clan Team B</label>
+			<label index="tx_ccore_domain_model_matchdata.matches">Child-Matches</label>http://9gag.com/gag/4053108
+			<label index="tx_ccore_domain_model_matchdata.comments">Comments</label>
+			<label index="tx_ccore_domain_model_matchdata.div_matches">Matches</label>
+			
 			
 			<label index="tx_ccore_domain_model_match">Match</label>
-			<label index="tx_ccore_domain_model_match.clanwar">Clanwar</label>
-			<label index="tx_ccore_domain_model_match.disable_comments">Disable comments</label>
-			<label index="tx_ccore_domain_model_match.matchdate">Matchdate</label>
-			<label index="tx_ccore_domain_model_match.lname">League Name</label>
-			<label index="tx_ccore_domain_model_match.llink">League Link</label>
-			<label index="tx_ccore_domain_model_match.report">Report</label>
-			<label index="tx_ccore_domain_model_match.game">Game</label>
-			<label index="tx_ccore_domain_model_match.gamemode">Gamemode</label>
-			<label index="tx_ccore_domain_model_match.clan_pro">Own Clan</label>
-			<label index="tx_ccore_domain_model_match.clan_con">Enemy Clan</label>
-			<label index="tx_ccore_domain_model_match.screenshots">Screenshots</label>
-			<label index="tx_ccore_domain_model_match.matchresults">Results</label>
-			<label index="tx_ccore_domain_model_match.matchplayers">Participating Players</label>
-			
-			<label index="tx_ccore_domain_model_matchscreenshot">Match Screenshot</label>
-			<label index="tx_ccore_domain_model_matchscreenshot.matchid">Match</label>
-			<label index="tx_ccore_domain_model_matchscreenshot.screenshot">Screenshot</label>
-			<label index="tx_ccore_domain_model_matchscreenshot.caption">Caption</label>
+			<label index="tx_ccore_domain_model_match.matchdataid">Matchdata</label>
+			<label index="tx_ccore_domain_model_match.gamemodeid">Gamemode</label>
+			<label index="tx_ccore_domain_model_match.playerproid">Player Team A</label>
+			<label index="tx_ccore_domain_model_match.playerconid">Player Team B</label>
+			<label index="tx_ccore_domain_model_match.rounds">Rounds</label>
+			<label index="tx_ccore_domain_model_match.tx_extbase_type">Type of object (disregard)</label>
+			<label index="tx_ccore_domain_model_match.div_internal">Internal (disregard)</label>
 			
 			<label index="tx_ccore_domain_model_matchresult">Matchresult</label>
-			<label index="tx_ccore_domain_model_matchresult.roundnum">Round</label>
-			<label index="tx_ccore_domain_model_matchresult.resultpro">Result A</label>
-			<label index="tx_ccore_domain_model_matchresult.resultcon">Result B</label>
-			<label index="tx_ccore_domain_model_matchresult.matchid">Match</label>
+			<label index="tx_ccore_domain_model_matchresult.resultpro">Result Team A</label>
+			<label index="tx_ccore_domain_model_matchresult.resultcon">Result Team B</label>
+			<label index="tx_ccore_domain_model_matchresult.matchid">Corresponding Match</label>
 			<label index="tx_ccore_domain_model_matchresult.mapid">Map</label>
 			<label index="tx_ccore_domain_model_matchresult.banspro">Bans Team A</label>
 			<label index="tx_ccore_domain_model_matchresult.banscon">Bans Team B</label>
-			<label index="tx_ccore_domain_model_matchresult.playerspro">Players</label>
+			<label index="tx_ccore_domain_model_matchresult.matchplayers">Players</label>
 			
 			<label index="tx_ccore_domain_model_matchplayer">Matchplayer</label>
-			<label index="tx_ccore_domain_model_matchplayer.name">Name</label>
+			<label index="tx_ccore_domain_model_matchplayer.resultid">Result</label>
+			<label index="tx_ccore_domain_model_matchplayer.playerid">Player</label>
 			<label index="tx_ccore_domain_model_matchplayer.race">Race/Character</label>
-			<label index="tx_ccore_domain_model_matchplayer.languagetag">Language</label>
 			<label index="tx_ccore_domain_model_matchplayer.team">Team</label>
-			<label index="tx_ccore_domain_model_matchplayer.feuser">Feuser</label>
-			<label index="tx_ccore_domain_model_matchplayer.resultid">Resultid</label>
+			
+			
+			<label index="tx_ccore_domain_model_player">Player</label>
+			<label index="tx_ccore_domain_model_player.name">Playername</label>
+			<label index="tx_ccore_domain_model_player.languagetag">Languagetag</label>
+			<label index="tx_ccore_domain_model_player.feuserid">FE User</label>
 			
 			<label index="tx_ccore_domain_model_matchcomment">Match comment</label>
-			<label index="tx_ccore_domain_model_matchcomment.createdon">Created on</label>
+			<label index="tx_ccore_domain_model_matchcomment.matchid">Match</label>
+			<label index="tx_ccore_domain_model_matchcomment.feuserid">FE User</label>
 			<label index="tx_ccore_domain_model_matchcomment.changedon">Changed on</label>
 			<label index="tx_ccore_domain_model_matchcomment.comment">Comment</label>
-			<label index="tx_ccore_domain_model_matchcomment.feuser">User</label>
-			<label index="tx_ccore_domain_model_matchcomment.matchid">Match</label>
 			
 			<label index="tx_ccore_domain_model_race">Race / Character</label>
-			<label index="tx_ccore_domain_model_race.picture">A picture</label>
+			<label index="tx_ccore_domain_model_race.picture">Small Picture</label>
+			<label index="tx_ccore_domain_model_race.picture_big">Big Picture</label>
 			<label index="tx_ccore_domain_model_race.caption">Caption</label>
 			
 			

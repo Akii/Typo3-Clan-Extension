@@ -32,14 +32,14 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Ccore_Domain_Model_Matchcomment extends Tx_Extbase_DomainObject_AbstractValueObject {
-	
+class Tx_Ccore_Domain_Model_Matchcomment extends Tx_Extbase_DomainObject_AbstractEntity {
+
 	/**
-	 * Time it was created
+	 * fe_userid relationship
 	 *
-	 * @var DateTime
+	 * @var Tx_Ccore_Domain_Model_User
 	 */
-	protected $createdon;
+	protected $feuserid;
 	
 	/**
 	 * Time it was changed
@@ -55,34 +55,26 @@ class Tx_Ccore_Domain_Model_Matchcomment extends Tx_Extbase_DomainObject_Abstrac
 	 * @validate NotEmpty
 	 */
 	protected $comment;
-
+	
 	/**
-	 * fe_user relationship
+	 * Get User who wrote the comment
 	 *
-	 * @var string
+	 * @return Tx_Ccore_Domain_Model_User
 	 */
-	protected $feuser;
-
+	public function getFeuserid() { return $this->feuserid; }
+	
 	/**
-	 * ID of the match
+	 * Sets feuserid
 	 *
-	 * @var Tx_Ccore_Domain_Model_Match
-	 */
-	protected $matchid;
-
-	/**
-	 * __construct
-	 *
+	 * @param Tx_Ccore_Domain_Model_User $user
 	 * @return void
 	 */
-	public function __construct() {
-
-	}
+	public function setFeuserid(Tx_Ccore_Domain_Model_User $user) { $this->feuserid = $user; }
 
 	/**
 	 * Returns the changedon
 	 *
-	 * @return DateTime $changedon
+	 * @return DateTime
 	 */
 	public function getChangedon() {
 		return $this->changedon;
@@ -101,7 +93,7 @@ class Tx_Ccore_Domain_Model_Matchcomment extends Tx_Extbase_DomainObject_Abstrac
 	/**
 	 * Returns the comment
 	 *
-	 * @return string $comment
+	 * @return string
 	 */
 	public function getComment() {
 		return $this->comment;
@@ -116,44 +108,5 @@ class Tx_Ccore_Domain_Model_Matchcomment extends Tx_Extbase_DomainObject_Abstrac
 	public function setComment($comment) {
 		$this->comment = $comment;
 	}
-
-	/**
-	 * Returns the feuser
-	 *
-	 * @return string $feuser
-	 */
-	public function getFeuser() {
-		return $this->feuser;
-	}
-
-	/**
-	 * Sets the feuser
-	 *
-	 * @param string $feuser
-	 * @return void
-	 */
-	public function setFeuser($feuser) {
-		$this->feuser = $feuser;
-	}
-
-	/**
-	 * Returns the matchid
-	 *
-	 * @return Tx_Ccore_Domain_Model_Match $matchid
-	 */
-	public function getMatchid() {
-		return $this->matchid;
-	}
-
-	/**
-	 * Sets the matchid
-	 *
-	 * @param Tx_Ccore_Domain_Model_Match $matchid
-	 * @return void
-	 */
-	public function setMatchid(Tx_Ccore_Domain_Model_Match $matchid) {
-		$this->matchid = $matchid;
-	}
-
 }
 ?>

@@ -61,18 +61,8 @@ class Tx_Ccore_Domain_Model_Game extends Tx_Extbase_DomainObject_AbstractEntity 
 	 * Logo of the game
 	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
-	protected $logo;
-
-	/**
-	 * __construct
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-
-	}
+	protected $picture;
 
 	/**
 	 * Returns the title
@@ -132,22 +122,22 @@ class Tx_Ccore_Domain_Model_Game extends Tx_Extbase_DomainObject_AbstractEntity 
 	}
 
 	/**
-	 * Returns the logo
+	 * Returns the picture
 	 *
-	 * @return string $logo
+	 * @return string
 	 */
-	public function getLogo() {
-		return $this->logo;
+	public function getPicture() {
+		return $this->picture;
 	}
 
 	/**
-	 * Sets the logo
+	 * Sets the picture
 	 *
-	 * @param string $logo
+	 * @param string $picture
 	 * @return void
 	 */
-	public function setLogo($logo) {
-		$this->logo = $logo;
+	public function setPicture($picture) {
+		$this->picture = $picture;
 	}
 
 }

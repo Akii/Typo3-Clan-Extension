@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_race'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_race']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, picture, caption',
+		'showRecordFieldList' => 'hidden, picture, picture_big, caption',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden, picture, caption'),
+		'1' => array('showitem' => 'hidden, picture, picture_big, caption'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -25,6 +25,19 @@ $TCA['tx_ccore_domain_model_race'] = array(
 		'picture' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_race.picture',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'uploadfolder' => 'uploads/tx_ccore/race',
+				'show_thumbs' => 1,
+				'size' => 5,
+				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'disallowed' => '',
+			),
+		),
+		'picture_big' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_race.picture_big',
 			'config' => array(
 				'type' => 'group',
 				'internal_type' => 'file',

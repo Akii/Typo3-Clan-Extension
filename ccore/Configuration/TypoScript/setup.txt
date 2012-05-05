@@ -1,4 +1,12 @@
 plugin.tx_ccore {
+	settings {
+		ccore {
+			mainClan = {$plugin.tx_ccore.settings.ccore.mainClan}
+		}
+		lastMatches {
+			matchDetailPage = {$plugin.tx_ccore.settings.lastMatches.matchDetailPage}
+		}
+	}
 	view {
 		templateRootPath = {$plugin.tx_ccore.view.templateRootPath}
 		partialRootPath = {$plugin.tx_ccore.view.partialRootPath}
@@ -24,6 +32,11 @@ plugin.tx_ccore {
 }
 
 module.tx_ccore {
+	settings {
+		ccore {
+			mainClan = {$module.tx_ccore.settings.ccore.mainClan}
+		}
+	}
 	persistence {
 		storagePid = {$module.tx_ccore.persistence.storagePid}
 	}
@@ -45,6 +58,34 @@ module.tx_ccore {
 		    Tx_Ccore_Domain_Model_User {
 		    	mapping {
 		    		tableName = fe_users
+		    	}
+		    }
+		    
+		    Tx_Ccore_Domain_Model_Match_Basic {
+		    	mapping {
+		    		tableName = tx_ccore_domain_model_match
+		    		recordType = Tx_Ccore_Domain_Model_Match_Basic
+		    	}
+		    }
+		    
+		    Tx_Ccore_Domain_Model_Match_Clanwar {
+		    	mapping {
+		    		tableName = tx_ccore_domain_model_match
+		    		recordType = Tx_Ccore_Domain_Model_Match_Clanwar
+		    	}
+		    }
+		    
+		    Tx_Ccore_Domain_Model_Match_Cwmatch {
+		    	mapping {
+		    		tableName = tx_ccore_domain_model_match
+		    		recordType = Tx_Ccore_Domain_Model_Match_Cwmatch
+		    	}
+		    }
+		    
+		    Tx_Ccore_Domain_Model_Match_Match {
+		    	mapping {
+		    		tableName = tx_ccore_domain_model_match
+		    		recordType = Tx_Ccore_Domain_Model_Match_Match
 		    	}
 		    }
 		}

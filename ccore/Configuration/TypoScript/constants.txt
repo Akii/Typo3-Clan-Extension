@@ -1,4 +1,14 @@
 plugin.tx_ccore {
+	settings {
+		ccore {
+			# type=string; label=Own clan, to prevent stupid mistakes (kinda)
+			mainClan = 0
+		}
+		lastMatches {
+			# type=string; label=Page where the match details are displayed
+			matchDetailPage = 0
+		}
+	}
 	view {
 		# cat=plugin.tx_ccore/file; type=string; label=Path to template root (FE)
 		templateRootPath = EXT:ccore/Resources/Private/Templates/
@@ -16,6 +26,12 @@ plugin.tx_ccore {
 }
 
 module.tx_ccore {
+	settings {
+		ccore {
+			# type=string; label=Own clan, to prevent stupid mistakes (kinda)
+			mainClan = 0
+		}
+	}
 	view {
 		# cat=module.tx_ccore/file; type=string; label=Path to template root (BE)
 		templateRootPath = EXT:ccore/Resources/Private/Backend/Templates/

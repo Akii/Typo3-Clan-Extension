@@ -1,0 +1,67 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="buttonsleft">
+	<f:render partial="buttonsleft" arguments="{tablename: tablename, storagePid: storagePid, uid: uid}"/>
+</f:section>
+
+<f:section name="docheader">
+</f:section>
+
+<f:section name="content">
+
+<h2><f:translate key="matches.match_header" /></h2>
+
+<f:flashMessages />
+
+<table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+	<tr class="t3-row-header">
+		<th>&nbsp;<f:translate key="matches.matchdate" /></th>
+		<th><f:translate key="matches.matchtype" /></th>
+		<th><f:translate key="matches.clan_pro" /></th>
+		<th></th>
+		<th><f:translate key="matches.clan_con" /></th>
+		<th><f:translate key="matches.result" /></th>
+		<th><f:translate key="matches.game" /></th>
+		<th><f:translate key="matches.comments" /></th>
+		<th><f:translate key="matches.matches" /></th>
+		<th><f:translate key="matches.rounds" /></th>
+		<th><f:translate key="functions" /></th>
+	</tr>
+
+	<f:widget.paginate objects="{matchdata}" as="pagMatches" configuration="{itemsPerPage: 250, insertAbove: 0, insertBelow: 0}">
+		<f:for each="{pagMatches}" as="match">
+			<tr class="db_list_normal firstcol">
+				<td> <f:format.date date="{match.matchdate}" format="d.m.y, H:i" /></td>
+				<td><f:render partial="Matchtype" arguments="{matchtype : match.matchtype}"/></td>
+				<td> {match.Titlepro}</td>
+				<td>&nbsp;vs.&nbsp;</td>
+				<td> {match.Titlecon}</td>
+				<td>
+                    <f:render partial="Matchresult" arguments="{result : '{match.result}', resultStr : '{match.resultStr}'}" />
+				</td>
+				<td><f:render partial="GameName" arguments="{game : match.gameid}" /></td>
+				<td>
+				    <f:if condition="{match.disableComments}">
+				        <f:then><f:translate key="general.disabled" /></f:then>
+				        <f:else><f:count subject="{match.comments}" /></f:else>
+				    </f:if>
+				</td>
+				<td><f:count subject="{match.matches}"/></td>
+				<td>{match.roundNum}</td>
+				<td align="right">
+					<f:link.action action="show" arguments="{match : match}"  title="{f:translate(key: 'tx_ccore_domain_model_match.view_label')}">
+				        <vh:icon file="silk/magnifier.png" width="16" height="16" />
+					</f:link.action>
+					<vh:action.edit uid="{match.uid}" tablename="tx_ccore_domain_model_matchdata">
+                        <vh:icon file="silk/page_edit.png" width="16" height="16" />
+					</vh:action.edit>
+					<vh:action.delete uid="{match.uid}" tablename="tx_ccore_domain_model_matchdata">
+						<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+					</vh:action.delete>&nbsp;
+				</td>
+			</tr>
+		</f:for>
+	</f:widget.paginate>
+</table>
+</f:section>

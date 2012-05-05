@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_game'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_game']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'title, tag, description, logo',
+		'showRecordFieldList' => 'title, tag, description, picture',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'title, tag, description, logo'),
+		'1' => array('showitem' => 'title, tag, description, picture'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -55,9 +55,9 @@ $TCA['tx_ccore_domain_model_game'] = array(
 			),
 			'defaultExtras' => 'richtext[]:rte_transform[mode=ts_css]'
 		),
-		'logo' => array(
+		'picture' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_game.logo',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_game.picture',
 			'config' => array(
 				'type' => 'group',
 				'internal_type' => 'file',

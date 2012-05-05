@@ -46,8 +46,17 @@ class Tx_Ccore_Domain_Model_Clan extends Tx_Extbase_DomainObject_AbstractEntity 
 	 * Clantag
 	 *
 	 * @var string
+	 * @validate NotEmpty
 	 */
 	protected $tag;
+
+	/**
+	 * Language
+	 *
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $lang;
 
 	/**
 	 * A slogan
@@ -55,6 +64,13 @@ class Tx_Ccore_Domain_Model_Clan extends Tx_Extbase_DomainObject_AbstractEntity 
 	 * @var string
 	 */
 	protected $slogan;
+
+	/**
+	 * The clans homepage
+	 *
+	 * @var string
+	 */
+	protected $homepage;
 
 	/**
 	 * Information about the clan
@@ -67,24 +83,8 @@ class Tx_Ccore_Domain_Model_Clan extends Tx_Extbase_DomainObject_AbstractEntity 
 	 * Logo of the clan
 	 *
 	 * @var string
-	 * @dontvalidate $logo
 	 */
-	protected $logo;
-	
-	/**
-	 * Is the main clan
-	 *
-	 * @var boolean
-	 */
-	protected $mainclan;
-
-	/**
-	 * __construct
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-	}
+	protected $picture;
 	
 	/**
 	 * Returns the name
@@ -123,11 +123,31 @@ class Tx_Ccore_Domain_Model_Clan extends Tx_Extbase_DomainObject_AbstractEntity 
 	public function setTag($tag) {
 		$this->tag = $tag;
 	}
+	
+	/**
+	 * Returns the language
+	 *
+	 * @return string
+	 */
+	public function getLang() {
+		return $this->lang;
+	}
+
+	/**
+	 * Sets the language
+	 *
+	 * @param string $lang
+	 * @validate StringLength(maximum=2)
+	 * @return void
+	 */
+	public function setLang($lang) {
+		$this->lang = $lang;
+	}
 
 	/**
 	 * Returns the slogan
 	 *
-	 * @return string $slogan
+	 * @return string
 	 */
 	public function getSlogan() {
 		return $this->slogan;
@@ -142,6 +162,21 @@ class Tx_Ccore_Domain_Model_Clan extends Tx_Extbase_DomainObject_AbstractEntity 
 	public function setSlogan($slogan) {
 		$this->slogan = $slogan;
 	}
+	
+	/**
+	 * Gets the homepage
+	 *
+	 * @return string
+	 */
+	public function getHomepage() { return $this->homepage; }
+	
+	/**
+	 * Sets the homepage
+	 *
+	 * @param string $homepage
+	 * @return void
+	 */
+	public function setHomepage($homepage) { $this->homepage = $homepage; }
 
 	/**
 	 * Returns the about
@@ -163,37 +198,22 @@ class Tx_Ccore_Domain_Model_Clan extends Tx_Extbase_DomainObject_AbstractEntity 
 	}
 
 	/**
-	 * Returns the logo
+	 * Returns the picture
 	 *
-	 * @return string $logo
+	 * @return string
 	 */
-	public function getLogo() {
-		return $this->logo;
+	public function getPicture() {
+		return $this->picture;
 	}
 
 	/**
-	 * Sets the logo
+	 * Sets the picture
 	 *
-	 * @param string $logo
+	 * @param string $picture
 	 * @return void
 	 */
-	public function setLogo($logo) {
-		$this->logo = $logo;
+	public function setPicture($picture) {
+		$this->picture = $picture;
 	}
-	
-	/**
-	 * Returns true if mainclan
-	 *
-	 * @return boolean
-	 */
-	public function getMainclan() {
-		// dirty wtf :D
-		global $GLOBALS;
-		$conf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ccore']);
-		
-		
-		return $this->uid === intval($conf['mainclan']);
-	}
-
 }
 ?>

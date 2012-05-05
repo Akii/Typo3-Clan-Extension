@@ -7,11 +7,10 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="name.description">Name of the player</label>
-			<label index="languagetag.description">Language like de, en</label>
-			<label index="enemy.description">is this a player of the enemy team</label>
-			<label index="feuser.description">fe_user relationship</label>
-			<label index="matchid.description">The match this player played in</label>
+			<label index="resultid.description">The round this matchplayer has played in</label>
+			<label index="playerid.description">A player from the players pool</label>
+			<label index="race.description">Character or race the player used</label>
+			<label index="team.description">The team the player played in</label>
 		</languageKey>
 	</data>
 </T3locallang>

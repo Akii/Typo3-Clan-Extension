@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Ccore_Domain_Model_Gamemode extends Tx_Extbase_DomainObject_AbstractValueObject {
+class Tx_Ccore_Domain_Model_Gamemode extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * Gamemode
@@ -41,15 +41,6 @@ class Tx_Ccore_Domain_Model_Gamemode extends Tx_Extbase_DomainObject_AbstractVal
 	 * @validate NotEmpty
 	 */
 	protected $name;
-
-	/**
-	 * __construct
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-
-	}
 
 	/**
 	 * Returns the name
@@ -69,6 +60,12 @@ class Tx_Ccore_Domain_Model_Gamemode extends Tx_Extbase_DomainObject_AbstractVal
 	public function setName($name) {
 		$this->name = $name;
 	}
-
+    
+    /**
+     * Magic method
+     *
+     * @return string
+     */
+    public function __toString() { return $this->name; }
 }
 ?>

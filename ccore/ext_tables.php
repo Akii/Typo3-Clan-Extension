@@ -16,6 +16,7 @@ Tx_Extbase_Utility_Extension::registerPlugin(
 if (TYPO3_MODE === 'BE') {
 
 	$extPath = t3lib_extMgm::extPath($_EXTKEY);
+	$TBE_STYLES['inDocStyles_TBEstyle'] .= '@import "/typo3conf/ext/ccore/Resources/Public/CSS/backend.css";';
 	
 	if(!isset($TBE_MODULES['txccoremainmenu'])) {
 		$temp_TBE_MODULES = array();
@@ -86,6 +87,24 @@ if (TYPO3_MODE === 'BE') {
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_usermgmt.xml',
 		)
 	);
+	
+	/**
+	 * Registers a Backend Module
+	 */
+	Tx_Extbase_Utility_Extension::registerModule(
+		$_EXTKEY,
+		'txccoremainmenu',	 // Make module a submodule of 'tools'
+		'playermgmt',	// Submodule key
+		'',						// Position
+		array(
+			'BEPlayer' => 'list, search'
+		),
+		array(
+			'access' => 'user,group',
+			'icon'   => 'EXT:' . $_EXTKEY . '/Resources/Public/Icons/silk/user_edit.png',
+			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_playermgmt.xml',
+		)
+	);
 
 	/**
 	 * Registers a Backend Module
@@ -96,7 +115,7 @@ if (TYPO3_MODE === 'BE') {
 		'matchmgmt',	// Submodule key
 		'',						// Position
 		array(
-			'BEMatch' => 'list, show, showScreenshots, showComments'
+			'BEMatchdata' => 'list, show, showComments'
 		),
 		array(
 			'access' => 'user,group',
@@ -112,13 +131,13 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Clan Core');
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/CSS', 'Clan Core (CSS)');
 
 $feuserColumns = array(
-	'txccorepoints' => array(
+	'tx_ccore_points' => array(
 		'exclude' => 1,
 		'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:fe_users.tx_ccore_points',
 		'config' => array(
 			'type' => 'inline',
 			'foreign_table' => 'tx_ccore_domain_model_point',
-			'foreign_field' => 'feuser',
+			'foreign_field' => 'feuserid',
 			'appearance' => array(
 				'collapseAll' => 1,
 				'expandSingle' => 1
@@ -129,10 +148,10 @@ $feuserColumns = array(
 
 t3lib_div::loadTCA('fe_users');
 t3lib_extMgm::addTCAcolumns('fe_users', $feuserColumns, 1);
-t3lib_extMgm::addToAllTCAtypes('fe_users', '--div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:fe_users.tx_ccore_points, txccorepoints');
+t3lib_extMgm::addToAllTCAtypes('fe_users', '--div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:fe_users.tx_ccore_points, tx_ccore_points');
 
 $tempColumns = array (
-	'txccorelogo' => array (
+	'tx_ccore_logo' => array (
 		'exclude' => 1,		
 		'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:fe_groups.tx_ccore_logo',		
 		'config' => array (
@@ -147,7 +166,7 @@ $tempColumns = array (
 			'maxitems' => 1,
 		)
 	),
-	'txccoregameid' => array (
+	'tx_ccore_gameid' => array (
 		'exclude' => 1,
 		'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:fe_groups.tx_ccore_gameid',
 		'config' => array (
@@ -166,7 +185,7 @@ $tempColumns = array (
 
 t3lib_div::loadTCA('fe_groups');
 t3lib_extMgm::addTCAcolumns('fe_groups',$tempColumns,1);
-t3lib_extMgm::addToAllTCAtypes('fe_groups','--div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:fe_groups.squad, txccorelogo;;;;1-1-1, txccoregameid');
+t3lib_extMgm::addToAllTCAtypes('fe_groups','--div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:fe_groups.squad, tx_ccore_logo;;;;1-1-1, tx_ccore_gameid');
 
 t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_clan', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_clan.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_clan');
@@ -198,6 +217,24 @@ $TCA['tx_ccore_domain_model_game'] = array(
 	),
 );
 
+t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_gamemode', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_gamemode.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_gamemode');
+$TCA['tx_ccore_domain_model_gamemode'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_gamemode',
+		'label' => 'name',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden'
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Gamemode.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/bell.png'
+	),
+);
+
 t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_points', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_points.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_points');
 $TCA['tx_ccore_domain_model_point'] = array(
@@ -219,12 +256,12 @@ $TCA['tx_ccore_domain_model_point'] = array(
 	),
 );
 
-t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_gamemode', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_gamemode.xml');
-t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_gamemode');
-$TCA['tx_ccore_domain_model_gamemode'] = array(
+t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_league', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_league.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_league');
+$TCA['tx_ccore_domain_model_league'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_gamemode',
-		'label' => 'name',
+		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_league',
+		'label' => 'lname',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -232,7 +269,7 @@ $TCA['tx_ccore_domain_model_gamemode'] = array(
 		'enablecolumns' => array(
 			'disabled' => 'hidden'
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Gamemode.php',
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/League.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/bell.png'
 	),
 );
@@ -255,31 +292,26 @@ $TCA['tx_ccore_domain_model_map'] = array(
 	),
 );
 
-t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_server', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_server.xml');
-t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_server');
-$TCA['tx_ccore_domain_model_server'] = array(
+t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_matchdata', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_matchdata.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_matchdata');
+$TCA['tx_ccore_domain_model_matchdata'] = array(
 	'ctrl' => array(
-		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_server',
-		'label' => 'name',
+		'title' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchdata',
+		'label' => 'uid',
+		'label_alt' => 'matchdate, clanconid',
+		'label_alt_force' => 1,
+		'default_sortby' => 'ORDER BY matchdate DESC',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
-		'versioningWS' => 2,
-		'versioning_followPages' => TRUE,
-		'origUid' => 't3_origuid',
-		'languageField' => 'sys_language_uid',
-		'transOrigPointerField' => 'l10n_parent',
-		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'delete' => 'deleted',
 		'enablecolumns' => array(
-			'disabled' => 'hidden',
-			'starttime' => 'starttime',
-			'endtime' => 'endtime',
+			'disabled' => 'hidden'
 		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Server.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/server.png'
-	),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchdata.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/medal_gold_2.png'
+	)
 );
 
 t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_match', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_match.xml');
@@ -287,10 +319,10 @@ t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_match');
 $TCA['tx_ccore_domain_model_match'] = array(
 	'ctrl' => array(
 		'title' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match',
-		'label' => 'matchdate',
-		'label_alt' => 'clan_pro, clan_con',
+		'label' => 'matchdataid',
+		'label_alt' => 'uid',
 		'label_alt_force' => 1,
-		'default_sortby' => 'ORDER BY matchdate DESC',
+		'mainpalette' => '1',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -304,36 +336,18 @@ $TCA['tx_ccore_domain_model_match'] = array(
 	)
 );
 
-t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_matchscreenshot', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_matchscreenshot.xml');
-t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_matchscreenshot');
-$TCA['tx_ccore_domain_model_matchscreenshot'] = array(
-	'ctrl' => array(
-		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchscreenshot',
-		'label' => 'caption',
-		'tstamp' => 'tstamp',
-		'crdate' => 'crdate',
-		'cruser_id' => 'cruser_id',
-		'delete' => 'deleted',
-		'enablecolumns' => array(
-			'disabled' => 'hidden'
-		),
-		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchscreenshot.php',
-		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/picture.png'
-	),
-);
-
 t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_matchresult', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_matchresult.xml');
 t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_matchresult');
 $TCA['tx_ccore_domain_model_matchresult'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult',
-		'label' => 'roundnum',
-		'label_alt' => 'mapid, resultpro, resultcon',
+		'label' => 'mapid',
+		'label_alt' => 'resultpro, resultcon',
 		'label_alt_force' => 1,
-		'default_sortby' => 'ORDER BY roundnum',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
+		'sortby' => 'sorting',
 		'delete' => 'deleted',
 		'enablecolumns' => array(
 			'disabled' => 'hidden'
@@ -349,7 +363,7 @@ $TCA['tx_ccore_domain_model_matchplayer'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchplayer',
 		'label' => 'team',
-		'label_alt' => 'name, feuser',
+		'label_alt' => 'playerid',
 		'label_alt_force' => 1,
 		'default_sortby' => 'ORDER BY team',
 		'tstamp' => 'tstamp',
@@ -360,6 +374,26 @@ $TCA['tx_ccore_domain_model_matchplayer'] = array(
 			'disabled' => 'hidden'
 		),
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Matchplayer.php',
+		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/user_add.png'
+	),
+);
+
+t3lib_extMgm::addLLrefForTCAdescr('tx_ccore_domain_model_player', 'EXT:ccore/Resources/Private/Language/locallang_csh_tx_ccore_domain_model_player.xml');
+t3lib_extMgm::allowTableOnStandardPages('tx_ccore_domain_model_player');
+$TCA['tx_ccore_domain_model_player'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_player',
+		'label' => 'name',
+		'label_alt' => 'feuserid',
+		'label_alt_force' => 1,
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden'
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/Player.php',
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/silk/user_add.png'
 	),
 );

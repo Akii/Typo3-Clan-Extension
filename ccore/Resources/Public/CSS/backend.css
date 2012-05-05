@@ -1,0 +1,30 @@
+.label {
+  padding: 1px 4px 2px;
+  font-size: 10.998px;
+  font-weight: bold;
+  line-height: 13px;
+  color: #ffffff;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #999999;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.label-info {
+    background-color: #3a87ad;
+}
+
+.label-success {
+    background-color: #468847;
+}
+
+.label-important {
+    background-color: #b94a48;
+}
+
+.label-warning {
+    background-color: #f89406;
+}

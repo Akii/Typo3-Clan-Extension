@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for backend module Users belonging to extension 'ccore'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="mlang_tabs_tab">Players</label>
+			<label index="mlang_labels_tabdescr">Manage Players, assign website users to them as well as language and a name. Used for matches where not every enemy player is registered on the website</label>
+			<label index="mlang_labels_tablabel">Players</label>
+			<label index="add_label">Add new player</label>
+		</languageKey>
+	</data>
+</T3locallang>

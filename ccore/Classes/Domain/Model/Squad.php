@@ -35,60 +35,43 @@
 class Tx_Ccore_Domain_Model_Squad extends Tx_Extbase_Domain_Model_FrontendUserGroup {
 	
 	/**
-	 * Logo of the squad
-	 *
-	 * @var string
+	 * @var string Logo
 	 */
-	protected $txccorelogo;
+	protected $txCcoreLogo;
 	
 	/**
-	 * Game the squad plays
-	 *
 	 * @var Tx_Ccore_Domain_Model_Game
 	 */
-	protected $txccoregameid;
+	protected $txCcoreGameid;
 	
 	/**
-	 * @returns string
+	 * Gets logo
+	 *
+	 * @return string
 	 */
-	public function getLogo() {
-		return $this->txccorelogo;
-	}
+	public function getTxCcoreLogo() { return $this->txCcoreLogo; }
 	
 	/**
-	 * @returns string
-	 */
-	public function getTxccorelogo() {
-		return $this->txccorelogo;
-	}
-	
-	/**
+	 * Sets logo
+	 *
 	 * @param string $logo
+	 * @return void
 	 */
-	public function setTxccorelogo($logo) {
-		$this->txccorelogo = $logo;
-	}
+	public function setTxCcoreLogo($logo) { $this->txCcoreLogo = $logo; }
 	
 	/**
-	 * @returns Tx_Ccore_Domain_Model_Game
+	 * Gets gameid
+	 *
+	 * @return Tx_Ccore_Domain_Model_Game
 	 */
-	public function getGame() {
-		return $this->txccoregameid;
-	}
+	public function getTxCcoreGameid() { return $this->txCcoreGameid; }
 	
 	/**
-	 * @returns Tx_Ccore_Domain_Model_Game
-	 */
-	public function getTxccoregameid() {
-		return $this->txccoregameid;
-	}
-	
-	/**
+	 * Sets gameid
+	 *
 	 * @param Tx_Ccore_Domain_Model_Game $game
+	 * @return void
 	 */
-	public function setTxccoregameid(Tx_Ccore_Domain_Model_Game $game) {
-		$this->txccoregameid = $game;
-	}
-	
+	public function setTxCcoreGameid(Tx_Ccore_Domain_Model_Game $game) { $this->txCcoreGameid = $game; }
 }
 ?>

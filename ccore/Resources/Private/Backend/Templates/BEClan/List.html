@@ -77,7 +77,7 @@
 				<vh:action.edit uid="{clan.uid}" tablename="tx_ccore_domain_model_clan">
 					<vh:icon file="silk/page_edit.png" width="16" height="16" />
 				</vh:action.edit>
-				<f:if condition="{clan.mainclan} == 0">
+				<f:if condition="{clan.uid} != {mainClanUid}">
 					<vh:action.delete uid="{clan.uid}" tablename="tx_ccore_domain_model_clan">
 						<vh:icon file="silk/bin_closed.png" width="16" height="16" />
 					</vh:action.delete>

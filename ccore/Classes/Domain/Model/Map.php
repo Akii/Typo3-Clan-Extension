@@ -53,9 +53,15 @@ class Tx_Ccore_Domain_Model_Map extends Tx_Extbase_DomainObject_AbstractEntity {
 	 * Small image of the map
 	 *
 	 * @var string
-	 * @validate NotEmpty
 	 */
-	protected $image;
+	protected $picture;
+
+	/**
+	 * Bigger, more detailed view of the map
+	 *
+	 * @var string
+	 */
+	protected $pictureBig;
 
 	/**
 	 * download url
@@ -68,8 +74,9 @@ class Tx_Ccore_Domain_Model_Map extends Tx_Extbase_DomainObject_AbstractEntity {
 	 * Game id
 	 *
 	 * @var Tx_Ccore_Domain_Model_Game
+	 * @lazy
 	 */
-	protected $game;
+	protected $gameid;
 
 	/**
 	 * Game modes this map supports
@@ -141,22 +148,41 @@ class Tx_Ccore_Domain_Model_Map extends Tx_Extbase_DomainObject_AbstractEntity {
 	}
 
 	/**
-	 * Returns the image
+	 * Returns the picture of the map
 	 *
-	 * @return string $image
+	 * @return string
 	 */
-	public function getImage() {
-		return $this->image;
+	public function getPicture() {
+		return $this->picture;
 	}
 
 	/**
-	 * Sets the image
+	 * Sets the picture
 	 *
-	 * @param string $image
+	 * @param string $picture
 	 * @return void
 	 */
-	public function setImage($image) {
-		$this->image = $image;
+	public function setPicture($picture) {
+		$this->picture = $picture;
+	}
+
+	/**
+	 * Returns the picture of the map
+	 *
+	 * @return string
+	 */
+	public function getPictureBig() {
+		return $this->pictureBig;
+	}
+
+	/**
+	 * Sets the picture
+	 *
+	 * @param string $picturebig
+	 * @return void
+	 */
+	public function setPictureBig($picturebig) {
+		$this->pictureBig = $picturebig;
 	}
 
 	/**
@@ -179,22 +205,22 @@ class Tx_Ccore_Domain_Model_Map extends Tx_Extbase_DomainObject_AbstractEntity {
 	}
 
 	/**
-	 * Returns the game
+	 * Returns the gameid
 	 *
-	 * @return Tx_Ccore_Domain_Model_Game $game
+	 * @return Tx_Ccore_Domain_Model_Game
 	 */
-	public function getGame() {
-		return $this->game;
+	public function getGameid() {
+		return $this->gameid;
 	}
 
 	/**
-	 * Sets the game
+	 * Sets the gameid
 	 *
-	 * @param Tx_Ccore_Domain_Model_Game $game
+	 * @param Tx_Ccore_Domain_Model_Game $gameid
 	 * @return void
 	 */
-	public function setGame(Tx_Ccore_Domain_Model_Game $game) {
-		$this->game = $game;
+	public function setGameid(Tx_Ccore_Domain_Model_Game $gameid) {
+		$this->gameid = $gameid;
 	}
 
 	/**
@@ -203,7 +229,7 @@ class Tx_Ccore_Domain_Model_Map extends Tx_Extbase_DomainObject_AbstractEntity {
 	 * @param Tx_Ccore_Domain_Model_Gamemode $mode
 	 * @return void
 	 */
-	public function addMode(Tx_Ccore_Domain_Model_Gamemode $mode) {
+	public function addModes(Tx_Ccore_Domain_Model_Gamemode $mode) {
 		$this->modes->attach($mode);
 	}
 
@@ -213,7 +239,7 @@ class Tx_Ccore_Domain_Model_Map extends Tx_Extbase_DomainObject_AbstractEntity {
 	 * @param Tx_Ccore_Domain_Model_Gamemode $modeToRemove The Gamemode to be removed
 	 * @return void
 	 */
-	public function removeMode(Tx_Ccore_Domain_Model_Gamemode $modeToRemove) {
+	public function removeModes(Tx_Ccore_Domain_Model_Gamemode $modeToRemove) {
 		$this->modes->detach($modeToRemove);
 	}
 

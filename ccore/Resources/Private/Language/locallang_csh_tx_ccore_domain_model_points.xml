@@ -7,7 +7,7 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="feuserid.description">feuserid</label>
+			<label index="feuserid.description">The user this transaction belongs to</label>
 			<label index="note.description">Note of the transaction</label>
 			<label index="value.description">Add, remove points</label>
 		</languageKey>

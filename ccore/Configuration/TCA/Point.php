@@ -22,9 +22,9 @@ $TCA['tx_ccore_domain_model_point'] = array(
 				'type' => 'check',
 			),
 		),
-		'feuser' => array(
+		'feuserid' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchcomment.feuser',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchcomment.feuserid',
 			'config' => array(
 				'type' => 'passthrough'
 			),

@@ -33,15 +33,6 @@
  *
  */
 class Tx_Ccore_Domain_Model_Point extends Tx_Extbase_DomainObject_AbstractValueObject {
-
-	/**
-	 * feuserid
-	 *
-	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $feuserid;
-
 	/**
 	 * Note of the transaction
 	 *
@@ -57,34 +48,6 @@ class Tx_Ccore_Domain_Model_Point extends Tx_Extbase_DomainObject_AbstractValueO
 	 * @validate NotEmpty
 	 */
 	protected $value;
-
-	/**
-	 * __construct
-	 *
-	 * @return void
-	 */
-	public function __construct() {
-
-	}
-
-	/**
-	 * Returns the feuserid
-	 *
-	 * @return string $feuserid
-	 */
-	public function getFeuserid() {
-		return $this->feuserid;
-	}
-
-	/**
-	 * Sets the feuserid
-	 *
-	 * @param string $feuserid
-	 * @return void
-	 */
-	public function setFeuserid($feuserid) {
-		$this->feuserid = $feuserid;
-	}
 
 	/**
 	 * Returns the note

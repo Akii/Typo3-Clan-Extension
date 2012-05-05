@@ -9,9 +9,10 @@
 	<languageKey index="default" type="array">
 			<label index="title.description">Name of the map</label>
 			<label index="description.description">Description of the map</label>
-			<label index="image.description">Small image of the map</label>
+			<label index="picture.description">Small picture of the map (to display in the matches)</label>
+			<label index="picture_big.description">Large picture of the map. Detailed image of the map, showing spawn/resources and the like.</label>
 			<label index="download.description">download url</label>
-			<label index="game.description">Game id</label>
+			<label index="gameid.description">The game the map comes from</label>
 			<label index="modes.description">Game modes this map supports</label>
 		</languageKey>
 	</data>

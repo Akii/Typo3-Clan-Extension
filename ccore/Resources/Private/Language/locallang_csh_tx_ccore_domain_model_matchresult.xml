@@ -7,10 +7,12 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="round.description">round number 1, 2, 3...</label>
-			<label index="resultpro.description">Result home clan</label>
-			<label index="resultcon.description">Result enemy clan</label>
+			<label index="resultpro.description">Result team A</label>
+			<label index="resultcon.description">Result team B</label>
 			<label index="matchid.description">ID of the match this result belongs to</label>
+			<label index="mapid.description">The map being played</label>
+			<label index="banspro.description">Character bans for this map (LoL, Dota only), Team A</label>
+			<label index="banscon.description">Character bans for this map (LoL, Dota only), Team B</label>
 			<label index="mapid.description">The map being played</label>
 		</languageKey>
 	</data>

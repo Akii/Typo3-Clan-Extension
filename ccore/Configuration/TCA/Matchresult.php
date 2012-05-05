@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_matchresult'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_matchresult']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, roundnum, mapid, resultpro, resultcon, matchid, banspro, banscon, players',
+		'showRecordFieldList' => 'hidden, mapid, resultpro, resultcon, matchid, banspro, banscon, matchplayers',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden;;1, roundnum, mapid, resultpro, resultcon, matchid, banspro, banscon, players'),
+		'1' => array('showitem' => 'hidden;;1, mapid, resultpro, resultcon, matchid, banspro, banscon, matchplayers'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -20,15 +20,6 @@ $TCA['tx_ccore_domain_model_matchresult'] = array(
 			'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config' => array(
 				'type' => 'check',
-			),
-		),
-		'roundnum' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult.roundnum',
-			'config' => array(
-				'type' => 'input',
-				'size' => 4,
-				'eval' => 'int,required'
 			),
 		),
 		'resultpro' => array(
@@ -154,9 +145,9 @@ $TCA['tx_ccore_domain_model_matchresult'] = array(
 				),
 			),
 		),
-		'players' => array(
+		'matchplayers' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult.players',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchresult.matchplayers',
 			'config' => array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_ccore_domain_model_matchplayer',

@@ -11,6 +11,33 @@
 			<label index="general.no_about">[no description set]</label>
 			<label index="general.no_desc">[no description set]</label>
 			<label index="general.no_logo">[no logo set]</label>
+			<label index="general.disabled">disabled</label>
+			<label index="general.not_set">not set</label>
+			
+			<label index="matches.match_header">Listing of Matches</label>
+			<label index="matches">Entity Match</label>
+			<label index="matches.matchdate">Date</label>
+			<label index="matches.matchtype">Type</label>
+			<label index="matches.lname">Leaguename</label>
+			<label index="matches.llink">Link to the League</label>
+			<label index="matches.game">Game</label>
+			<label index="matches.gamemode">Game Mode</label>
+			<label index="matches.clan_pro">Team A</label>
+			<label index="matches.clan_con">Team B</label>
+			<label index="matches.clanwar">Clanwar</label>
+			<label index="matches.screenshots">Screenshots</label>
+			<label index="matches.comments">Comments</label>
+			<label index="matches.matches">Matches</label>
+			<label index="matches.rounds">Rounds</label>
+			<label index="matches.result">Result</label>
+			
+			
+			<label index="tx_ccore_domain_model_match.add_label">Create new Match</label>
+			<label index="tx_ccore_domain_model_match.edit_label">Edit Match</label>
+			<label index="tx_ccore_domain_model_match.delete_label">Delete Match</label>
+			<label index="tx_ccore_domain_model_match.view_label">View Match</label>
+			<label index="tx_ccore_domain_model_match.result">Match Result</label>
+			<label index="tx_ccore_domain_model_match.gamemodeid">Game Mode</label>
 			
 			<label index="tx_ccore_domain_model_clan">Entity Clan</label>
 			<label index="tx_ccore_domain_model_clan.name">Name</label>
@@ -78,26 +105,6 @@
 			<label index="tx_ccore_domain_model_server.name">Name of the server</label>
 			<label index="tx_ccore_domain_model_server.ip">ip and port of the server</label>
 			<label index="tx_ccore_domain_model_server.game">Game ID, The game the server runs</label>
-			
-			
-			<label index="tx_ccore_domain_model_match">Entity Match</label>
-			<label index="tx_ccore_domain_model_match.matchdate">Date</label>
-			<label index="tx_ccore_domain_model_match.lname">Leaguename</label>
-			<label index="tx_ccore_domain_model_match.llink">Link to the League</label>
-			<label index="tx_ccore_domain_model_match.report">Matchreport</label>
-			<label index="tx_ccore_domain_model_match.game">Game</label>
-			<label index="tx_ccore_domain_model_match.gamemode">Gamemode</label>
-			<label index="tx_ccore_domain_model_match.clan_pro">Team A</label>
-			<label index="tx_ccore_domain_model_match.clan_con">Team B</label>
-			<label index="tx_ccore_domain_model_match.clanwar">Clanwar</label>
-			<label index="tx_ccore_domain_model_match.screenshots">Screenshots</label>
-			<label index="tx_ccore_domain_model_match.comments">Comments</label>
-			<label index="tx_ccore_domain_model_match.rounds">Rounds</label>
-			<label index="tx_ccore_domain_model_match.result">Result</label>
-			<label index="tx_ccore_domain_model_match.add_label">Create new match</label>
-			<label index="tx_ccore_domain_model_match.edit_label">Edit match</label>
-			<label index="tx_ccore_domain_model_match.delete_label">Delete match</label>
-			<label index="tx_ccore_domain_model_match.view_label">View match</label>
 			
 			
 			<label index="tx_ccore_domain_model_matchresult">recorded rounds and their result</label>

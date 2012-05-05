@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_match'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_match']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, clanwar, disable_comments, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, screenshots, matchresults',
+		'showRecordFieldList' => 'hidden, matchdataid, gamemodeid, playerproid, playerconid, rounds, tx_extbase_type',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden, clanwar, disable_comments, matchdate, game, gamemode, clan_pro, clan_con, lname, llink, report, --div--;Screenshots, screenshots, --div--;Results, matchresults'),
+		'0' => array('showitem' => 'hidden, matchdataid, gamemodeid, playerproid, playerconid, --div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.rounds, rounds, --div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.div_internal, tx_extbase_type'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -22,60 +22,17 @@ $TCA['tx_ccore_domain_model_match'] = array(
 				'type' => 'check',
 			),
 		),
-		'clanwar' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.clanwar',
-			'config' => array(
-				'type' => 'check',
-			),
-		),
-		'disable_comments' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.disable_comments',
-			'config' => array(
-				'type' => 'check',
-			),
-		),
-		'matchdate' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.matchdate',
-			'config' => array(
-				'type' => 'input',
-				'size' => 12,
-				'max' => 20,
-				'eval' => 'datetime,required',
-				'checkbox' => 1,
-				'default' => time()
-			),
-		),
-		'game' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.game',
+		'matchdataid' => array(
+		    'exclude' => 0,
+		    'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.matchdataid',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_ccore_domain_model_game',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 1,
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_ccore_domain_model_game',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-							),
-						'script' => 'wizard_add.php',
-					)
-				)
+				'foreign_table' => 'tx_ccore_domain_model_matchdata',
 			),
 		),
-		'gamemode' => array(
+		'gamemodeid' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.gamemode',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.gamemodeid',
 			'config' => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_ccore_domain_model_gamemode',
@@ -98,115 +55,48 @@ $TCA['tx_ccore_domain_model_match'] = array(
 				)
 			)
 		),
-		'clan_pro' => array(
+		'playerproid' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.clan_pro',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_ccore_domain_model_clan',
-				'minitems' => 0,
-				'maxitems' => 1,
-				'wizards' => array(
-					'_PADDING' => 1,
-					'_VERTICAL' => 1,
-					'add' => Array(
-						'type' => 'script',
-						'title' => 'Create new',
-						'icon' => 'add.gif',
-						'params' => array(
-							'table' => 'tx_ccore_domain_model_clan',
-							'pid' => '###CURRENT_PID###',
-							'setValue' => 'prepend'
-							),
-						'script' => 'wizard_add.php',
-					)
-				)
-			),
-		),
-		'clan_con' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.clan_con',
-			'config' => array(
-				'type' => 'select',
-				'foreign_table' => 'tx_ccore_domain_model_clan',
-				'minitems' => 0,
-				'maxitems' => 1,
-			),
-		),
-		'lname' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.lname',
-			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim'
-			),
-		),
-		'llink' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.llink',
-			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim',
-				'wizards'	=> array(
-					'_PADDING'	=> 2,
-					'link'		=> array(
-						'type'			=> 'popup',
-						'title'			=> 'Link',
-						'icon'			=> 'link_popup.gif',
-						'script'		=> 'browse_links.php?mode=wizard',
-						'JSopenParams'	=> 'height=300,width=500,status=0,menubar=0,scrollbars=1'
-					)
-				)
-			)
-		),
-		'report' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.report',
-			'config' => array(
-				'type' => 'text',
-				'cols' => 40,
-				'rows' => 15,
-				'eval' => 'trim',
-				'wizards' => array(
-	      			'_PADDING' => 4,
-	      			'RTE' => array(
-	      				'notNewRecords' => 1,
-	      				'RTEonly' => 1,
-	      				'type' => 'script',
-	      				'title' => 'LLL:EXT:cms/locallang_ttc.php:bodytext.W.RTE',
-	      				'icon' => 'wizard_rte2.gif',
-	      				'script' => 'wizard_rte.php',
-	      			),
-	      		),
-			),
-			'defaultExtras' => 'richtext[]:rte_transform[mode=ts_css]'
-		),
-		'screenshots' => array(
-			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.screenshots',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.playerproid',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_table' => 'tx_ccore_domain_model_matchscreenshot',
-				'foreign_field' => 'matchid',
-				'appearance' => array(
-					'collapseAll' => 1,
-					'expandSingle' => 1
-				)
-			)
+				'foreign_table' => 'tx_ccore_domain_model_matchplayer',
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
 		),
-		'matchresults' => array(
+		'playerconid' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.playerconid',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_ccore_domain_model_matchplayer',
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
+		),
+		'rounds' => array(
 			'exclude' => 1,
-			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.matchresults',
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.rounds',
 			'config' => array(
 				'type' => 'inline',
 				'foreign_table' => 'tx_ccore_domain_model_matchresult',
 				'foreign_field' => 'matchid',
+		        'foreign_sortby' => 'sorting',
 				'appearance' => array(
 					'collapseAll' => 1,
 					'expandSingle' => 1
 				)
+			)
+		),
+		# TODO: make a select out of this and insert the static values
+		'tx_extbase_type' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_match.tx_extbase_type',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim',
 			)
 		),
 	)

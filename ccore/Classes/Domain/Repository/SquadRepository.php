@@ -43,7 +43,7 @@ class Tx_Ccore_Domain_Repository_SquadRepository extends Tx_Extbase_Domain_Repos
 		
 		return $query
 			->matching(
-				$query->greaterThan('txccoregameid', 0)
+				$query->greaterThan('txCcoreGameid', 0)
 			)
 			->execute();
 	}

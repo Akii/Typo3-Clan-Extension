@@ -1,0 +1,187 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="buttonsleft">
+	<div class="buttongroup">
+		<f:link.action controller="BEMatchdata" action="list">
+			<span class="t3-icon t3-icon-actions t3-icon-actions-document t3-icon-document-close">&nbsp;</span>
+		</f:link.action>
+	</div>
+	<f:render partial="buttonsleft" arguments="{tablename: tablename, storagePid: storagePid, uid: uid}"/>
+</f:section>
+
+<f:section name="docheader">
+	<f:be.menus.actionMenu>
+		<f:be.menus.actionMenuItem label="Details" controller="BEMatch" action="show" arguments="{match: match}" />
+		<f:if condition="{matchdata.disableComments} == 0">
+			<f:be.menus.actionMenuItem label="List Comments" controller="BEMatch" action="showComments" arguments="{matchdata: matchdata}" />
+		</f:if>
+	</f:be.menus.actionMenu>
+</f:section>
+
+<f:flashMessages />
+
+<f:section name="content">
+<h2>Single View for Match {matchdata.Titlepro} vs. {matchdata.Titlecon}</h2>
+
+<table class="t3-table-info">
+	<tr>
+		<td><strong>Disable Comments:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">
+			<f:form.checkbox checked="{matchdata.disableComments}" value="1" disabled="true"/>
+		&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Matchdate:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4"><f:format.date date="{matchdata.matchdate}" format="d.m.y, H:i" />&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Match Type:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">
+			<f:render partial="Matchtype" arguments="{matchtype : matchdata.matchtype}"/>
+		&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Game:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4"><f:render partial="gameName" arguments="{game : matchdata.gameid}"/>&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Title:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{matchdata.Titlepro} vs. {matchdata.Titlecon}&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>League:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">{matchdata.leagueid}&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>League Link:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4">
+            <f:if condition="{matchdata.llink} == ''">
+                <f:then><f:translate key="general.not_set" /></f:then>
+                <f:else>{matchdata.llink}</f:else>
+            </f:if>
+        &nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Comments:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4"><f:count subject="{matchdata.comments}" />&nbsp;</td>
+	</tr>
+	<tr>
+		<td><strong>Result:&nbsp;&nbsp;</strong></td>
+		<td width="80%" class="bgColor4"><f:render partial="Matchresult" arguments="{result : '{matchdata.result}', resultStr : '{matchdata.resultStr}'}" /></td>
+	</tr>
+</table>
+<f:link.action action="show" arguments="{match : matchdata}">refresh</f:link.action>
+<br/><br/>
+<h2>Listing for Matches</h2>
+
+<table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+	<!--<tr class="c-headLine">
+		<td class="col-icon">
+			<vh:action.new pid="{storagePid}" tablename="tx_ccore_domain_model_matchresult" params="&defVals[tx_ccore_domain_model_matchresult][matchid]={match.uid}">
+				<vh:icon file="silk/add.png" width="16" height="16" />
+			</vh:action.new>
+		</td>
+		<td class="col-title"><f:translate key="tx_ccore_domain_model_matchresult.add_label" /></td>
+		<td colspan="4"></td>
+	</tr>-->
+    <tr class="c-headLine">
+    	<td class="col-icon">
+            <vh:action.new pid="{storagePid}" tablename="tx_ccore_domain_model_match" params="&defVals[tx_ccore_domain_model_match][matchdataid]={matchdata.uid}">
+                <vh:icon file="silk/add.png" width="16" height="16" />
+            </vh:action.new>
+    	</td>
+	   <td class="col-title"><f:translate key="tx_ccore_domain_model_match.add_label" /></td>
+	   <td colspan="5"></td>
+    </tr>
+</table>
+
+<f:for each="{matchdata.matches}" as="match">
+    <table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
+        <tr class="db_list_normal firstcol">
+            <td width="5%">{match.uid}</td>
+            <td colspan="2" width="10%">{match.gamemodeid}</td>
+            <td colspan="5" width="75%">
+                <f:render partial="Matchresult" arguments="{result : '{match.result}', resultStr: '{match.resultpro}:{match.resultcon}'}" />
+            </td>
+            <td align="right">
+                <vh:action.edit uid="{match.uid}" tablename="tx_ccore_domain_model_match">
+					<vh:icon file="silk/page_edit.png" width="16" height="16" />
+				</vh:action.edit>
+				<vh:action.delete uid="{match.uid}" tablename="tx_ccore_domain_model_match">
+					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+				</vh:action.delete>
+				&nbsp;
+            </td>
+        </tr>
+        <tr class="t3-row-header">
+            <td></td>
+    		<td colspan="2"># UID</td>
+    		<td>Result</td>
+    		<td>Map</td>
+    		<td>Bans</td>
+    		<td>Team A</td>
+    		<td>Team B</td>
+    		<td></td>
+    	</tr>
+    	<tr class="c-headLine">
+            <td></td>
+            <td class="col-icon">
+    			<vh:action.new pid="{storagePid}" tablename="tx_ccore_domain_model_matchresult" params="&defVals[tx_ccore_domain_model_matchresult][matchid]={match.uid}">
+    				<vh:icon file="silk/add.png" width="16" height="16" />
+    			</vh:action.new>
+    		</td>
+    		<td class="col-title"><f:translate key="tx_ccore_domain_model_matchresult.add_label" /></td>
+    		<td colspan="6"></td>
+        </tr>
+    	<f:for each="{match.rounds}" as="round">
+    	   <tr class="db_list_normal firstcol">
+    	       <td></td>
+    	       <td colspan="2">{round.uid}</td>
+    	       <td><f:render partial="Matchresult" arguments="{result : '{round.result}', resultStr: '{round.resultpro}:{round.resultcon}'}" /></td>
+    	       <td>{round.mapid.title}</td>
+    	       <td><f:count subject="{round.banspro}" />:<f:count subject="{round.banscon}" /></td>
+    	       <td>
+    	           <f:if condition="{matchdata.matchtype} == 1">
+    	               <f:then>
+            	           <f:for each="{round.playerspro}" as="player" iteration="iterator">
+                	           <f:if condition="{iterator.isLast}">
+                	                <f:then>{player.name}</f:then>
+                	                <f:else>{player.name},</f:else>
+                	            </f:if>
+            	           </f:for>
+            	       </f:then>
+            	       <f:else>
+            	           -
+            	       </f:else>
+            	   </f:if>
+    	       </td>
+    	       <td>
+    	           <f:if condition="{matchdata.matchtype} == 1">
+    	               <f:then>
+            	            <f:for each="{round.playerscon}" as="player" iteration="iterator">
+                	           <f:if condition="{iterator.isLast}">
+                	               <f:then>{player.name}</f:then>
+                	               <f:else>{player.name},</f:else>
+                	            </f:if>
+            	           </f:for>
+            	       </f:then>
+            	       <f:else>
+            	           -
+            	       </f:else>
+            	   </f:if>
+    	       </td>
+    	       <td align="right">
+                    <vh:action.edit uid="{round.uid}" tablename="tx_ccore_domain_model_matchresult">
+    					<vh:icon file="silk/page_edit.png" width="16" height="16" />
+    				</vh:action.edit>
+    				<vh:action.delete uid="{round.uid}" tablename="tx_ccore_domain_model_matchresult">
+    					<vh:icon file="silk/bin_closed.png" width="16" height="16" />
+    				</vh:action.delete>
+    				&nbsp;
+    	       </td>
+    	   </tr>
+    	</f:for>
+    </table>
+</f:for>
+</f:section>

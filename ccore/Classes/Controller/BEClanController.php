@@ -97,6 +97,7 @@ class Tx_Ccore_Controller_BEClanController extends Tx_Ccore_Controller_AbstractC
 	 */
 	public function listAction() {
 		$this->view->assign('tablename', 'tx_ccore_domain_model_clan');
+		$this->view->assign('mainClanUid', $this->settings['settings']['ccore']['mainClan']);
 		
 		$clans = $this->clanRepository->findAll();
 		$this->view->assign('clans', $clans);

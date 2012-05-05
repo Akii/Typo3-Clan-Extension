@@ -1,0 +1,24 @@
+<ul>
+<f:widget.paginate objects="{matches}" as="pagMatches" configuration="{itemsPerPage: 250, insertAbove: 0, insertBelow: 0}">
+	<f:for each="{pagMatches}" as="match" iteration="iterator">
+		<li class="{f:if(condition: '{iterator.isFirst}', then: 'first')}" onclick="window.location.href='{f:uri.action(pageUid: '{matchDetailPageUid}', action: 'showMatch', arguments: '{match:match}')}'">
+			<div class="game"><f:image alt="{match.game.title}" src="uploads/tx_ccore/game/{match.game.logo}" maxHeight="16c" maxWidth="16c"/></div>
+				<div class="amity">{match.Titlepro}</div>
+				<div class="vs">vs.</div>
+				<div class="clan">{match.Titlecon}</div>
+			<div class="league">{match.lname}</div>
+			<div class="result">
+				<f:if condition="{match.endresultPro} == {match.endresultCon}">
+					<font color="#FF6600">{match.endresult}</font>
+				</f:if>
+				<f:if condition="{match.endresultPro} < {match.endresultCon}">
+					<font color="#DD0000">{match.endresult}</font>
+				</f:if>
+				<f:if condition="{match.endresultPro} > {match.endresultCon}">
+					<font color="#00CC00">{match.endresult}</font>
+				</f:if>
+			</div>
+		</li>
+	</f:for>
+</f:widget.paginate>
+</ul>

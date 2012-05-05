@@ -35,27 +35,13 @@
 class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_AbstractValueObject {
 
 	/**
-	 * Is in team A or B
+	 * fe_user relationship
 	 *
-	 * @var boolean
+	 * @var Tx_Ccore_Domain_Model_Player
 	 * @validate NotEmpty
+	 * @lazy
 	 */
-	protected $team;
-
-	/**
-	 * Name of the player
-	 *
-	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $name;
-
-	/**
-	 * Language like de, en
-	 *
-	 * @var string
-	 */
-	protected $languagetag;
+	protected $playerid;
 	
 	/**
 	 * Race/Character
@@ -64,14 +50,44 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	 * @lazy
 	 */
 	protected $race;
-
+	
 	/**
-	 * fe_user relationship
+	 * Is in team A or B
 	 *
-	 * @var Tx_Ccore_Domain_Model_User
-	 * @lazy
+	 * @var boolean
+	 * @validate NotEmpty
 	 */
-	protected $feuser;
+	protected $team;
+	
+	/**
+	 * Gets playerid
+	 *
+	 * @return Tx_Ccore_Domain_Model_Player
+	 */
+	public function getPlayerid() { return $this->playerid; }
+	
+	/**
+	 * Sets playerid
+	 *
+	 * @param Tx_Ccore_Domain_Model_Player $player
+	 * @return void
+	 */
+	public function setPlayerid(Tx_Ccore_Domain_Model_Player $player) { $this->playerid = $player; }
+	
+	/**
+	 * @return Tx_Ccore_Domain_Model_Race
+	 */
+	public function getRace() {
+		return $this->race;
+	}
+	
+	/**
+	 * @param Tx_Ccore_Domain_Model_Race $race
+	 * @return void
+	 */
+	public function setRace(Tx_Ccore_Domain_Model_Race $race) {
+		$this->race = $race;
+	}
 
 	/**
 	 * returns enemy
@@ -91,82 +107,12 @@ class Tx_Ccore_Domain_Model_Matchplayer extends Tx_Extbase_DomainObject_Abstract
 	public function setTeam($team) {
 		$this->team = $team;
 	}
-
-	/**
-	 * Returns the name
-	 *
-	 * @return string $name
-	 */
-	public function getName() {
-		// if a fe_user is associated, we prefer that name
-		if($this->feuser !== NULL && $this->feuser->getName() != "")
-			return $this->feuser->getName();
-		else
-			return $this->name;
-	}
-
-	/**
-	 * Sets the name
-	 *
-	 * @param string $name
-	 * @return void
-	 */
-	public function setName($name) {
-		$this->name = $name;
-	}
-
-	/**
-	 * Returns the languagetag
-	 *
-	 * @return string $languagetag
-	 */
-	public function getLanguagetag() {
-		return $this->languagetag;
-	}
-
-	/**
-	 * Sets the languagetag
-	 *
-	 * @param string $languagetag
-	 * @return void
-	 */
-	public function setLanguagetag($languagetag) {
-		$this->languagetag = $languagetag;
-	}
-	
-	/**
-	 * @return Tx_Ccore_Domain_Model_Race
-	 */
-	public function getRace() {
-		return $this->race;
-	}
-	
-	/**
-	 * @param Tx_Ccore_Domain_Model_Race $race
-	 * @return void
-	 */
-	public function setRace(Tx_Ccore_Domain_Model_Race $race) {
-		$this->race = $race;
-	}
-
-	/**
-	 * Returns the feuser
-	 *
-	 * @return Tx_Ccore_Domain_Model_User $feuser
-	 */
-	public function getFeuser() {
-		return $this->feuser;
-	}
-
-	/**
-	 * Sets the feuser
-	 *
-	 * @param Tx_Ccore_Domain_Model_User $feuser
-	 * @return void
-	 */
-	public function setFeuser(Tx_Ccore_Domain_Model_User $feuser) {
-		$this->feuser = $feuser;
-	}
-
+    
+    /**
+     * Returns the name of the player associated with this matchplayer
+     *
+     * @return string
+     */
+    public function getName() { return $this->playerid->getName(); }
 }
 ?>

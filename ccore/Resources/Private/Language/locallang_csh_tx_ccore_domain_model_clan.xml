@@ -9,9 +9,10 @@
 	<languageKey index="default" type="array">
 			<label index="name.description">Name of the clan</label>
 			<label index="tag.description">Clantag</label>
+			<label index="lang.description">Language like de, en, ...</label>
 			<label index="slogan.description">A slogan</label>
 			<label index="about.description">Information about the clan</label>
-			<label index="logo.description">Logo of the clan</label>
+			<label index="picture.description">Logo of the clan</label>
 			<label index="homepage.description">Homepage of the clan</label>
 		</languageKey>
 	</data>
