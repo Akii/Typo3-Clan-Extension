@@ -34,6 +34,12 @@
  */
 class Tx_Ccore_Domain_Repository_UserRepository extends Tx_Extbase_Domain_Repository_FrontendUserRepository {
 	
+	public function findAll() {
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setRespectEnableFields(false);
+        return $query->execute();
+	}
+	
 	/**
 	 * Finds all users in a usergroup (squad)
 	 *
@@ -41,6 +47,7 @@ class Tx_Ccore_Domain_Repository_UserRepository extends Tx_Extbase_Domain_Reposi
 	 */
 	public function findSquadMembers(Tx_Ccore_Domain_Model_Squad $squad) {
 		$query = $this->createQuery();
+        $query->getQuerySettings()->setRespectEnableFields(false);
 		
 		return $query
 			->matching(
@@ -56,6 +63,7 @@ class Tx_Ccore_Domain_Repository_UserRepository extends Tx_Extbase_Domain_Reposi
 	 */
 	public function searchByUsername($username) {
 		$query = $this->createQuery();
+        $query->getQuerySettings()->setRespectEnableFields(false);
 		
 		return $query
 			->matching(

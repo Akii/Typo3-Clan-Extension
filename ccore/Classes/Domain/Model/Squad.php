@@ -73,5 +73,19 @@ class Tx_Ccore_Domain_Model_Squad extends Tx_Extbase_Domain_Model_FrontendUserGr
 	 * @return void
 	 */
 	public function setTxCcoreGameid(Tx_Ccore_Domain_Model_Game $game) { $this->txCcoreGameid = $game; }
+	
+	/**
+	 * Simplified getter for logo
+	 *
+	 * @return string
+	 */
+    public function getPicture() { return $this->txCcoreLogo; }
+    
+    /**
+     * Simplified getter for gameid
+     *
+     * @return Tx_Ccore_Domain_Model_Game
+     */
+    public function getGameid() { return $this->txCcoreGameid; }
 }
 ?>

@@ -17,13 +17,14 @@
 		</td>
 		<td class="col-title" colspan="4"><f:translate key="tx_ccore_domain_model_game.add_label" /></td>
 	</tr>
-
+    
+    
 	<f:for each="{games}" as="game">
 		<tr class="db_list_normal firstcol">
 			<td>
-				<f:if condition="{game.logo}">
+				<f:if condition="{game.picture}">
 					<f:then>
-						<f:image alt="{game.logo}" src="../uploads/tx_ccore/game/{game.logo}" maxHeight="32c" maxWidth="32c"/>
+						<f:image alt="{game.picture}" src="../uploads/tx_ccore/game/{game.picture}" maxHeight="32c" maxWidth="32c"/>
 					</f:then>
 					<f:else><f:translate key="general.no_logo" /></f:else>
 				</f:if>

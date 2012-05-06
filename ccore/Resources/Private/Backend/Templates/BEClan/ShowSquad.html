@@ -21,9 +21,9 @@
 	<tr>
 		<td><strong>Logo:&nbsp;&nbsp;</strong></td>
 		<td width="80%" class="bgColor4">
-			<f:if condition="{squad.logo}">
+			<f:if condition="{squad.picture}">
 				<f:then>
-					<f:image alt="{squad.logo}" src="../uploads/tx_ccore/squad/{squad.logo}" maxHeight="128c" maxWidth="128c"/>
+					<f:image alt="{squad.picture}" src="../uploads/tx_ccore/squad/{squad.picture}" maxHeight="128c" maxWidth="128c"/>
 				</f:then>
 				<f:else><f:translate key="general.no_logo" /></f:else>
 			</f:if>
@@ -36,7 +36,7 @@
 	<tr>
 		<td><strong>Game:&nbsp;&nbsp;</strong></td>
 		<td width="80%" class="bgColor4">
-			<f:render partial="GameName" arguments="{game : squad.game}" />&nbsp;
+			<f:render partial="GameName" arguments="{game : squad.gameid}" />&nbsp;
 		</td>
 	</tr>
 	<tr>

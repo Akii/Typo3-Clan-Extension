@@ -25,6 +25,7 @@
 <table class="tx_ccore typo3-dblist" border="0" cellpadding="0" cellspacing="0">
 	<tr class="t3-row-header">
 		<th colspan="2">&nbsp;<f:translate key="tx_ccore_domain_model_clan.name" /></th>
+		<th><f:translate key="tx_ccore_domain_model_clan.lang" /></th>
 		<th><f:translate key="tx_ccore_domain_model_clan.tag" /></th>
 		<th><f:translate key="tx_ccore_domain_model_clan.slogan" /></th>
 		<th><f:translate key="tx_ccore_domain_model_clan.about" /></th>
@@ -38,12 +39,13 @@
 			</vh:action.new>
 		</td>
 		<td class="col-title"><f:translate key="tx_ccore_domain_model_clan.add_label" /></td>
-		<td colspan="5"></td>
+		<td colspan="6"></td>
 	</tr>
 
 	<f:for each="{clans}" as="clan">
 		<tr class="db_list_normal firstcol">
 			<td colspan="2"> {clan.name}</td>
+			<td>{clan.lang}</td>
 			<td> [{clan.tag}]</td>
 			<td>
 				<f:if condition="{clan.slogan}">
@@ -66,9 +68,9 @@
 				</f:if>
 			</td>
 			<td>
-				<f:if condition="{clan.logo}">
+				<f:if condition="{clan.picture}">
 					<f:then>
-						<f:image alt="{clan.logo}" src="../uploads/tx_ccore/clan/{clan.logo}" maxHeight="32c" maxWidth="32c"/>
+						<f:image alt="{clan.picture}" src="../uploads/tx_ccore/clan/{clan.picture}" maxHeight="32c" maxWidth="32c"/>
 					</f:then>
 					<f:else><f:translate key="general.no_logo" /></f:else>
 				</f:if>
@@ -124,11 +126,11 @@
 					</f:else>
 				</f:if>
 			</td>
-			<td><f:render partial="GameName" arguments="{game : squad.game}" /></td>
+			<td><f:render partial="GameName" arguments="{game : squad.gameid}" /></td>
 			<td>
-				<f:if condition="{squad.logo}">
+				<f:if condition="{squad.picture}">
 					<f:then>
-						<f:image alt="{squad.logo}" src="../uploads/tx_ccore/squad/{squad.logo}" maxHeight="32c" maxWidth="32c"/>
+						<f:image alt="{squad.picture}" src="../uploads/tx_ccore/squad/{squad.picture}" maxHeight="32c" maxWidth="32c"/>
 					</f:then>
 					<f:else><f:translate key="general.no_logo" /></f:else>
 				</f:if>

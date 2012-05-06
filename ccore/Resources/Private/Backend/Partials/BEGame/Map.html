@@ -5,7 +5,8 @@
 		<th nowrap="nowrap" colspan="2">&nbsp;<f:translate key="tx_ccore_domain_model_map.title" /></th>
 		<th><f:translate key="tx_ccore_domain_model_map.game" /></th>
 		<th><f:translate key="tx_ccore_domain_model_map.description" /></th>
-		<th nowrap="nowrap"><f:translate key="tx_ccore_domain_model_map.image" /></th>
+		<th nowrap="nowrap"><f:translate key="tx_ccore_domain_model_map.picture" /></th>
+		<th nowrap="nowrap"><f:translate key="tx_ccore_domain_model_map.picture_big" /></th>
 		<th>&nbsp;<f:translate key="functions" />&nbsp;</th>
 	</tr>
 
@@ -16,26 +17,26 @@
 			</vh:action.new>
 		</td>
 		<td class="col-title" colspan="2"><f:translate key="tx_ccore_domain_model_map.add_label" /></td>
-		<td colspan="3" align="right">
+		<td colspan="4" align="right">
 			<f:form method="post" controller="BEGame" action="mapList" name="searchform">
 				<input type="search" name="tx_ccore_txccoremainmenu_ccoregamemgmt[searchform][search]" placeholder="Map Title" />
 				<f:form.submit value="Search" />
 			</f:form>
 		</td>
 	</tr>
-
+	
 	<f:for each="{maps}" as="map">
 		<tr class="db_list_normal firstcol">
 			<td nowrap="nowrap" colspan="2">
 				{map.title}
 			</td>
-			<td nowrap="nowrap"><f:render partial="GameName" arguments="{game : map.game}" /></td>
+			<td nowrap="nowrap"><f:render partial="GameName" arguments="{game : map.gameid}" /></td>
 			<td>
 				<f:if condition="{map.description}">
 					<f:then>
 						<f:format.crop maxCharacters="200" respectHtml="false">
 							<f:format.stripTags>
-									{map.description}
+								{map.description}
 							</f:format.stripTags>
 						</f:format.crop>
 					</f:then>
@@ -45,7 +46,10 @@
 				</f:if>
 			</td>
 			<td>
-				<f:image alt="{map.image}" src="../uploads/tx_ccore/map/{map.image}" maxHeight="64c" maxWidth="128c"/>
+				<f:image alt="{map.picture}" src="../uploads/tx_ccore/map/{map.picture}" maxHeight="64c" maxWidth="128c"/>
+			</td>
+			<td>
+				<f:image alt="{map.pictureBig}" src="../uploads/tx_ccore/map/{map.pictureBig}" maxHeight="64c" maxWidth="128c"/>
 			</td>
 			<td align="right">
 				<vh:action.edit uid="{map.uid}" tablename="tx_ccore_domain_model_map">

@@ -35,20 +35,20 @@
 class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractController {
 
 	/**
-	 * matchRepository
+	 * matchdataRepository
 	 *
-	 * @var Tx_Ccore_Domain_Repository_MatchRepository
+	 * @var Tx_Ccore_Domain_Repository_MatchdataRepository
 	 */
-	protected $matchRepository;
+	protected $matchdataRepository;
 
 	/**
-	 * injectMatchRepository
+	 * injectMatchdataRepository
 	 *
-	 * @param Tx_Ccore_Domain_Repository_MatchRepository $matchRepository
+	 * @param Tx_Ccore_Domain_Repository_MatchdataRepository $matchdataRepository
 	 * @return void
 	 */
-	public function injectMatchRepository(Tx_Ccore_Domain_Repository_MatchRepository $matchRepository) {
-		$this->matchRepository = $matchRepository;
+	public function injectMatchdataRepository(Tx_Ccore_Domain_Repository_MatchdataRepository $matchdataRepository) {
+		$this->matchdataRepository = $matchdataRepository;
 	}
 
 	/**
@@ -58,7 +58,7 @@ class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractCo
 	 */
 	public function matchListAction() {
 		$this->view->assign('matchDetailPageUid', $this->settings['lastMatches']['matchDetailPage']);
-		$this->view->assign('matches', $this->matchRepository->findAll());
+		$this->view->assign('matches', $this->matchdataRepository->findAll());
 	}
 	
 	/**
@@ -75,10 +75,10 @@ class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractCo
 	 * in case no $match is passed, a list is shown
 	 * is a router for custom templates/views like sc2/lol
 	 *
-	 * @param Tx_Ccore_Domain_Model_Match $match
+	 * @param Tx_Ccore_Domain_Model_Matchdata $match
 	 * @return void
 	 */
-	public function showMatchAction(Tx_Ccore_Domain_Model_Match $match = NULL) {
+	public function showMatchAction(Tx_Ccore_Domain_Model_Matchdata $match = NULL) {
 		global $GLOBALS;
 		
 		if($match === null) {
@@ -88,7 +88,7 @@ class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractCo
 		
 		// Dirty but probably faster than using extbase :)
 		// Fetch the results of all matches played against clan contra
-		$query = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
+		/*$query = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
 			'matchid, SUM(resultpro - resultcon) as result',
 			'tx_ccore_domain_model_matchresult',
 			'matchid IN(SELECT uid FROM tx_ccore_domain_model_match 
@@ -109,15 +109,12 @@ class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractCo
 			} else {
 				$won++;
 			}
-		}
+		}*/
 		
-		if($match->getGame()->getTag() == "sc2")
-			$this->forward('showSc2Match', null, null, array('match' => $match, 'stats' => array('won' => $won, 'lost' => $lost, 'draw' => $draw)));
-		
-		$this->view->assign('won', $won);
-		$this->view->assign('lost', $lost);
-		$this->view->assign('draw', $draw);
-		$this->view->assign('all_matches', $won + $lost + $draw);
+		if($match->getGameid()->getTag() == "sc2")
+			$this->forward('showSc2Match', null, null, array('match' => $match));
+		if($match->getGameid()->getTag() == "LoL")
+			$this->forward('showLolMatch', null, null, array('match' => $match));
 		
 		$this->view->assign('match', $match);
 	}
@@ -125,28 +122,20 @@ class Tx_Ccore_Controller_MatchController extends Tx_Ccore_Controller_AbstractCo
 	/**
 	 * custom view for sc2 matches
 	 *
-	 * @param Tx_Ccore_Domain_Model_Match $match
-	 * @param array $stats
+	 * @param Tx_Ccore_Domain_Model_Matchdata $match
 	 * @return void
 	 */
-	public function showSc2MatchAction(Tx_Ccore_Domain_Model_Match $match, $stats = null) {
-		extract($stats);
-	
-		$this->view->assign('won', $won);
-		$this->view->assign('lost', $lost);
-		$this->view->assign('draw', $draw);
-		$this->view->assign('all_matches', $won + $lost + $draw);
-		
+	public function showSc2MatchAction(Tx_Ccore_Domain_Model_Matchdata $match) {
 		$this->view->assign('match', $match);
 	}
 	
 	/**
 	 * custom view for LoL matches
 	 *
-	 * @param Tx_Ccore_Domain_Model_Match $match
+	 * @param Tx_Ccore_Domain_Model_Matchdata $match
 	 * @return void
 	 */
-	 public function showLolMatchAction(Tx_Ccore_Domain_Model_Match $match) {
+	 public function showLolMatchAction(Tx_Ccore_Domain_Model_Matchdata $match) {
 		$this->view->assign('match', $match);
 	}
 }

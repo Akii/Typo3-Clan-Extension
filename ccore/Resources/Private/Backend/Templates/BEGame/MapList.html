@@ -1,3 +1,4 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="buttonsleft">
@@ -14,5 +15,6 @@
 
 <f:section name="content">
 	<f:flashMessages />
-	<f:render partial="BEGame/Map" arguments="{maps : maps, storagePid : storagePid}" />
+	
+    <f:render partial="BEGame/Map" arguments="{maps : maps, storagePid : storagePid}" />
 </f:section>

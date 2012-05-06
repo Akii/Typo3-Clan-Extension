@@ -2,7 +2,6 @@
 <f:layout name="Default" />
 
 <f:section name="buttonsleft">
-	<f:render partial="buttonsleft" arguments="{tablename: tablename, storagePid: storagePid, uid: uid}"/>
 </f:section>
 
 <f:section name="docheader">
@@ -15,9 +14,13 @@
 
 <f:section name="content">
 	<f:flashMessages />
-
-	<f:render partial="BEGame/Game" arguments="{games : games, storagePid : storagePid}" />
+	
+    <vh:widget.paginate objects="{games}" as="pagGames" configuration="{itemsPerPage: 20, insertAbove: 1, insertBelow: 0}">
+	   <f:render partial="BEGame/Game" arguments="{games : pagGames, storagePid : storagePid}" />
+	</vh:widget.paginate>
 	<br/>
-
-	<f:render partial="BEGame/Map" arguments="{maps : maps, storagePid : storagePid}" />
+	
+	<vh:widget.paginate objects="{maps}" as="pagMaps" configuration="{itemsPerPage: 20, insertAbove: 1, insertBelow: 0}">
+        <f:render partial="BEGame/Map" arguments="{maps : pagMaps, storagePid : storagePid}" />
+    </vh:widget.paginate>
 </f:section>

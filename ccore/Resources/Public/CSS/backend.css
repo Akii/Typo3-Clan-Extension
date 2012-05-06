@@ -28,3 +28,21 @@
 .label-warning {
     background-color: #f89406;
 }
+
+.be_paginator {
+    margin-right: 2%;
+    float: right;
+}
+
+.be_paginator ul li {
+    float: left;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "\0020"; 
+    display: block; 
+    height: 0; 
+    overflow: hidden;
+}
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }

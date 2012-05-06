@@ -6,23 +6,21 @@
 			<div class="date-center"> <f:format.date date="{match.matchdate}" format="d.m.y"/></div>
 			<div class="info-middle">
 				<a href="#">
-					<f:image alt="{match.game.title}" src="uploads/tx_ccore/game/{match.game.logo}" maxHeight="13c" maxWidth="13c"/>
+					<f:image alt="{match.gameid.title}" src="uploads/tx_ccore/game/{match.gameid.picture}" maxHeight="13c" maxWidth="13c"/>
 				</a>
 				<f:link.action action="showMatch" arguments="{match:match}">
 					{match.Titlepro} vs. {match.Titlecon}
 				</f:link.action>
 			</div>
 			<div class="info-center">
-				<f:if condition="{match.endresultPro} == {match.endresultCon}">
-					<font color="#FF6600">{match.endresult}</font>
+				<f:if condition="{match.result} == 0">
+					<font color="#FF6600">{match.resultStr}</font>
 				</f:if>
-				
-				<f:if condition="{match.endresultPro} < {match.endresultCon}">
-					<font color="#DD0000">{match.endresult}</font>
+				<f:if condition="{match.result} < 0">
+					<font color="#DD0000">{match.resultStr}</font>
 				</f:if>
-				
-				<f:if condition="{match.endresultPro} > {match.endresultCon}">
-					<font color="#00CC00">{match.endresult}</font>
+				<f:if condition="{match.result} > 0">
+					<font color="#00CC00">{match.resultStr}</font>
 				</f:if>
 			</div>
 		</div>

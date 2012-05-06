@@ -29,7 +29,7 @@
 		<th><f:translate key="functions" /></th>
 	</tr>
 
-	<f:widget.paginate objects="{matchdata}" as="pagMatches" configuration="{itemsPerPage: 250, insertAbove: 0, insertBelow: 0}">
+	<vh:widget.paginate objects="{matchdata}" as="pagMatches" configuration="{itemsPerPage: 50, insertAbove: 1, insertBelow: 0}">
 		<f:for each="{pagMatches}" as="match">
 			<tr class="db_list_normal firstcol">
 				<td> <f:format.date date="{match.matchdate}" format="d.m.y, H:i" /></td>
@@ -62,6 +62,6 @@
 				</td>
 			</tr>
 		</f:for>
-	</f:widget.paginate>
+	</vh:widget.paginate>
 </table>
 </f:section>

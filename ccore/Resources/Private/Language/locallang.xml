@@ -14,6 +14,11 @@
 			<label index="general.disabled">disabled</label>
 			<label index="general.not_set">not set</label>
 			
+			<label index="pagination_first">first</label>
+			<label index="pagination_previous">previous</label>
+			<label index="pagination_next">next</label>
+			<label index="pagination_last">last</label>
+			
 			<label index="matches.match_header">Listing of Matches</label>
 			<label index="matches">Entity Match</label>
 			<label index="matches.matchdate">Date</label>
@@ -31,6 +36,9 @@
 			<label index="matches.rounds">Rounds</label>
 			<label index="matches.result">Result</label>
 			
+			<label index="tx_ccore_domain_model_matchdata.add_label">Create new Match</label>
+			<label index="tx_ccore_domain_model_matchdata.edit_label">Edit Match</label>
+			<label index="tx_ccore_domain_model_matchdata.delete_label">Delete Match</label>
 			
 			<label index="tx_ccore_domain_model_match.add_label">Create new Match</label>
 			<label index="tx_ccore_domain_model_match.edit_label">Edit Match</label>
@@ -41,6 +49,7 @@
 			
 			<label index="tx_ccore_domain_model_clan">Entity Clan</label>
 			<label index="tx_ccore_domain_model_clan.name">Name</label>
+			<label index="tx_ccore_domain_model_clan.lang">Language</label>
 			<label index="tx_ccore_domain_model_clan.tag">Clantag</label>
 			<label index="tx_ccore_domain_model_clan.slogan">Slogan</label>
 			<label index="tx_ccore_domain_model_clan.about">About</label>
@@ -59,7 +68,7 @@
 			<label index="fe_groups.view_label">View squad details</label>
 			
 			<label index="fe_users.username">Username</label>
-			<label index="fe_users.name">Name</label>
+			<label index="fe_users.email">E-Mail</label>
 			<label index="fe_users.is_online">Online Status</label>
 			<label index="fe_users.groups">Groups</label>
 			<label index="fe_users.point">Points</label>
@@ -91,7 +100,8 @@
 			<label index="tx_ccore_domain_model_map">Map Entity</label>
 			<label index="tx_ccore_domain_model_map.title">Map Name</label>
 			<label index="tx_ccore_domain_model_map.description">Description</label>
-			<label index="tx_ccore_domain_model_map.image">Map Thumbnail</label>
+			<label index="tx_ccore_domain_model_map.picture">Map Thumbnail</label>
+			<label index="tx_ccore_domain_model_map.picture_big">Map Detail View</label>
 			<label index="tx_ccore_domain_model_map.download">Download</label>
 			<label index="tx_ccore_domain_model_map.game">Game</label>
 			<label index="tx_ccore_domain_model_map.modes">Gamemodes</label>
