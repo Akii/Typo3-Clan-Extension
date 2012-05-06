@@ -180,5 +180,12 @@ class Tx_Ccore_Domain_Model_Match extends Tx_Extbase_DomainObject_AbstractEntity
      * @return int
      */
     public function getRoundNum() { return count($this->rounds); }
+    
+    /**
+     * Returns if this is a 1vs1 match
+     *
+     * @return boolean
+     */
+    public function getIs1vs1() { return ($this->playerproid != NULL && $this->playerconid != NULL); }
 }
 ?>
