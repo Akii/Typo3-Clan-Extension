@@ -1,0 +1,53 @@
+{namespace vh = Tx_Ccore_ViewHelpers}
+<f:if condition="{configuration.insertAbove}">
+	<f:render section="paginator" arguments="{pagination: pagination}" />
+</f:if>
+
+<f:renderChildren arguments="{contentArguments}" />
+
+<f:if condition="{configuration.insertBelow}">
+	<f:render section="paginator" arguments="{pagination: pagination}" />
+</f:if>
+<f:section name="paginator">
+<div class="be_paginator">
+	<ul>
+		<!-- First -->
+		<f:if condition="{f:translate(key:'pagination_first')}">
+			<li class="first">
+				<f:widget.link arguments="{currentPage: pagination.firstPage}">
+				  <vh:icon file="silk/resultset_first.png" width="16" height="16" title="{f:translate(key: 'pagination_first')}"/>
+		        </f:widget.link>
+			</li>
+		</f:if>
+
+		<!-- Previous -->
+		<f:if condition="{f:translate(key:'pagination_previous')}">
+		  <li class="previous">
+			<f:widget.link arguments="{currentPage: pagination.previousPage}">
+			    <vh:icon file="silk/resultset_previous.png" width="16" height="16" title="{f:translate(key: 'pagination_previous')}"/>
+			</f:widget.link>
+          </li>
+		</f:if>
+		<li>
+		  {pagination.current} / {pagination.numberOfPages}
+		</li>
+		<!-- Next -->
+		<f:if condition="{f:translate(key:'pagination_next')}">
+			<li class="next">
+				<f:widget.link arguments="{currentPage: pagination.nextPage}">
+				  <vh:icon file="silk/resultset_next.png" width="16" height="16" title="{f:translate(key: 'pagination_next')}"/>
+		        </f:widget.link>
+			</li>
+		</f:if>
+
+		<!-- Last -->
+		<f:if condition="{f:translate(key:'pagination_last')}">
+			<li class="last">
+				<f:widget.link arguments="{currentPage: pagination.lastPage}">
+				  <vh:icon file="silk/resultset_last.png" width="16" height="16" title="{f:translate(key: 'pagination_last')}"/>
+				</f:widget.link>
+			</li>
+		</f:if>
+	</ul>
+</div>
+</f:section>
