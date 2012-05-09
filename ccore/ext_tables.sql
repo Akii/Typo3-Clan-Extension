@@ -160,6 +160,9 @@ CREATE TABLE tx_ccore_domain_model_matchdata (
 	clanproid int(11) unsigned DEFAULT '0',
 	clanconid int(11) unsigned DEFAULT '0',
 	
+	rankingpro int(11) unsigned DEFAULT '0',
+	rankingcon int(11) unsigned DEFAULT '0',
+	
 	leagueid int(11) unsigned DEFAULT '0',
 	llink varchar(255) DEFAULT '' NOT NULL,
 	comments tinytext NOT NULL,

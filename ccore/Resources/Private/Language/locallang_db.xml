@@ -50,9 +50,12 @@
 			<label index="tx_ccore_domain_model_matchdata.gameid">Game</label>
 			<label index="tx_ccore_domain_model_matchdata.clanproid">Clan Team A</label>
 			<label index="tx_ccore_domain_model_matchdata.clanconid">Clan Team B</label>
+			<label index="tx_ccore_domain_model_matchdata.rankingpro">League ranking Clan A</label>
+			<label index="tx_ccore_domain_model_matchdata.rankingcon">League ranking Clan B</label>
 			<label index="tx_ccore_domain_model_matchdata.matches">Child-Matches</label>http://9gag.com/gag/4053108
 			<label index="tx_ccore_domain_model_matchdata.comments">Comments</label>
 			<label index="tx_ccore_domain_model_matchdata.div_matches">Matches</label>
+			
 			
 			
 			<label index="tx_ccore_domain_model_match">Match</label>

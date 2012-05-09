@@ -15,6 +15,8 @@
 			<label index="gameid.description">The game this match took place in</label>
 			<label index="clanproid.description">The clan of team A</label>
 			<label index="clanconid.description">The clan of team B</label>
+			<label index="rankingpro.description">The ranking the clan has at the time the match has been played.</label>
+			<label index="rankingcon.description">The ranking the clan has at the time the match has been played.</label>
 			<label index="matches.description">The matches are added here.</label>
 		</languageKey>
 	</data>

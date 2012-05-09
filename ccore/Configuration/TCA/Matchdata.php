@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_ccore_domain_model_matchdata'] = array(
 	'ctrl' => $TCA['tx_ccore_domain_model_matchdata']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden, disable_comments, matchdate, matchtype, gameid, clanproid, clanconid, leagueid, llink, matches, comments',
+		'showRecordFieldList' => 'hidden, disable_comments, matchdate, matchtype, gameid, clanproid, clanconid, rankingpro, rankingcon, leagueid, llink, matches, comments',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden, disable_comments, matchdate, matchtype, gameid, clanproid, clanconid, leagueid, llink, --div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchdata.div_matches, matches, --div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchdata.comments, comments'),
+		'1' => array('showitem' => 'hidden, disable_comments, matchdate, matchtype, gameid, clanproid, clanconid, rankingpro, rankingcon, leagueid, llink, --div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchdata.div_matches, matches, --div--;LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchdata.comments, comments'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -110,6 +110,25 @@ $TCA['tx_ccore_domain_model_matchdata'] = array(
 				'foreign_table' => 'tx_ccore_domain_model_clan',
 				'minitems' => 0,
 				'maxitems' => 1,
+			),
+		),
+		'rankingpro' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchdata.rankingpro',
+			'config' => array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
+			),
+		),
+		
+		'rankingcon' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:ccore/Resources/Private/Language/locallang_db.xml:tx_ccore_domain_model_matchdata.rankingcon',
+			'config' => array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
 			),
 		),
 		'leagueid' => array(

@@ -133,3 +133,21 @@ ul.newsticker span {
 }
 
 #match_lol .match_details { margin-top: 10px; }
+
+#match_lol .scoreTeam {
+	background: black;
+	width: 200px;
+	height: 50px;
+	float: left;
+}
+
+#match_lol .scoreResult {
+	height: 50px;
+	float: left;
+}
+
+#match_lol .score {
+	width: 200px;
+	height: 50px;
+	float: left;
+}
