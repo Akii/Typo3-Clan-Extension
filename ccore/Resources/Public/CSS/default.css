@@ -1,130 +1,135 @@
-/*
-	SC2 Match
-*/
-.match_sc2 {
-	font-size: 1.4em;
-}
-.match_sc2 .blue, .match_sc2 a {
-	color: #10588F;
-	font-weight: bold;
-	text-decoration: none;
+#tx-mmforum-footer {
+	display: none;
 }
 
-.match_sc2 a:hover {
-	font-weight: bold;
-	text-decoration: none;
+.clearfix:before, .clearfix:after {
+    content: "\0020"; 
+    display: block; 
+    height: 0; 
+    overflow: hidden;
 }
 
-.match_sc2 .img_col img {
-	border: 1px solid #EEE;
+.clearfix:after { clear: both; }
+
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+
+.clearfix { zoom: 1; }
+
+/* liScroll styles */
+
+.tickeroverlay-left{
+	background-image:url('/fileadmin/styles/amity/news_ticker/szene_news_overlay.png');
+	display:block;
+	pointer-events:none;
+	position:absolute;
+	z-index:30;
+	height:30px;
+	width:946px;
+	top:0;
+	left: 0px;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
-.match_sc2 .col_left {
-	padding: 0px 5px 0px 0px;
-}
-
-.match_sc2 .col_right {
-	padding: 0px 0px 0px 5px;
-}
-
-.match_sc2 .head_col td {
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-.match_sc2 .head_col span {
-	font-size: 1.2em;
-}
-
-.match_sc2 .round_col td {
-	border-top: 1px solid #CCC;
-	padding-top: 3px;
-	padding-bottom: 3px;
-}
-
-.match_sc2 .colored {
-	background-color: #FCFDFF;
-}
-
-.match_sc2 .round_col:last-child td {
-	border-bottom: 1px solid #CCC;
-}
-
-.match_sc2 .center_col {
-	font-weight: bold;
-	background-color: #E1F1FD;
-}
-
-.match_sc2 .players_left, .match_sc2 .players_right {
-	font-size: 80%;
-	list-style: none;
-}
-
-.match_sc2 .players_left li span, .match_sc2 .players_right li span {
-	height: 22px;
-	padding-right: 5px;
-	padding-left: 5px;
-	vertical-align: middle;
-	display: table-cell;
-}
-/*
-.match_sc2 .maps_right li {
-	width: 100%;
+.tickercontainer { /* the outer div */
+	background: #0c8bc7;
+	border: 1px solid white;
+	width: 946px; 
+	height: 30px; 
+	margin-top: 10px; 
+	padding: 0;
+	overflow: hidden; 
 	float: left;
-	clear: left;
-	border-top: 1px solid #CCC;
-	padding: 2px 0px;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
-.match_sc2 .maps_right:last-child li {
-	border-bottom: 1px solid #CCC;
+.tickercontainer a, .tickercontainer a:hover {color: white;}
+
+.tickercontainer .mask { /* that serves as a mask. so you get a sort of padding both left and right */
+	position: relative;
+	padding-left: 10px;
+	padding-right: 10px;
+	top: 0px;
+	height: 30px;
+	/*width: 718px;*/
+	overflow: hidden;
 }
 
-.match_sc2 .maps_right li span {
-	height: 32px;
-}*/
-
-.match_sc2 .maps {
-	font-size: 80%;
+ul.newsticker { /* that's your list */
+	position: relative;
+	margin-left: 20px;
+	font: bold 10px Verdana;
+	list-style-type: none;
+	margin-top: 9px;
+	padding: 0;
 }
 
-.match_sc2 .maps tr:first-child td {
-	border-top: 1px solid #CCC;
+ul.newsticker li {
+	float: left; /* important: display inline gives incorrect results when you check for elem's width */
+	margin: 0;
+	padding-right: 15px;
 }
 
-.match_sc2 .maps tr td {
-	border-bottom: 1px solid #CCC;
-	padding: 2px 0px;
+ul.newsticker a {
+	color: white;
+	white-space: nowrap;
+	padding: 0;
+	font: bold 10px Verdana;
+	margin: 0 50px 0 0;
 }
 
-.match_sc2 .maps tr td:nth-child(2) {
-	padding-left: 5px;
+ul.newsticker span {
+	margin: 0 10px 0 0;
 }
 
-.match_sc2 .maps tr td:nth-child(3) {
-	padding-right: 5px;
-}
+/* MATCHES */
 
-.match_sc2 .maps tr:hover td {
-	background: #E1F1FD;
-}
-
-.match_sc2 .players_right li {
-	width: 100%;
-	float: left;
-	clear: left;
-}
-
-.match_sc2 .players_left li img {
-	float: right;
-}
-
-.match_sc2 .players_right li img {
-	float: left;
-}
-
-.match_sc2 .screenshots img {
+.general #enemy_logo {
 	border: 1px solid #CCC;
-	padding: 3px;
-	margin: 5px;
+	padding: 2px;
+	float: left;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
+
+.general .info {
+	width: 285px;
+	margin-left: 10px;
+	margin-top: 30px;
+	list-style: none;
+	position: relative;
+	float: left;
+}
+
+.general .info dt {
+	color: #555;
+	font-weight: bold;
+	margin-top: 5px;
+	border-bottom: 1px dotted #777;
+	border-right: 1px solid white;
+	width: 79px;
+	display: block;
+	float: left;
+}
+
+.general .info dd {
+	color: #777;
+	margin-top: 5px;
+	border-bottom: 1px dotted #777;
+	width:205px;
+	display: block;
+	float: left;
+}
+
+.general .info .link {
+	position: absolute;
+	right: 0px;
+}
+
+#match_lol .match_details { margin-top: 10px; }
